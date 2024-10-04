@@ -4,7 +4,7 @@
 
 Any plate type you can think of can be catered for, as long as you can provide an appropriate print file for it.
 
-> Plate types can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a plate type with an *identical* name for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
+> Plate types can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a plate type with an *identical* `reference` for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
 
 ## Data References
 
@@ -12,6 +12,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 * **id** `integer` The unique ID of the plate type.
 * **name** `string` The name of the plate type.
+* **reference** `string` The plate type's unique reference code.
 * **depth** `integer` The depth in mm of the plate type including any 3D letters (for shipping calculations).
 * **weight_std_oblong** `integer` The weight of a standard oblong in grams (for shipping calculations).
 * **is_printable** `boolean` Set to `false` for any plate type that doesn't require printing. For example, pressed plates.
@@ -42,10 +43,11 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 * name
 * is_printable
-* is_active
+* is_active *
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
+**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
 
 ## Example Requests
 
@@ -58,6 +60,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 #### **Body Parameters**
 
 * **name** `string`
+* **reference** `string`
 * **depth** `integer`
 * **weight_std_oblong** `integer`
 * **is_printable** `boolean`
@@ -72,6 +75,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 ```json
 {
   "name": "Pressed Metal Black",
+  "reference": "pressedmetalblack",
   "depth": 4,
   "weight_std_oblong": 220,
   "is_printable": false,
@@ -87,6 +91,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 {
   "id": 16,
   "name": "Pressed Metal Black",
+  "reference": "pressedmetalblack",
   "depth": 4,
   "weight_std_oblong": 220,
   "is_printable": false,
@@ -123,6 +128,7 @@ No parameters.
 {
   "id": 16,
   "name": "Pressed Metal Black",
+  "reference": "pressedmetalblack",
   "depth": 4,
   "weight_std_oblong": 220,
   "is_printable": false,
@@ -161,6 +167,7 @@ No parameters.
     {
       "id": 14,
       "name": "Standard",
+      "reference": "standard",
       "depth": 3,
       "weight_std_oblong": 200,
       "is_printable": true,
@@ -173,6 +180,7 @@ No parameters.
     {
       "id": 15,
       "name": "4D Laser Cut",
+      "reference": "4dlasercut",
       "depth": 6,
       "weight_std_oblong": 215,
       "is_printable": true,
@@ -185,6 +193,7 @@ No parameters.
     {
       "id": 16,
       "name": "Pressed Metal Black",
+      "reference": "pressedmetalblack",
       "depth": 4,
       "weight_std_oblong": 220,
       "is_printable": false,
@@ -209,6 +218,7 @@ No parameters.
 #### **Body Parameters**
 
 * **name** `string|null`
+* **reference** `string|null`
 * **depth** `integer|null`
 * **weight_std_oblong** `integer|null`
 * **is_printable** `boolean|null`
@@ -234,6 +244,7 @@ No parameters.
 {
   "id": 16,
   "name": "Pressed Metal Black (Updated Name)",
+  "reference": "pressedmetalblack",
   "depth": 4,
   "weight_std_oblong": 220,
   "is_printable": false,

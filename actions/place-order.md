@@ -16,8 +16,8 @@ This endpoint is used to create an entire order including plates, products, cust
     * **price** `integer` The price in pence it is being sold for.
     * **qty** `integer` The quantity.
     * **is_legal** `boolean` Is the design road legal? Used for record keeping.
-    * **svg_print** `string` The final print file in SVG format.
-    * **svg_preview** `string` The preview file in SVG format if different from the print file (optional).
+    * **svg_print** `string` The final [print file](/fundamentals/plate-files.md) in SVG format.
+    * **svg_preview** `string` The [preview file](/fundamentals/plate-files.md) in SVG format if different from the print file (optional).
     * **custom_instructions** `string` Custom design instructions (optional).
 * **products** `array` An array of objects.
     * **company_product_id** `integer` The ID of the [Company Product](/objects/company-product.md) being purchased.
@@ -57,12 +57,16 @@ If any products are delegated to be fulfilled by other companies, the necessary 
 
 !> Requires the `orders_write` permission.
 
+> For testing purposes, pass the `?is_dummy=1` query parameter. This will create a test (dummy) order which will be omitted from your sales reports and won't be fulfilled by delegatees (if applicable).
+
 <!-- tabs:start -->
 
 #### **Request**
 
 * Endpoint: `https://plateit-api.co.uk/v3/orders`
 * Method: `POST`
+* Query:
+  * is_dummy: `true`
 
 ```json
 {

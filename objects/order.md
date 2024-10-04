@@ -18,6 +18,7 @@ The order object is the outermost parent resource that represents an order. Most
 * **amount_paid** `integer` The total amount paid in pence.
 * **amount_refunded** `integer` The total amount refunded in pence.
 * **packages_count** `integer` The number of [packages](/objects/order-package.md) pertaining to the order.
+* **is_dummy** `boolean` Indicates a test (dummy) order.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
@@ -35,6 +36,7 @@ The order object is the outermost parent resource that represents an order. Most
 ### Available Order Bys
 
 * id
+* is_dummy
 * created_at
 * company.id
 * company.name
@@ -47,6 +49,7 @@ The order object is the outermost parent resource that represents an order. Most
 
 ### Available Filter Bys
 
+* is_dummy
 * company.id
 * company.name
 * system_order_status.id
@@ -55,6 +58,14 @@ The order object is the outermost parent resource that represents an order. Most
 * system_order_fulfilment_status.name
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+
+## Test (Dummy) Orders
+
+A dummy order can be created by passing `is_dummy` `true` when creating a new order.
+
+Dummy orders will be ignored in reports, and any delegations will NOT appear in the delegated company's print queue.
+
+An existing order cannot be updated to become a dummy order at a later time or vice versa.
 
 ## Example Requests
 
@@ -69,6 +80,7 @@ The order object is the outermost parent resource that represents an order. Most
 #### **Body Parameters**
 
 * **system_order_status_id** `integer|null` A valid [system order status](/objects/system-order-status.md) ID. Defaults to `5` (Draft).
+* **is_dummy** `boolean|null` Defaults to `false`
 
 #### **Request**
 
@@ -95,6 +107,7 @@ The order object is the outermost parent resource that represents an order. Most
   "amount_paid": 0,
   "amount_refunded": 0,
   "packages_count": 0,
+  "is_dummy": false,
   "created_at": "2024-05-24T09:15:20.000000Z",
   "updated_at": "2024-05-24T09:15:20.000000Z",
   "href": "/orders/100"
@@ -134,6 +147,7 @@ No parameters.
   "amount_paid": 0,
   "amount_refunded": 0,
   "packages_count": 0,
+  "is_dummy": false,
   "created_at": "2024-05-24T09:15:20.000000Z",
   "updated_at": "2024-05-24T09:15:20.000000Z",
   "href": "/orders/100"
@@ -175,6 +189,7 @@ No parameters.
       "amount_paid": 2500,
       "amount_refunded": 0,
       "packages_count": 0,
+      "is_dummy": false,
       "created_at": "2024-05-24T09:14:56.000000Z",
       "updated_at": "2024-05-24T09:14:56.000000Z",
       "href": "/orders/99"
@@ -190,6 +205,7 @@ No parameters.
       "amount_paid": 0,
       "amount_refunded": 0,
       "packages_count": 0,
+      "is_dummy": false,
       "created_at": "2024-05-24T09:15:20.000000Z",
       "updated_at": "2024-05-24T09:15:20.000000Z",
       "href": "/orders/100"
@@ -237,6 +253,7 @@ No parameters.
   "amount_paid": 0,
   "amount_refunded": 0,
   "packages_count": 0,
+  "is_dummy": false,
   "created_at": "2024-05-24T09:15:20.000000Z",
   "updated_at": "2024-05-24T09:15:55.000000Z",
   "href": "/orders/100"

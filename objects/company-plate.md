@@ -54,15 +54,17 @@ The plate object represents a plate the customer can buy. It references a [compa
 * is_front
 * is_rear
 * is_legal
-* is_active
+* is_active *
 * company_plate_type.id
 * company_plate_type.name
 * company_plate_type.is_printable
+* company_plate_type.is_active *
 * system_plate_size.width
 * system_plate_size.height
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
+**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
 
 ## Example Requests
 
@@ -217,6 +219,7 @@ No parameters.
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -254,6 +257,7 @@ No parameters.
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -291,6 +295,7 @@ No parameters.
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -328,6 +333,7 @@ No parameters.
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -365,6 +371,7 @@ No parameters.
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -402,6 +409,7 @@ No parameters.
       "company_plate_type": {
         "id": 15,
         "name": "4D Laser Cut",
+        "reference": "4dlasercut",
         "depth": 6,
         "weight_std_oblong": 215,
         "is_printable": true,
@@ -439,6 +447,7 @@ No parameters.
       "company_plate_type": {
         "id": 15,
         "name": "4D Laser Cut",
+        "reference": "4dlasercut",
         "depth": 6,
         "weight_std_oblong": 215,
         "is_printable": true,

@@ -11,6 +11,11 @@ You will need an API token with the following permissions:
 * `company_shipping_read`
 * `orders_write`
 
+Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to edit plates at a later date.
+
+* `company_plate_types_read`
+* `orders_packages_plates_write`
+
 ## Overview
 
 Here is a bulletted list of stages to help understand what goes on behind the scenes:
@@ -40,7 +45,8 @@ When a customer lands on your designer page, make a request to obtain all of you
 * Method: `GET`
 * Query:
   * per_page: `1000`
-  * filter_by: `is_active:true`
+  * filter_by[]: `is_active:true`
+  * filter_by[]: `company_plate_type.is_active:true`
   * exclude_unmatched_delegations: `true` *
   * with[]: `system_plate_size`
   * with[]: `company_plate_type`
@@ -81,6 +87,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -118,6 +125,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -155,6 +163,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -192,6 +201,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -229,6 +239,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 14,
         "name": "Standard",
+        "reference": "standard",
         "depth": 3,
         "weight_std_oblong": 200,
         "is_printable": true,
@@ -266,6 +277,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 15,
         "name": "4D Laser Cut",
+        "reference": "4dlasercut",
         "depth": 6,
         "weight_std_oblong": 215,
         "is_printable": true,
@@ -303,6 +315,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "company_plate_type": {
         "id": 15,
         "name": "4D Laser Cut",
+        "reference": "4dlasercut",
         "depth": 6,
         "weight_std_oblong": 215,
         "is_printable": true,

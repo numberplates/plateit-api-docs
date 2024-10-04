@@ -51,9 +51,11 @@ The product object represents any product other than a number plate that the cus
 
 ### Available Filter Bys
 
-* is_active
+* is_active *
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+
+**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
 
 ## Example Requests
 

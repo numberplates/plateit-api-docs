@@ -97,7 +97,7 @@ Here is a fictional example of a typical collection response. There will be an a
 
 ### Results Per Page
 
-By default, collections return 25 objects per page. This can be increased by passing the following query: `?per_page=75`. Some collections allow up to 1000 per page.
+By default, collections return 25 objects per page. This can be increased by passing the following query: `?per_page=75`. Most collection allow for up to 100 items per page but some allow for up to 1000.
 
 ### Ordering Results
 
@@ -265,6 +265,8 @@ In the fictional example below, the collection is being refined to return all "a
 ```
 
 <!-- tabs:end -->
+
+!> Some resources have an `is_active` key to differentiate live resources from drafts. It is your responsibility to honour this and filter out inactive resources in your public-facing production environment.
 
 ### Including Relationships
 
