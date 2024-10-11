@@ -1,6 +1,6 @@
 # Company
 
-`https://plateit-api.co.uk/v3/companies/current`
+`https://data.plateit.co.uk/v3/companies/current`
 
 This object primarily consists of your company's contact information. **It can be fetched and updated only**.
 
@@ -36,7 +36,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/companies/current`
+* Endpoint: `https://data.plateit.co.uk/v3/companies/current`
 * Method: `GET`
 
 #### **Response**
@@ -84,7 +84,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/companies/current`
+* Endpoint: `https://data.plateit.co.uk/v3/companies/current`
 * Method: `PATCH`
 
 ```json

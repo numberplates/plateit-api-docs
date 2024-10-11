@@ -1,6 +1,6 @@
 # Order
 
-`https://plateit-api.co.uk/v3/orders`
+`https://data.plateit.co.uk/v3/orders`
 
 The order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when a [plate](/objects/order-package-plate.md) is added to a [package](/objects/order-package.md) that belongs to an order.
 
@@ -84,7 +84,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders`
+* Endpoint: `https://data.plateit.co.uk/v3/orders`
 * Method: `POST`
 
 ```json
@@ -128,7 +128,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders/{order_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}`
 * Method: `GET`
 
 #### **Response**
@@ -168,7 +168,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders`
+* Endpoint: `https://data.plateit.co.uk/v3/orders`
 * Method: `GET`
 
 #### **Response**
@@ -228,7 +228,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders/{order_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}`
 * Method: `PATCH`
 
 ```json
@@ -274,7 +274,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders/{order_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}`
 * Method: `DELETE`
 
 #### **Response**

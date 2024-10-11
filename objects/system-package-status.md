@@ -1,6 +1,6 @@
 # System Package Status
 
-`https://plateit-api.co.uk/v3/system-package-statuses`
+`https://data.plateit.co.uk/v3/system-package-statuses`
 
 !> Read only
 
@@ -12,7 +12,7 @@ Each [package](/objects/order-package.md) has an associated system package statu
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/system-package-statuses`
+* Endpoint: `https://data.plateit.co.uk/v3/system-package-statuses`
 * Method: `GET`
 
 #### **Response**

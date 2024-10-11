@@ -1,6 +1,6 @@
 # System User Permission
 
-`https://plateit-api.co.uk/v3/system-user-permissions`
+`https://data.plateit.co.uk/v3/system-user-permissions`
 
 !> Read only
 
@@ -12,7 +12,7 @@ Each [user](/objects/company-user.md) and [access](/objects/company-access-token
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/system-user-permissions`
+* Endpoint: `https://data.plateit.co.uk/v3/system-user-permissions`
 * Method: `GET`
 
 #### **Response**

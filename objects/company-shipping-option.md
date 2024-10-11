@@ -1,6 +1,6 @@
 # Company Shipping Option
 
-`https://plateit-api.co.uk/v3/shipping-options`
+`https://data.plateit.co.uk/v3/shipping-options`
 
 ## Data References
 
@@ -67,7 +67,7 @@
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/shipping-options`
+* Endpoint: `https://data.plateit.co.uk/v3/shipping-options`
 * Method: `POST`
 
 ```json
@@ -111,7 +111,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `GET`
 
 #### **Response**
@@ -148,7 +148,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/shipping-options`
+* Endpoint: `https://data.plateit.co.uk/v3/shipping-options`
 * Method: `GET`
 * Query:
   * with: `system_courier_service`
@@ -236,7 +236,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `PATCH`
 
 ```json
@@ -277,7 +277,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `DELETE`
 
 #### **Response**

@@ -1,6 +1,6 @@
 # System Courier Services
 
-`https://plateit-api.co.uk/v3/system-courier-services`
+`https://data.plateit.co.uk/v3/system-courier-services`
 
 !> Read only
 
@@ -12,7 +12,7 @@ All supported courier services. Each [company shipping option](/objects/company-
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/system-courier-services`
+* Endpoint: `https://data.plateit.co.uk/v3/system-courier-services`
 * Method: `GET`
 
 #### **Response**

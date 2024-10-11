@@ -1,6 +1,6 @@
 # Place Order
 
-`https://plateit-api.co.uk/v3/actions/place-order`
+`https://data.plateit.co.uk/v3/actions/place-order`
 
 This endpoint is used to create an entire order including plates, products, customer details and a shipping option **in a single request**. It is designed to be used at a customer-facing checkout.
 
@@ -63,7 +63,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/orders`
+* Endpoint: `https://data.plateit.co.uk/v3/orders`
 * Method: `POST`
 * Query:
   * is_dummy: `true`

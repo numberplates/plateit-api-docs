@@ -3,7 +3,7 @@
  Plateit is able to keep track of payments and refunds made using PayPal providing it is set up correctly to do so.
 
 1. Log into [https://developer.paypal.com](https://developer.paypal.com) and create a new REST API application.
-2. Create a new Webhook for your application and point it to: `https://plateit-api.co.uk/v3/webhooks/paypal` ensuring the event types `PAYMENT.CAPTURE.COMPLETED` and `PAYMENT.CAPTURE.REFUNDED` are selected.
+2. Create a new Webhook for your application and point it to: `https://data.plateit.co.uk/v3/webhooks/paypal` ensuring the event types `PAYMENT.CAPTURE.COMPLETED` and `PAYMENT.CAPTURE.REFUNDED` are selected.
 3. Save the application's *Client Key* and *Secret Key* inside your Company settings along with your newly created PayPal *Webhook ID*.
 
 You are now half way there to keeping Plateit in sync with your PayPal account.

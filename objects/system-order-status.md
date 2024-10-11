@@ -1,6 +1,6 @@
 # System Order Status
 
-`https://plateit-api.co.uk/v3/system-order-statuses`
+`https://data.plateit.co.uk/v3/system-order-statuses`
 
 !> Read only
 
@@ -12,7 +12,7 @@ Each [order](/objects/order.md) has an associated system order status. It is use
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/system-order-statuses`
+* Endpoint: `https://data.plateit.co.uk/v3/system-order-statuses`
 * Method: `GET`
 
 #### **Response**

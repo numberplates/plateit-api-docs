@@ -1,6 +1,6 @@
 # Company Product
 
-`https://plateit-api.co.uk/v3/products`
+`https://data.plateit.co.uk/v3/products`
 
 The product object represents any product other than a number plate that the customer can buy.
 
@@ -80,7 +80,7 @@ The product object represents any product other than a number plate that the cus
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/products`
+* Endpoint: `https://data.plateit.co.uk/v3/products`
 * Method: `POST`
 
 ```json
@@ -134,7 +134,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/products/{product_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/products/{product_id}`
 * Method: `GET`
 
 #### **Response**
@@ -174,7 +174,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/products`
+* Endpoint: `https://data.plateit.co.uk/v3/products`
 * Method: `GET`
 
 #### **Response**
@@ -243,7 +243,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/products/{product_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/products/{product_id}`
 * Method: `PATCH`
 
 ```json
@@ -289,7 +289,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://plateit-api.co.uk/v3/products/{product_id}`
+* Endpoint: `https://data.plateit.co.uk/v3/products/{product_id}`
 * Method: `DELETE`
 
 #### **Response**

@@ -1,6 +1,6 @@
 # Package
 
-`https://plateit-api.co.uk/v3/orders/{order_id}/packages`
+`https://data.plateit.co.uk/v3/orders/{order_id}/packages`
 
 A package belongs to an [order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, a package can be assigned to another company to fulfil on your behalf.
 
