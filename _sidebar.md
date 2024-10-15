@@ -20,6 +20,7 @@
   * [Plate](/objects/order-package-plate.md)
   * [Product](/objects/order-package-product.md)
   * [Note](/objects/order-package-note.md)
+  * [Send To](/objects/order-send-to.md)
   * [System Order Status](/objects/system-order-status.md)
   * [System Order Fulfilment Status](/objects/system-order-status.md)
   * [System Package Status](/objects/system-package-status.md)
