@@ -15,9 +15,9 @@ This endpoint is used to create an entire order including plates, products, cust
     * **registration** `string` The registration, including any spaces (used for record keeping).
     * **price** `integer` The price in pence it is being sold for.
     * **qty** `integer` The quantity.
-    * **is_legal** `boolean` Is the design road legal? Used for record keeping.
-    * **svg_print** `string` The final [print file](/fundamentals/plate-files.md) in SVG format.
-    * **svg_preview** `string` The [preview file](/fundamentals/plate-files.md) in SVG format if different from the print file (optional).
+    * **design_print** `string` The final [print file](/fundamentals/plate-files.md) in SVG format.
+    * **design_preview** `string` The [preview file](/fundamentals/plate-files.md) in SVG format if different from the print file (optional).
+    * **design_metadata** `object` An object representation of the plate if you want to be able to bring the design back into an editor at a later date (optional).
     * **custom_instructions** `string` Custom design instructions (optional).
 * **products** `array` An array of objects.
     * **company_product_id** `integer` The ID of the [Company Product](/objects/company-product.md) being purchased.
@@ -76,16 +76,34 @@ If any products are delegated to be fulfilled by other companies, the necessary 
       "registration": "NG25 TTX",
       "price": 1500,
       "qty": 1,
-      "is_legal": true,
-      "svg_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
+      "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
+      "design_metadata": {
+        "reg": {
+          "text": "NG25 TTX",
+          "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
+          "textHeight": 79,
+          "textLineGap": 19,
+          "textColour": "black"
+        },
+        "etc": "etc..."
+      },
     },
     {
       "company_plate_id": 9603,
       "registration": "NG25 TTX",
       "price": 1500,
       "qty": 1,
-      "is_legal": true,
-      "svg_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
+      "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
+      "design_metadata": {
+        "reg": {
+          "text": "NG25 TTX",
+          "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
+          "textHeight": 79,
+          "textLineGap": 19,
+          "textColour": "black"
+        },
+        "etc": "etc..."
+      },
     }
   ],
   "products": [

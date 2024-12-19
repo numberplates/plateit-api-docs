@@ -441,16 +441,34 @@ The contents of the basket and the selected shipping option are used to build th
       "registration": "NG25 TTX",
       "price": 1499,
       "qty": 1,
-      "is_legal": true,
-      "svg_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
+      "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
+      "design_metadata": {
+        "reg": {
+          "text": "NG25 TTX",
+          "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
+          "textHeight": 79,
+          "textLineGap": 19,
+          "textColour": "black"
+        },
+        "etc": "etc..."
+      },
     },
     {
       "company_plate_id": 386,
       "registration": "NG25 TTX",
       "price": 1499,
       "qty": 1,
-      "is_legal": true,
-      "svg_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
+      "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
+      "design_metadata": {
+        "reg": {
+          "text": "NG25 TTX",
+          "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
+          "textHeight": 79,
+          "textLineGap": 19,
+          "textColour": "black"
+        },
+        "etc": "etc..."
+      },
     }
   ],
   "products": [
