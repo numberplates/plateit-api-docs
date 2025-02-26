@@ -49,30 +49,12 @@ As with fonts, please avoid referencing external image files. Embedded images ar
 
 You can instruct Plateit to ignore elements in the final print SVG by giving those elements the `do-not-print` class. This is handy for elements that need to be there for preview images but are not required for printing, such as a yellow background for a standard rear number plate.
 
-By default, any [plate](/objects/order-package-plate.md) belonging to a [package](/objects/order-package.md) requires a `print_file` SVG string. This will also act as the preview by default. You can optionally pass an entirely different `preview_file` SVG string, but this may not be necessary if you can effectively utilise the `do-not-print` class.
+By default, any [plate](/objects/order-package-plate.md) belonging to a [package](/objects/order-package.md) requires a `design_print` SVG string. This will also act as the preview by default. You can optionally pass an entirely different `design_preview` SVG string, but this may not be necessary if you can effectively utilise the `do-not-print` class.
 
 For example, the rectangle in the following SVG string will be present when displaying preview files, but ignored when printing.
 
 ```xml
 <svg viewBox="0 0 520 111">
   <rect width="520" height="111" rx="3" ry="3" fill="yellow" class="do-not-print"></rect>
-</svg>
-```
-
-### Metadata
-
-If you want to be able to bring your designs back into an online editor to make amends, consider including metadata to help with this process.
-
-For example:
-
-```xml
-<svg viewBox="0 0 520 111">
-  <!-- metadata -->
-  <metadata>
-    <reg>
-      <text>NG26 XYZ</text>
-    </reg>
-  </metadata>
-  <!-- remaining data -->
 </svg>
 ```

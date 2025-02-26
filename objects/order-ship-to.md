@@ -1,8 +1,8 @@
-# Send To
+# Ship To
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/send-to`
+`https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 
-The "send to" object consists of the customer's details, including their shipping address. The data in this object is passed to the appropriate shipment provider.
+An [order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider.
 
 > This is a singleton resource.
 
@@ -13,9 +13,6 @@ The "send to" object consists of the customer's details, including their shippin
 * **order_id** `integer` The order ID the resource belongs to.
 * **first_name** `string` The customer's first name.
 * **last_name** `string` The customer's last name.
-* **email** `string` The customer's email.
-* **phone_number** `string|null` The customer's phone number (optional).
-* **mobile_number** `string|null` The customer's mobile number (optional).
 * **address_line_1** `string` The first line of the address.
 * **address_line_2** `string|null` The second line of the address (optional).
 * **address_line_3** `string` The city.
@@ -29,7 +26,7 @@ The "send to" object consists of the customer's details, including their shippin
 
 ### Create an Address
 
-!> Requires the `orders_address_write` permission.
+!> Requires the `orders_customer_write` permission.
 
 <!-- tabs:start -->
 
@@ -37,9 +34,6 @@ The "send to" object consists of the customer's details, including their shippin
 
 * **first_name** `string`
 * **last_name** `string`
-* **email** `string`
-* **phone_number** `string|null`
-* **mobile_number** `string|null`
 * **address_line_1** `string`
 * **address_line_2** `string|null`
 * **address_line_3** `string`
@@ -48,15 +42,13 @@ The "send to" object consists of the customer's details, including their shippin
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/send-to`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `POST`
 
 ```json
 {
   "first_name": "John",
   "last_name": "Turcotte",
-  "email": "john_turcotte@example.com",
-  "mobile_number": "07777777777",
   "address_line_1": "78 Croft Way",
   "address_line_3": "Port Jaron",
   "address_postcode": "HP23 2WB",
@@ -73,9 +65,6 @@ The "send to" object consists of the customer's details, including their shippin
   "order_id": 51342,
   "first_name": "John",
   "last_name": "Turcotte",
-  "email": "john_turcotte@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
   "address_line_1": "78 Croft Way",
   "address_line_2": null,
   "address_line_3": "Port Jaron",
@@ -83,7 +72,7 @@ The "send to" object consists of the customer's details, including their shippin
   "address_country_code": "GB",
   "created_at": "2024-10-10T15:42:08.000000Z",
   "updated_at": "2024-10-10T15:42:08.000000Z",
-  "href": "/orders/51342/send-to"
+  "href": "/orders/51342/ship-to"
 }
 ```
 
@@ -101,7 +90,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/send-to`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `GET`
 
 #### **Response**
@@ -113,9 +102,6 @@ No parameters.
   "order_id": 51342,
   "first_name": "John",
   "last_name": "Turcotte",
-  "email": "john_turcotte@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
   "address_line_1": "78 Croft Way",
   "address_line_2": null,
   "address_line_3": "Port Jaron",
@@ -123,16 +109,15 @@ No parameters.
   "address_country_code": "GB",
   "created_at": "2024-10-10T15:42:08.000000Z",
   "updated_at": "2024-10-10T15:42:08.000000Z",
-  "href": "/orders/51342/send-to"
+  "href": "/orders/51342/ship-to"
 }
 ```
 
 <!-- tabs:end -->
 
-
 ### Update an Address
 
-!> Requires the `orders_address_write` permission.
+!> Requires the `orders_customer_write` permission.
 
 <!-- tabs:start -->
 
@@ -140,9 +125,6 @@ No parameters.
 
 * **first_name** `string|null`
 * **last_name** `string|null`
-* **email** `string|null`
-* **phone_number** `string|null`
-* **mobile_number** `string|null`
 * **address_line_1** `string|null`
 * **address_line_2** `string|null`
 * **address_line_3** `string|null`
@@ -151,12 +133,12 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/send-to`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `PATCH`
 
 ```json
 {
-  "email": "new_email_address@example.com"
+  "first_name": "Johnny"
 }
 ```
 
@@ -167,11 +149,8 @@ No parameters.
 ```json
 {
   "order_id": 51342,
-  "first_name": "John",
+  "first_name": "Johnny",
   "last_name": "Turcotte",
-  "email": "new_email_address@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
   "address_line_1": "78 Croft Way",
   "address_line_2": null,
   "address_line_3": "Port Jaron",
@@ -179,7 +158,7 @@ No parameters.
   "address_country_code": "GB",
   "created_at": "2024-10-10T15:42:08.000000Z",
   "updated_at": "2024-11-10T07:21:23.000000Z",
-  "href": "/orders/51342/send-to"
+  "href": "/orders/51342/ship-to"
 }
 ```
 
@@ -187,7 +166,7 @@ No parameters.
 
 ### Delete an Address
 
-!> Requires the `orders_address_write` permission.
+!> Requires the `orders_customer_write` permission.
 
 <!-- tabs:start -->
 
@@ -197,7 +176,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/send-to`
+* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `DELETE`
 
 #### **Response**

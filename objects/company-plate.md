@@ -13,8 +13,8 @@ The plate object represents a plate the customer can buy. It references a [compa
 * **id** `integer` The unique ID of the plate.
 * **company_plate_type_id** `integer` The [company plate type](/objects/company-plate-type.md) ID.
 * **system_plate_size_id** `integer` The [system plate size](/objects/system-plate-size.md) ID.
-* **colour** `string` The main colour, spelt in English, of the plate (usually the colour of the reflective)backing.
-* **price** `int` The price in pence.
+* **colour** `string` The main colour, spelt in English, of the plate (usually the colour of the reflective backing).
+* **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
 * **is_front** `boolean` Is this plate for the front of a vehicle?
 * **is_rear** `boolean` Is this plate for the rear of a vehicle?
 * **is_legal** `boolean` Is this size/plate type combination legal for road use?

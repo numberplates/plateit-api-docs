@@ -10,7 +10,7 @@
 * **system_courier_service_id** `integer` The [system courier service](/objects/system-courier-service.md) ID.
 * **additional_options** `array` An array of courier-specific additional option strings.
 * **name** `string` The name of the shipping option.
-* **price** `int` The price in pence.
+* **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
 * **is_active** `boolean` Indicates whether the resource is live or a draft.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.

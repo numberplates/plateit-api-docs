@@ -4,7 +4,7 @@
 
 !> Read only
 
-Each [user](/objects/company-user.md) and [access](/objects/company-access-token.md) is assigned one or more of these permissions.
+Each [user](/objects/company-user.md) and [access token](/objects/company-access-token.md) is assigned one or more of these permissions.
 
 ## Example Request
 
@@ -114,7 +114,7 @@ Each [user](/objects/company-user.md) and [access](/objects/company-access-token
     },
     {
       "id": 16,
-      "ability_key": "orders_address_write",
+      "ability_key": "orders_customer_write",
       "description": "Update customer delivery addresses.",
       "href": "/system-user-permissions/16"
     },

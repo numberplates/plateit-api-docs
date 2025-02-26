@@ -9,9 +9,9 @@ You will need an API token with the following permissions:
 * `company_plates_read`
 * `company_products_read`
 * `company_shipping_read`
-* `orders_write`
+* `orders_build`
 
-Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to edit plates at a later date.
+Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to edit purchased plates at a later date.
 
 * `company_plate_types_read`
 * `orders_packages_plates_write`
@@ -22,11 +22,11 @@ Here is a bulletted list of stages to help understand what goes on behind the sc
 
 1. A request is made to Plateit to obtain all available [plates](/objects/company-plate.md).
 2. This data is used to build a customer-facing number plate designer.
-3. The customer designs plates and adds them to a basket.
+3. The customer designs their plates and adds them to a basket.
 4. Further requests are made to Plateit to obtain the available [shipping options](/objects/company-shipping-option.md) and extra upsell [products](/objects/company-product.md).
 5. The customer adds any extra products to the basket and selects a shipping option.
-6. The contents of the basket are used to build the final [place-order](/actions/place-order.md) payload which is sent to Plateit. This creates a new *pending* order and its ID is returned.
-7. The pending order ID is passed to the payment processor.
+6. The contents of the basket are used to build the final [build-order](/actions/build-order.md) payload which is sent to Plateit. This creates a new `External Draft` order and its ID is returned.
+7. The draft order ID is passed to the payment processor.
 8. Once paid, the payment processor sends a webhook to Plateit.
 9. Plateit receieves the webhook and marks the order as *open* (active).
 10. Plateit then sends a webhook to your application which triggers a confirmation email.
@@ -416,21 +416,49 @@ The last GET request you'll need to make is to obtain the available [shipping op
 
 ```json
 {
-  "@todo": true
+  "data": [
+    {
+      "id": 11,
+      "system_courier_service_id": 1,
+      "name": "Free Collection From Store",
+      "additional_options": null,
+      "price": 0,
+      "is_active": true,
+      "created_at": "2025-01-16T10:42:45.000000Z",
+      "updated_at": "2025-01-16T10:42:45.000000Z",
+      "href": "/shipping-options/11",
+      "system_courier_service": {
+        "id": 1,
+        "courier_key": "manual",
+        "name": "Manual Collection",
+        "priority_level": 3,
+        "service_reference": "n/a",
+        "additional_options": null,
+        "is_international": false,
+        "max_width": 1000000,
+        "max_height": 1000000,
+        "max_depth": 1000000,
+        "max_weight": 1000000,
+        "position": 1,
+        "is_active": true,
+        "href": "/system-courier-services/1"
+      }
+    }
+  ]
 }
 ```
 
 <!-- tabs:end -->
 
-## Creating the Final (Pending) Order
+## Creating the Final (External Draft) Order
 
-The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the pending order. More information can be found on the [place-order](/actions/place-order.md) page.
+The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the `External Draft` order. More information can be found on the [build-order](/actions/build-order.md) page.
 
 <!-- tabs:start -->
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/actions/place-order`
+* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
 * Method: `POST`
 
 ```json
@@ -439,7 +467,7 @@ The contents of the basket and the selected shipping option are used to build th
     {
       "company_plate_id": 385,
       "registration": "NG25 TTX",
-      "price": 1499,
+      "price_gross": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
       "design_metadata": {
@@ -456,7 +484,7 @@ The contents of the basket and the selected shipping option are used to build th
     {
       "company_plate_id": 386,
       "registration": "NG25 TTX",
-      "price": 1499,
+      "price_gross": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
       "design_metadata": {
@@ -474,20 +502,23 @@ The contents of the basket and the selected shipping option are used to build th
   "products": [
     {
       "company_product_id": 14,
-      "price": 299,
+      "price_gross": 299,
       "qty": 1
     }
   ],
   "shipping": {
-    "company_shipping_id": "@TODO",
-    "price": 499,
-    "delivery_instructions": "Leave in front porch."
+    "company_shipping_id": 11,
+    "price_gross": 0
   },
-  "send_to": {
+  "customer": {
     "first_name": "John",
     "last_name": "Doe",
     "email": "john.doe@example.com",
-    "mobile_number": "07777777777",
+    "mobile_number": "07777777777"
+  },
+  "ship_to": {
+    "first_name": "John",
+    "last_name": "Doe",
     "address_line_1": "123 Something Street",
     "address_line_2": "Somewhere",
     "address_line_3": "Derby",
@@ -503,21 +534,21 @@ The contents of the basket and the selected shipping option are used to build th
 
 ```json
 {
-  "id": 65798,
+  "id": 9576,
   "message": "Order successfully created."
 }
 ```
 
 <!-- tabs:end -->
 
-Upon success, a new pending order is created and its order ID can be extracted from the response body.
+Upon success, a new `External Draft` order is created and its order ID can be extracted from the response body.
 
 ## Processing the Payment
 
-The pending order ID returned from the last stage is to be sent to PayPal using PayPal's `invoice_id` parameter. Important PayPal setup instructions can be found [here](/fundamentals/paypal.md).
+The order ID returned from the last stage is to be sent to PayPal using PayPal's `invoice_id` parameter. Important PayPal setup instructions can be found [here](/fundamentals/paypal.md).
 
 ## Activating the Order
 
-Once the payment has been processed, PayPal will send a webhook to Plateit to notify it of the payment. If the payment has been made in full, Plateit will update the order status from *pending* to *open* (active).
+Once the payment has been processed, PayPal will send a webhook to Plateit to notify it of the payment. If the payment has been made in full, Plateit will update the order status from `External Draft` to `Open` (active).
 
-When this occurs, Plateit will send a webhook to your application containing the entire order object. When your application receives this, it is recommended to use the data within it to send the customer a confirmation email.
+When this occurs, Plateit will send an `order:place` webhook to your application containing the entire order object. When your application receives this, it is recommended to use the data within it to send the customer a confirmation email. More information about Plateit's webhooks can be found [here](/fundamentals/webhooks.md).

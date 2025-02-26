@@ -6,6 +6,12 @@ Multiple companies use Plateit to process their number plate orders. If there is
 
 # Configuring a Plate or Product to be Delegated
 
-When a delegator/delegatee relationship exists between two companies, you will be able to pass 
+When a delegator/delegatee relationship exists between two companies, you will be able to delegate specific [plate types](/objects/company-plate-type.md) and [products](/objects/company-product.md) to be fulfilled on your behalf by another company.
 
-# Using the Place Order Endpoint
+# Using the Build Order Endpoint
+
+The [build order](/actions/build-order.md) endpoint is used by your customer-facing application to create an entire order in a single `post` request.
+
+Upon receiving the request, Plateit will take care of any delegateions automatically.
+
+TBC...

@@ -1,10 +1,10 @@
-# Place Order
+# Build Order
 
-`https://data.plateit.co.uk/v3/actions/place-order`
+`https://data.plateit.co.uk/v3/actions/build-order`
 
-This endpoint is used to create an entire order including plates, products, customer details and a shipping option **in a single request**. It is designed to be used at a customer-facing checkout.
+This endpoint is used to build an entire order, including its contents (plates, products, customer details and a shipping option) **in a single request**. It is designed to be used at a customer-facing checkout.
 
-> The request outlined on this page will create a new, *pending* order. It will not become an active order until payment has been recieved. See the [suggested integration](/fundamentals/suggested-integration.md) instructions for more details.
+> The request outlined on this page will create a new, `External Draft` order. It will not become an active, `Open` order until payment has been recieved. See the [suggested integration](/fundamentals/suggested-integration.md) instructions for more details.
 
 ## Data References
 
@@ -13,7 +13,7 @@ This endpoint is used to create an entire order including plates, products, cust
 * **plates** `array` An array of objects.
     * **company_plate_id** `integer` The ID of the [Company Plate](/objects/company-plate.md) being purchased.
     * **registration** `string` The registration, including any spaces (used for record keeping).
-    * **price** `integer` The price in pence it is being sold for.
+    * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **qty** `integer` The quantity.
     * **design_print** `string` The final [print file](/fundamentals/plate-files.md) in SVG format.
     * **design_preview** `string` The [preview file](/fundamentals/plate-files.md) in SVG format if different from the print file (optional).
@@ -21,18 +21,29 @@ This endpoint is used to create an entire order including plates, products, cust
     * **custom_instructions** `string` Custom design instructions (optional).
 * **products** `array` An array of objects.
     * **company_product_id** `integer` The ID of the [Company Product](/objects/company-product.md) being purchased.
-    * **price** `integer` The price in pence it is being sold for.
+    * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **qty** `integer` The quantity.
 * **shipping** `object`
     * **company_shipping_id** `integer` The ID of the [Company Shipping Option](/objects/company-shipping.md) being purchased.
-    * **price** `integer` The price in pence it is being sold for.
+    * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **delivery_instructions** `string` Delivery instructions if the courier supports this (optional).
-* **send_to** `object`
+* **customer** `object`
+    * **first_name** `string` The customer's first name.
+    * **last_name** `string` The customer's last name.
+    * **email** `string` The customer's email address.
+    * **mobile_number** `string` The customer's mobile number (required for some couriers) (optional).
+    * **phone_number** `string` The customer's phone number (optional).
+* **ship_to** `object`
     * **first_name** `string` The recipient's first name.
     * **last_name** `string` The recipient's last name.
-    * **email** `string` The recipient's email address.
-    * **mobile_number** `string` The recipient's mobile number (required for some couriers) (optional).
-    * **phone_number** `string` The recipient's phone number (optional).
+    * **address_line_1** `string` The first line of the address.
+    * **address_line_2** `string` The second line of the address (optional).
+    * **address_line_3** `string` The city.
+    * **address_postcode** `string` The postcode.
+    * **address_country_code** `string` The two-character ISO country code, such as "GB".
+* **bill_to** `object` (if different from the ship_to address - optional)
+    * **first_name** `string` The payer's first name.
+    * **last_name** `string` The payer's last name.
     * **address_line_1** `string` The first line of the address.
     * **address_line_2** `string` The second line of the address (optional).
     * **address_line_3** `string` The city.
@@ -55,7 +66,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
 
 ## Example Request
 
-!> Requires the `orders_write` permission.
+!> Requires the `orders_build` permission.
 
 > For testing purposes, pass the `?is_dummy=1` query parameter. This will create a test (dummy) order which will be omitted from your sales reports and won't be fulfilled by delegatees (if applicable).
 
@@ -63,7 +74,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders`
+* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
 * Method: `POST`
 * Query:
   * is_dummy: `true`
@@ -74,7 +85,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
     {
       "company_plate_id": 9602,
       "registration": "NG25 TTX",
-      "price": 1500,
+      "price_gross": 1500,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
       "design_metadata": {
@@ -91,7 +102,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
     {
       "company_plate_id": 9603,
       "registration": "NG25 TTX",
-      "price": 1500,
+      "price_gross": 1500,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
       "design_metadata": {
@@ -109,20 +120,24 @@ If any products are delegated to be fulfilled by other companies, the necessary 
   "products": [
     {
       "company_product_id": 2341,
-      "price": 299,
+      "price_gross": 299,
       "qty": 1
     }
   ],
   "shipping": {
     "company_shipping_id": 1189,
-    "price": 583,
+    "price_gross": 583,
     "delivery_instructions": "Leave in front porch."
   },
-  "send_to": {
+  "customer": {
     "first_name": "John",
     "last_name": "Doe",
     "email": "john.doe@example.com",
-    "mobile_number": "07777777777",
+    "mobile_number": "07777777777"
+  },
+  "ship_to": {
+    "first_name": "John",
+    "last_name": "Doe",
     "address_line_1": "123 Something Street",
     "address_line_2": "Somewhere",
     "address_line_3": "Derby",

@@ -16,7 +16,7 @@ The product object represents any product other than a number plate that the cus
 * **name** `string` The name or title or the product.
 * **sku** `string` The unique stock keeping unit code.
 * **description** `string` A brief product description.
-* **price** `int` The price in pence.
+* **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
 * **width** `int` The width in mm (for shipping calculations).
 * **height** `int` The height in mm (for shipping calculations).
 * **depth** `int` The depth in mm (for shipping calculations).
