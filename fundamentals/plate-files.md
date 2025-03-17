@@ -58,3 +58,39 @@ For example, the rectangle in the following SVG string will be present when disp
   <rect width="520" height="111" rx="3" ry="3" fill="yellow" class="do-not-print"></rect>
 </svg>
 ```
+
+### Design Metadata
+
+When creating or updating an [OrderPackagePlate](/objects/order-package-plate.md) object (or utilising the [Build Order](/actions/build-order.md) helper endpoint), it is recommended to include not only the final SVG, but also a JSON representation of the design as a `design_object` property. This will allow you to bring the design back into your editor should you wish to make changes to it as a later date. For example:
+
+```json
+{
+  "document": {
+    "width": 520,
+    "height": 111,
+  },
+  "background": {
+    "backgroundColour": "yellow",
+    "isPreviewOnly": true
+  },
+  "reg": {
+    "text": "NG25 XYZ",
+    "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
+    "textHeight": 79,
+    "textLineGap": 19,
+    "textColour": "black"
+  },
+  "bottomLine": {
+    "text": "ACME Number Plates, SW1A 2AA",
+    "textFontUrl": "../assets/fonts/OpenSans-Regular.ttf",
+    "textHeight": 4,
+    "textColour": "black"
+  },
+  "bsau": {
+    "text": "BSAU 145E",
+    "textFontUrl": "../assets/fonts/OpenSans-Regular.ttf",
+    "textHeight": 2,
+    "textColour": "black"
+  }
+}
+```

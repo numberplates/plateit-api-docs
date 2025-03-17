@@ -3,6 +3,7 @@
 
 * Fundamentals
   * [Conventions](/fundamentals/conventions.md)
+  * [Plate Files](/fundamentals/plate-files.md)
   * [Suggested Integration](/fundamentals/suggested-integration.md)
   * [PayPal](/fundamentals/paypal.md)
   * [Webhooks](/fundamentals/webhooks.md)
