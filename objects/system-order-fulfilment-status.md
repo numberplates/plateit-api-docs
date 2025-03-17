@@ -1,4 +1,4 @@
-# System Order Fulfilment Status
+# SystemOrderFulfilmentStatus
 
 `https://data.plateit.co.uk/v3/system-order-fulfilment-statuses`
 

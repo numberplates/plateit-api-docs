@@ -2,7 +2,7 @@
 
 `https://data.plateit.co.uk/v3/orders`
 
-The order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when a [plate](/objects/order-package-plate.md) is added to a [package](/objects/order-package.md) that belongs to an order.
+The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when a [plate](/objects/order-package-plate.md) is added to a [package](/objects/order-package.md) that belongs to an order.
 
 ## Data References
 
@@ -10,8 +10,8 @@ The order object is the outermost parent resource that represents an order. Most
 
 * **id** `integer` The unique ID of the order.
 * **company_id** `integer` The ID of the [company](/objects/company.md) the order belongs to.
-* **system_order_status_id** `integer` The [system order status](/objects/system-order-status.md) ID.
-* **system_order_fulfilment_status_id** `integer` The [system order fulfilment status](/objects/system-order-fulfilment-status.md) ID.
+* **system_order_status_id** `integer` The [SystemOrderStatus](/objects/system-order-status.md) ID.
+* **system_order_fulfilment_status_id** `integer` The [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md) ID.
 * **amount_subtotal** `integer` The sum of all items in pence, minus shipping and VAT.
 * **amount_shipping** `integer` The total shipping costs in pence.
 * **amount_vat** `integer` The total VAT in pence.
@@ -86,7 +86,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
 
 #### **Body Parameters**
 
-* **system_order_status_id** `integer|null` A valid [system order status](/objects/system-order-status.md) ID. Defaults to `5` (Draft).
+* **system_order_status_id** `integer|null` A valid [SystemOrderStatus](/objects/system-order-status.md) ID. Defaults to `5` (Draft).
 * **is_dummy** `boolean|null` Defaults to `false`
 
 #### **Request**

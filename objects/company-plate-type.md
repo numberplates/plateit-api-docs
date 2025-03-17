@@ -1,10 +1,10 @@
-# Company Plate Type
+# CompanyPlateType
 
 `https://data.plateit.co.uk/v3/plate-types`
 
 Any plate type you can think of can be catered for, as long as you can provide an appropriate print file for it.
 
-> Plate types can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a plate type with an *identical* `reference` for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
+> Plate types can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a plate type with an *identical* `reference` for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours. See the [delegation guide](/delegations/introduction.md) for more information.
 
 ## Data References
 
@@ -17,7 +17,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 * **weight_std_oblong** `integer` The weight of a standard oblong in grams (for shipping calculations).
 * **is_printable** `boolean` Set to `false` for any plate type that doesn't require printing. For example, pressed plates.
 * **is_active** `boolean` Indicates whether the resource is live or a draft.
-* **delegate_to_company_id** `integer|null` The [company](/objects/company.md) ID to delegate the plate type to fulfil.
+* **delegate_to_company_id** `integer|null` The [Company](/objects/company.md) ID to delegate the plate type to fulfil.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.

@@ -1,10 +1,10 @@
-# System Order Status
+# SystemOrderStatus
 
 `https://data.plateit.co.uk/v3/system-order-statuses`
 
 !> Read only
 
-Each [order](/objects/order.md) has an associated system order status. It is used to categorise and filter the orders.
+Each [Order](/objects/order.md) has an associated system order status. It is used to categorise and filter the orders.
 
 ## Example Request
 

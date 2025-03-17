@@ -1,4 +1,4 @@
-# Product
+# OrderPackageProduct
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/products`
 

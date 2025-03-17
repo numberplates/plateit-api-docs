@@ -1,4 +1,4 @@
-# Note (Package)
+# OrderPackageNote
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 

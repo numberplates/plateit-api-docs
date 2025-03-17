@@ -1,4 +1,4 @@
-# System Package Status
+# SystemPackageStatus
 
 `https://data.plateit.co.uk/v3/system-package-statuses`
 

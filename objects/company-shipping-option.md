@@ -1,4 +1,4 @@
-# Company Shipping Option
+# CompanyShippingOption
 
 `https://data.plateit.co.uk/v3/shipping-options`
 
@@ -7,7 +7,7 @@
 ### Attributes
 
 * **id** `integer` The unique ID of the product.
-* **system_courier_service_id** `integer` The [system courier service](/objects/system-courier-service.md) ID.
+* **system_courier_service_id** `integer` The [SystemCourierService](/objects/system-courier-service.md) ID.
 * **additional_options** `array` An array of courier-specific additional option strings.
 * **name** `string` The name of the shipping option.
 * **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).

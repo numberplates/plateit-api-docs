@@ -1,4 +1,4 @@
-# Company Access Token (API Key)
+# CompanyAccessToken
 
 `https://data.plateit.co.uk/v3/access-tokens`
 

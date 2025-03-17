@@ -1,10 +1,10 @@
-# System Courier Services
+# SystemCourierService
 
 `https://data.plateit.co.uk/v3/system-courier-services`
 
 !> Read only
 
-All supported courier services. Each [company shipping option](/objects/company-shipping-option.md) references one of these resources.
+All supported courier services. Each [CompanyShippingOption](/objects/company-shipping-option.md) references one of these resources.
 
 ## Example Request
 

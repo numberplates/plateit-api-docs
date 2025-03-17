@@ -1,8 +1,6 @@
 # Plateit API
 
-!> Plateit is currently in its beta testing stage. Please report any bugs to the administrator.
-
-!> This documentation is a work-in-progress. It is incomplete but covers the [typical use case](/fundamentals/suggested-integration.md).
+!> This documentation is a work-in-progress. It is **incomplete** but covers the [typical use case](/fundamentals/suggested-integration.md).
 
 Plateit is a pragmatic, REST-like API that handles the creation and fulfilment of UK number plates ordered online.
 

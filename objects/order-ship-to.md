@@ -1,8 +1,8 @@
-# Ship To
+# OrderShipTo
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 
-An [order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider.
+An [Order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider.
 
 > This is a singleton resource.
 

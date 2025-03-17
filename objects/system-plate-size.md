@@ -1,10 +1,10 @@
-# System Plate Size
+# SystemPlateSize
 
 `https://data.plateit.co.uk/v3/system-plate-sizes`
 
 !> Read only
 
-System plate sizes consist of all supported number plate sizes. You do not have to support every size, but each [company plate](/objects/company-plate.md) references one of these resources.
+System plate sizes consist of all supported number plate sizes. You do not have to support every size, but each [CompanyPlate](/objects/company-plate.md) references one of these resources.
 
 ## Example Request
 

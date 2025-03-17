@@ -1,4 +1,4 @@
-# System Payment Provider
+# SystemPaymentProvider
 
 `https://data.plateit.co.uk/v3/system-payment-providers`
 

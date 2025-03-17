@@ -1,4 +1,4 @@
-# System Webhook Event
+# SystemWebhookEvent
 
 `https://data.plateit.co.uk/v3/system-webhook-events`
 

@@ -1,8 +1,8 @@
-# Package
+# OrderPackage
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages`
 
-A package belongs to an [order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, a package can be assigned to another company to fulfil on your behalf.
+A package belongs to an [Order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, a package can be assigned to another company to fulfil on your behalf.
 
 >! If fulfilling for a delegating companies, there are important rules to follow. Click here to learn more.
 
@@ -11,9 +11,9 @@ A package belongs to an [order](/objects/order.md), and an order can have many p
 ### Attributes
 
 * **id** `integer` The unique ID of the package.
-* **order_id** `integer` The ID of the [order](/objects/order.md) the package belongs to.
+* **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
 * **delegate_to_company_id** `integer|null` The ID of the [company](/objects/company.md) the package has been delegated to, if applicable.
-* **system_package_status_id** `integer` The ID of the [system package status](/objects/system-package-status.md).
+* **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md).
 * **plates_qty** `integer` The quantity of number plates in the package.
 * **products_qty** `integer` The quantity of extra products in the package.
 * **width** `integer` The estimated width of the package in mm.

@@ -1,4 +1,4 @@
-# System User Permission
+# SystemUserPermission
 
 `https://data.plateit.co.uk/v3/system-user-permissions`
 
@@ -85,13 +85,13 @@ Each [user](/objects/company-user.md) and [access token](/objects/company-access
     {
       "id": 11,
       "ability_key": "company_settings_read",
-      "description": "Read company settings.",
+      "description": "Read company settings, tax rates and API keys (contains sensitive data).",
       "href": "/system-user-permissions/11"
     },
     {
       "id": 12,
       "ability_key": "company_settings_write",
-      "description": "Update company settings and generate API keys.",
+      "description": "Update company settings, tax rates and API keys (contains sensitive data).",
       "href": "/system-user-permissions/12"
     },
     {
@@ -103,7 +103,7 @@ Each [user](/objects/company-user.md) and [access token](/objects/company-access
     {
       "id": 14,
       "ability_key": "orders_write",
-      "description": "Create and delete orders.",
+      "description": "Create, update and delete orders.",
       "href": "/system-user-permissions/14"
     },
     {
@@ -115,7 +115,7 @@ Each [user](/objects/company-user.md) and [access token](/objects/company-access
     {
       "id": 16,
       "ability_key": "orders_customer_write",
-      "description": "Update customer delivery addresses.",
+      "description": "Update customer contact details and shipping/billing addresses.",
       "href": "/system-user-permissions/16"
     },
     {
@@ -132,33 +132,45 @@ Each [user](/objects/company-user.md) and [access token](/objects/company-access
     },
     {
       "id": 19,
-      "ability_key": "orders_packages_write",
-      "description": "Create and delete packages.",
+      "ability_key": "orders_notes_write",
+      "description": "Assign notes to orders.",
       "href": "/system-user-permissions/19"
     },
     {
       "id": 20,
-      "ability_key": "orders_packages_plates_write",
-      "description": "Create, update and remove number plates.",
+      "ability_key": "orders_packages_write",
+      "description": "Create and delete packages.",
       "href": "/system-user-permissions/20"
     },
     {
       "id": 21,
-      "ability_key": "orders_packages_products_write",
-      "description": "Create, update and remove extra products.",
+      "ability_key": "orders_packages_plates_write",
+      "description": "Create, update and remove number plates.",
       "href": "/system-user-permissions/21"
     },
     {
       "id": 22,
-      "ability_key": "orders_packages_shipping_write",
-      "description": "Assign, update and remove shipping options.",
+      "ability_key": "orders_packages_products_write",
+      "description": "Create, update and remove extra products.",
       "href": "/system-user-permissions/22"
     },
     {
       "id": 23,
+      "ability_key": "orders_packages_shipping_write",
+      "description": "Assign, update and remove shipping options.",
+      "href": "/system-user-permissions/23"
+    },
+    {
+      "id": 24,
       "ability_key": "orders_packages_notes_write",
       "description": "Assign notes to packages.",
-      "href": "/system-user-permissions/23"
+      "href": "/system-user-permissions/24"
+    },
+    {
+      "id": 25,
+      "ability_key": "orders_build",
+      "description": "Create external draft orders in their entirety (including contents) with a single request.",
+      "href": "/system-user-permissions/25"
     }
   ]
 }

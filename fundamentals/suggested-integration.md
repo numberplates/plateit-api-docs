@@ -13,6 +13,7 @@ You will need an API token with the following permissions:
 
 Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to edit purchased plates at a later date.
 
+* `orders_read`
 * `company_plate_types_read`
 * `orders_packages_plates_write`
 
@@ -470,7 +471,7 @@ The contents of the basket and the selected shipping option are used to build th
       "price_gross": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
-      "design_metadata": {
+      "design_object": {
         "reg": {
           "text": "NG25 TTX",
           "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
@@ -487,7 +488,7 @@ The contents of the basket and the selected shipping option are used to build th
       "price_gross": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
-      "design_metadata": {
+      "design_object": {
         "reg": {
           "text": "NG25 TTX",
           "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",

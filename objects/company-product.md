@@ -1,4 +1,4 @@
-# Company Product
+# CompanyProduct
 
 `https://data.plateit.co.uk/v3/products`
 

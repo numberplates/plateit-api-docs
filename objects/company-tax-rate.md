@@ -1,4 +1,4 @@
-# Company Tax Rate
+# CompanyTaxRate
 
 `https://data.plateit.co.uk/v3/tax-rates`
 

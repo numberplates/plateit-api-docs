@@ -4,9 +4,9 @@ This page outlines the core API conventions, including how to order and filter c
 
 ## System vs Company Resources
 
-"System" resources such as [system order statuses](/objects/system-order-status.md) or [system plate sizes](/objects/system-plate-size.md) are *read-only*. Consider them constants that provide a backbone to the application.
+"System" resources such as [SystemOrderStatus](/objects/system-order-status.md) or [SystemPlateSize](/objects/system-plate-size.md) are *read-only*. Consider them constants that provide a backbone to the application.
 
-All other resources are company-specific. This means they are under your control and unique to the company they belong to. Examples include [company plates](/objects/company-plate.md) and [company products](/objects/company-product.md).
+All other resources are company-specific. This means they are under your control and unique to the company they belong to. Examples include [CompanyPlate](/objects/company-plate.md) and [CompanyProduct](/objects/company-product.md) objects.
 
 Some company resources will reference system resources.
 

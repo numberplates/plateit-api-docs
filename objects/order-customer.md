@@ -1,8 +1,8 @@
-# Send To
+# OrderCustomer
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
 
-An [order](/objects/order.md) can have a single customer. The data in this object is passed to the appropriate shipment provider.
+An [Order](/objects/order.md) can have a single customer. The data in this object is passed to the appropriate shipment provider.
 
 > This is a singleton resource.
 

@@ -11,20 +11,20 @@ This endpoint is used to build an entire order, including its contents (plates, 
 ### Attributes
 
 * **plates** `array` An array of objects.
-    * **company_plate_id** `integer` The ID of the [Company Plate](/objects/company-plate.md) being purchased.
+    * **company_plate_id** `integer` The ID of the [CompanyPlate](/objects/company-plate.md) being purchased.
     * **registration** `string` The registration, including any spaces (used for record keeping).
     * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **qty** `integer` The quantity.
     * **design_print** `string` The final [print file](/fundamentals/plate-files.md) in SVG format.
     * **design_preview** `string` The [preview file](/fundamentals/plate-files.md) in SVG format if different from the print file (optional).
-    * **design_metadata** `object` An object representation of the plate if you want to be able to bring the design back into an editor at a later date (optional).
+    * **design_object** `object` An object representation of the plate if you want to be able to bring the design back into an editor at a later date (optional).
     * **custom_instructions** `string` Custom design instructions (optional).
 * **products** `array` An array of objects.
-    * **company_product_id** `integer` The ID of the [Company Product](/objects/company-product.md) being purchased.
+    * **company_product_id** `integer` The ID of the [CompanyProduct](/objects/company-product.md) being purchased.
     * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **qty** `integer` The quantity.
 * **shipping** `object`
-    * **company_shipping_id** `integer` The ID of the [Company Shipping Option](/objects/company-shipping.md) being purchased.
+    * **company_shipping_id** `integer` The ID of the [CompanyShippingOption](/objects/company-shipping.md) being purchased.
     * **price_gross** `integer` The price in pence it is being sold for including [VAT](/objects/company-tax-rate.md).
     * **delivery_instructions** `string` Delivery instructions if the courier supports this (optional).
 * **customer** `object`
@@ -64,6 +64,8 @@ This default behaviour can be overridden if you want to manually set a custom pr
 
 If any products are delegated to be fulfilled by other companies, the necessary delegated packages will be created automatically. If the delegated company uses a different shipping provider or doesn't have the same service available, the closest match will be found and applied.
 
+More information about how this enpoint handles delegations can be found on [this page](/delegations/method-02.md).
+
 ## Example Request
 
 !> Requires the `orders_build` permission.
@@ -88,7 +90,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
       "price_gross": 1500,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
-      "design_metadata": {
+      "design_object": {
         "reg": {
           "text": "NG25 TTX",
           "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",
@@ -105,7 +107,7 @@ If any products are delegated to be fulfilled by other companies, the necessary 
       "price_gross": 1500,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
-      "design_metadata": {
+      "design_object": {
         "reg": {
           "text": "NG25 TTX",
           "textFontUrl": "../assets/fonts/CharlesWright-Car.ttf",

@@ -1,8 +1,8 @@
-# Bill To
+# OrderBillTo
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
 
-An [order](/objects/order.md) can have a single billing address.
+An [Order](/objects/order.md) can have a single billing address.
 
 > This is a singleton resource.
 

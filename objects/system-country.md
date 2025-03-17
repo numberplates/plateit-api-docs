@@ -1,4 +1,4 @@
-# System Country
+# SystemCountry
 
 `https://data.plateit.co.uk/v3/system-countries`
 

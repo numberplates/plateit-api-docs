@@ -1,18 +1,18 @@
-# Company Plate
+# CompanyPlate
 
 `https://data.plateit.co.uk/v3/plates`
 
-The plate object represents a plate the customer can buy. It references a [company plate type](/objects/company-plate-type.md) and a [system plate size](/objects/system-plate-size.md).
+The `CompanyPlate` object represents a plate the customer can buy. It references a [CompanyPlateType](/objects/company-plate-type.md) and a [SystemPlateSize](/objects/system-plate-size.md).
 
->Plates can be delegated to another company to fulfil at the [company plate type](/objects/company-plate-type.md) level. However, the delegatee may not have every plate size you have configured in stock. Problems can be avoided by passing the `exclude_unmatched_delegations=true` query parameter when listing the available plates for the customer. This will filter out any delegated plates the delegatee cannot support. An example of this can be seen on the [suggested integration](/fundamentals/suggested-integration.md) page.
+>Plates can be delegated to another company to fulfil at the [CompanyPlateType](/objects/company-plate-type.md) level. However, the delegatee may not have every plate size you have configured in stock. Problems can be avoided by passing the `exclude_unmatched_delegations=true` query parameter when listing the available plates for the customer. This will filter out any delegated plates the delegatee cannot support. An example of this can be seen on the [suggested integration](/fundamentals/suggested-integration.md) page.
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the plate.
-* **company_plate_type_id** `integer` The [company plate type](/objects/company-plate-type.md) ID.
-* **system_plate_size_id** `integer` The [system plate size](/objects/system-plate-size.md) ID.
+* **company_plate_type_id** `integer` The [CompanyPlateType](/objects/company-plate-type.md) ID.
+* **system_plate_size_id** `integer` The [SystemPlateSize](/objects/system-plate-size.md) ID.
 * **colour** `string` The main colour, spelt in English, of the plate (usually the colour of the reflective backing).
 * **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
 * **is_front** `boolean` Is this plate for the front of a vehicle?
