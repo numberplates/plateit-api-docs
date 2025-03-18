@@ -2,9 +2,9 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages`
 
-A package belongs to an [Order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, a package can be assigned to another company to fulfil on your behalf.
+An OrderPackage belongs to an [Order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, an OrderPackage can be assigned to another company to fulfil on your behalf.
 
->! If fulfilling for a delegating companies, there are important rules to follow. Click here to learn more.
+!> If delegating a package to another company to fulfil, there are important rules to follow. See the [delegation guide](/fundamentals/delegations.md) for more information.
 
 ## Data References
 
@@ -12,7 +12,7 @@ A package belongs to an [Order](/objects/order.md), and an order can have many p
 
 * **id** `integer` The unique ID of the package.
 * **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
-* **delegate_to_company_id** `integer|null` The ID of the [company](/objects/company.md) the package has been delegated to, if applicable.
+* **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) the package has been delegated to, if applicable.
 * **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md).
 * **plates_qty** `integer` The quantity of number plates in the package.
 * **products_qty** `integer` The quantity of extra products in the package.
@@ -36,3 +36,7 @@ A package belongs to an [Order](/objects/order.md), and an order can have many p
 * [plates](/objects/order-package-plate.md)
 * [products](/objects/order-package-product.md)
 * [notes](/objects/order-package-note.md)
+
+> Note: all packages (not just the ones pertaining to an order) can be retrieved at `https://data.plateit.co.uk/v3/packages`.
+
+!> This page is a stub. To be continued...

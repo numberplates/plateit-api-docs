@@ -24,32 +24,32 @@ Each [Order](/objects/order.md) has an associated system order status. It is use
   "data": [
     {
       "id": 1,
-      "name": "Pending",
-      "description": "The order has been created externally but not yet completed.",
+      "name": "External Draft",
+      "description": "The order has been created externally, for example, by a customer on a website or app, but not yet completed.",
       "href": "/system-order-statuses/1"
     },
     {
       "id": 2,
-      "name": "Open",
-      "description": "The order is open and is awaiting processing.",
+      "name": "Internal Draft",
+      "description": "The order has been created internally by a member of staff and is awaiting further action.",
       "href": "/system-order-statuses/2"
     },
     {
       "id": 3,
-      "name": "Closed",
-      "description": "The order has been closed and archived.",
+      "name": "Open",
+      "description": "The order is open, and its committed packages are ready for processing.",
       "href": "/system-order-statuses/3"
     },
     {
       "id": 4,
-      "name": "Cancelled",
-      "description": "The order has been cancelled.",
+      "name": "Closed",
+      "description": "The order has been closed and archived.",
       "href": "/system-order-statuses/4"
     },
     {
       "id": 5,
-      "name": "Draft",
-      "description": "The order is in a draft state.",
+      "name": "Cancelled",
+      "description": "The order has been cancelled.",
       "href": "/system-order-statuses/5"
     }
   ]

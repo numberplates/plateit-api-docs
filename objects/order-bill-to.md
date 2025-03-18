@@ -6,7 +6,7 @@ An [Order](/objects/order.md) can have a single billing address.
 
 > This is a singleton resource.
 
-!> A billing address is only required if it is different to the shipping address.
+!> A billing address is only required if it is different to the [OrderShipTo](/objects/order-ship-to.md) (shipping) address.
 
 ## Data References
 

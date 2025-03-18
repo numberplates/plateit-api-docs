@@ -6,7 +6,7 @@
 
 If a delegator/delegatee relationship exists between your company and another, you will be able to access your delegatee's product data (the items they sell). This allows you to add their items to a package you have delegated to them to fulfil on your behalf.
 
-> Please see [Delegations Method I](/delegations/method-01.md) for added context.
+> Please see the [delegation guide](/fundamentals/delegations.md) for added context.
 
 ## Example Requests
 

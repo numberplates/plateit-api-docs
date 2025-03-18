@@ -1,5 +1,5 @@
-# Update Order Statuses (Bulk)
+# Search
 
-`https://data.plateit.co.uk/v3/actions/update-order-statuses`
+`https://data.plateit.co.uk/v3/helpers/actions/search`
 
 !> This page is a stub. Consider using the [Plateit admin area](https://admin.plateit.co.uk) to perform this action at this time.

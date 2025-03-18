@@ -22,7 +22,7 @@ The product object represents any product other than a number plate that the cus
 * **depth** `int` The depth in mm (for shipping calculations).
 * **weight** `int` The weight in g (for shipping calculations).
 * **is_active** `boolean` Indicates whether the resource is live or a draft.
-* **delegate_to_company_id** `integer|null` The [company](/objects/company.md) ID to delegate the product to fulfil.
+* **delegate_to_company_id** `integer|null` The [Company](/objects/company.md) ID to delegate the product to fulfil.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
@@ -76,7 +76,7 @@ The product object represents any product other than a number plate that the cus
 * **depth** `int`
 * **weight** `int`
 * **is_active** `boolean`
-* **delegate_to_company_id** `integer|null` An optional [company](/objects/company.md) ID. (must have an existing fulfilment relationship contract)
+* **delegate_to_company_id** `integer|null` An optional [Company](/objects/company.md) ID. (must have an existing fulfilment relationship contract)
 
 #### **Request**
 

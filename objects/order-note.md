@@ -6,4 +6,4 @@ An [Order](/objects/order.md) can have many notes. Notes are intended to be writ
 
 > For package notes, [click here](/objects/order-package-note.md).
 
-TBC.
+!> This page is a stub. To be continued...

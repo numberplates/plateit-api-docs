@@ -2,7 +2,7 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 
-A [package](/objects/order-package.md) can have many notes. Notes are intended to be written by staff members but may be seen by the customer.
+An [OrderPackage](/objects/order-package.md) can have many notes. Notes are intended to be written by staff members but may be seen by the customer.
 
 > For order notes, [click here](/objects/order-note.md).
 

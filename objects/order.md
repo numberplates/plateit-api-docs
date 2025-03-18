@@ -2,14 +2,14 @@
 
 `https://data.plateit.co.uk/v3/orders`
 
-The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when a [plate](/objects/order-package-plate.md) is added to a [package](/objects/order-package.md) that belongs to an order.
+The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created pertaining to the order.
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the order.
-* **company_id** `integer` The ID of the [company](/objects/company.md) the order belongs to.
+* **company_id** `integer` The ID of the [Company](/objects/company.md) the order belongs to.
 * **system_order_status_id** `integer` The [SystemOrderStatus](/objects/system-order-status.md) ID.
 * **system_order_fulfilment_status_id** `integer` The [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md) ID.
 * **amount_subtotal** `integer` The sum of all items in pence, minus shipping and VAT.
@@ -80,7 +80,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
 
 !> Requires the `orders_write` permission.
 
-> If you want to create an entire order in one request, including plates, products and shipping, consider using the [build-order](/actions/build-order.md) endpoint. This may be better suited for applications with a customer-facing checkout facility.
+> If you want to create an entire order in one request, including plates, products and shipping, consider using the [build-order](/helpers/actions/build-order.md) endpoint. This may be better suited for applications with a customer-facing checkout facility.
 
 <!-- tabs:start -->
 

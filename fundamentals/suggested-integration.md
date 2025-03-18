@@ -4,7 +4,7 @@ This page assumes you are developing a website that sells number plates. Here yo
 
 ## Prerequisites
 
-You will need an API token with the following permissions:
+You will need a [CompanyAccessToken](/objects/company-access-token.md) with the following permissions:
 
 * `company_plates_read`
 * `company_products_read`
@@ -21,22 +21,22 @@ Although outside the scope of this tutorial, you may also want to include the fo
 
 Here is a bulletted list of stages to help understand what goes on behind the scenes:
 
-1. A request is made to Plateit to obtain all available [plates](/objects/company-plate.md).
+1. A request is made to Plateit to obtain all available [CompanyPlate](/objects/company-plate.md) objects.
 2. This data is used to build a customer-facing number plate designer.
 3. The customer designs their plates and adds them to a basket.
-4. Further requests are made to Plateit to obtain the available [shipping options](/objects/company-shipping-option.md) and extra upsell [products](/objects/company-product.md).
+4. Further requests are made to Plateit to obtain the available [CompanyShippingOption](/objects/company-shipping-option.md) objects and [CompanyProduct](/objects/company-product.md) objects (upsells).
 5. The customer adds any extra products to the basket and selects a shipping option.
-6. The contents of the basket are used to build the final [build-order](/actions/build-order.md) payload which is sent to Plateit. This creates a new `External Draft` order and its ID is returned.
+6. The contents of the basket are used to build the final [BuildOrder](/helpers/actions/build-order.md) payload which is sent to Plateit. This creates a new [Order](/objects/order.md) with an `External Draft` status and its ID is returned.
 7. The draft order ID is passed to the payment processor.
 8. Once paid, the payment processor sends a webhook to Plateit.
-9. Plateit receieves the webhook and marks the order as *open* (active).
+9. Plateit receieves the webhook and changes its status to `Open` (active).
 10. Plateit then sends a webhook to your application which triggers a confirmation email.
 
 > The number plate designer and the shopping basket are your responsibilty to build. A modern, javascript website boilerplate can be purchased at an additional charge. It is a fully functional application with everything built in which will save a lot of time and development money.
 
 ## Fetching Available Plates
 
-When a customer lands on your designer page, make a request to obtain all of your available [plates](/objects/company-plate.md) with their pertinent relationships. The quantity of results can be up to 1000.
+When a customer lands on your designer page, make a request to obtain all of your available [CompanyPlate](/objects/company-plate.md) objects with their pertinent relationships. The quantity of results can be up to 1000.
 
 <!-- tabs:start -->
 
@@ -333,11 +333,11 @@ When a customer lands on your designer page, make a request to obtain all of you
 
 <!-- tabs:end -->
 
-Once fetched, loop over the results to extract all of the plate types in play and use this data to dynamically build your customer-facing Plate Type and Plate Size selectors.
+Once fetched, loop over the results to extract all of the [CompanyPlateType](/objects/company-plate-type.md) objects in play and use this data to dynamically build your customer-facing "Plate Type" and "Plate Size" selectors.
 
 ## Fetching Extra Products
 
-Assuming your customer has designed a plate and added it to a basket, you may now want to present them with additional upsell [products](/objects/company-product.md). Here is an example request to achieve this:
+Assuming your customer has designed a plate and added it to a basket, you may now want to present them with additional upsell items. Here is an example request to obtain the available [CompanyProduct](/objects/company-product.md) objects:
 
 <!-- tabs:start -->
 
@@ -399,7 +399,7 @@ Assuming your customer has designed a plate and added it to a basket, you may no
 
 ## Fetching Shipping Options
 
-The last GET request you'll need to make is to obtain the available [shipping options](/objects/company-shipping-option.md) to present to the customer.
+The last `GET` request you'll need to make is to obtain the available [CompanyShippingOption](/objects/company-shipping-option.md) objects to present to the customer.
 
 <!-- tabs:start -->
 
@@ -451,15 +451,15 @@ The last GET request you'll need to make is to obtain the available [shipping op
 
 <!-- tabs:end -->
 
-## Creating the Final (External Draft) Order
+## Creating the Order
 
-The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the `External Draft` order. More information can be found on the [build-order](/actions/build-order.md) page.
+The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the `External Draft` order. More information can be found on the [BuildOrder](/helpers/actions/build-order.md) page.
 
 <!-- tabs:start -->
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
+* Endpoint: `https://data.plateit.co.uk/v3/helpers/actions/build-order`
 * Method: `POST`
 
 ```json
@@ -542,7 +542,7 @@ The contents of the basket and the selected shipping option are used to build th
 
 <!-- tabs:end -->
 
-Upon success, a new `External Draft` order is created and its order ID can be extracted from the response body.
+Upon success, a new [Order](/objects/order.md) is created with an `External Draft` status and its order ID can be extracted from the response body.
 
 ## Processing the Payment
 
@@ -552,4 +552,4 @@ The order ID returned from the last stage is to be sent to PayPal using PayPal's
 
 Once the payment has been processed, PayPal will send a webhook to Plateit to notify it of the payment. If the payment has been made in full, Plateit will update the order status from `External Draft` to `Open` (active).
 
-When this occurs, Plateit will send an `order:place` webhook to your application containing the entire order object. When your application receives this, it is recommended to use the data within it to send the customer a confirmation email. More information about Plateit's webhooks can be found [here](/fundamentals/webhooks.md).
+When this occurs, Plateit will send an `order:place` webhook to your application containing the entire [Order](/objects/order.md) object. When your application receives this, it is recommended to use the data within it to send the customer a confirmation email. More information about Plateit's webhooks can be found [here](/fundamentals/webhooks.md).

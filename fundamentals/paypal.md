@@ -10,7 +10,7 @@ You are now half way there to keeping Plateit in sync with your PayPal account.
 
 The next thing you need to ensure is that your front-end application (website) utilises the same PayPal API keys to create and capture payments from your customers.
 
-PayPal payments can take an `invoice_id` parameter. **Ensure this is populated with the order ID returned from the [build-order](/actions/build-order.md) endpoint.**
+PayPal payments can take an `invoice_id` parameter. **Ensure this is populated with the order ID returned from the [build-order](/helpers/actions/build-order.md) endpoint.**
 
 When a PayPal order has been successfully created and captured, a webhook will be sent to Plateit by PayPal. Plateit will know which order the payment pertains to because the `invoice_id` value holds the Plateit order ID.
 
