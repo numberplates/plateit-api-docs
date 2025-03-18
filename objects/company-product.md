@@ -2,11 +2,11 @@
 
 `https://data.plateit.co.uk/v3/products`
 
-The product object represents any product other than a number plate that the customer can buy.
+The CompanyProduct object represents any product other than a number plate that the customer can buy.
 
-> Products can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a product with an *identical* SKU for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
+> A CompanyProduct can be delegated to another company to fulfil on your behalf. However, the delegated company must have a CompanyProduct with an *identical* SKU for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
 
->Delegated products should only be shown to the customer if the delegated company has an active product with a matching SKU. This can be ensured by passing the `exclude_unmatched_delegations=true` query parameter when listing the available products. This will filter out any products the delegatee doesn't have. This can be seen in action on the [suggested integration](/fundamentals/suggested-integration.md) page.
+> Delegated products should only be shown to the customer if the delegated company has an active CompanyProduct with a matching SKU. This can be ensured by passing the `exclude_unmatched_delegations=true` query parameter when listing the available CompanyProduct objects. This will filter out any products the delegatee doesn't have. This can be seen in action on the [suggested integration](/fundamentals/suggested-integration.md) page.
 
 ## Data References
 

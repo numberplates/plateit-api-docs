@@ -20,7 +20,7 @@ The Order object is the outermost parent resource that represents an order. Most
 * **amount_refunded** `integer` The total amount refunded in pence.
 * **amount_vat_collected** `integer` The total amount of VAT collected in pence, proportionate to the amount paid.
 * **amount_vat_refunded** `integer` The total amount of VAT refunded in pence, proportionate to the amount refunded.
-* **packages_count** `integer` The number of [packages](/objects/order-package.md) pertaining to the order.
+* **packages_count** `integer` The number of [OrderPackage](/objects/order-package.md) objects pertaining to the order.
 * **is_dummy** `boolean` Indicates a test (dummy) order.
 * **opened_at** `string|null` The timestamp of when the order first had its status changed to `Open`, in ISO 8601 format.
 * **created_at** `string` The creation timestamp in ISO 8601 format.

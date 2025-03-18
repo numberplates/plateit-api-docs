@@ -2,7 +2,7 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 
-An [Order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider.
+An [Order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider. It can be overridden at the OrderPackage level by creating an optional [OrderPackageShipToOverride](/objects/order-package-ship-to-override.md) object.
 
 > This is a singleton resource.
 

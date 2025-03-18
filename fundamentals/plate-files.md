@@ -49,7 +49,7 @@ As with fonts, please avoid referencing external image files. Embedded images ar
 
 You can instruct Plateit to ignore elements in the final print SVG by giving those elements the `do-not-print` class. This is handy for elements that need to be there for preview images but are not required for printing, such as a yellow background for a standard rear number plate.
 
-By default, any [plate](/objects/order-package-plate.md) belonging to an [OrderPackage](/objects/order-package.md) requires a `design_print` SVG string. This will also act as the preview by default. You can optionally pass an entirely different `design_preview` SVG string, but this may not be necessary if you can effectively utilise the `do-not-print` class.
+All [OrderPackagePlate](/objects/order-package-plate.md) objects require a `design_print` SVG. This also acts as the preview by default. You can optionally assign an entirely different `design_preview` SVG, but this may not be necessary if you can effectively utilise the `do-not-print` class.
 
 For example, the rectangle in the following SVG string will be present when displaying preview files, but ignored when printing.
 

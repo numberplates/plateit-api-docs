@@ -4,7 +4,7 @@
 
 Any plate type you can think of can be catered for, as long as you can provide an appropriate print file for it.
 
-> Plate types can be delegated to other companies to fulfil on your behalf. However, the delegated company must have a plate type with an *identical* `reference` for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours. See the [delegation guide](/fundamentals/delegations.md) for more information.
+> A CompanyPlateType can be delegated to another company to fulfil on your behalf. However, the delegated company must have a CompanyPlateType with an *identical* `reference` for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours. See the [delegation guide](/fundamentals/delegations.md) for more information.
 
 ## Data References
 

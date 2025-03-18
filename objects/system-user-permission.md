@@ -4,7 +4,7 @@
 
 !> Read only
 
-Each [user](/objects/company-user.md) and [access token](/objects/company-access-token.md) is assigned one or more of these permissions.
+Each [CompanyUser](/objects/company-user.md) and [CompanyAccessToken](/objects/company-access-token.md) is assigned one or more of these permissions.
 
 ## Example Request
 

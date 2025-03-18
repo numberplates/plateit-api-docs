@@ -11,8 +11,8 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 ### Attributes
 
 * **id** `integer` The unique ID of the note.
-* **package_id** `integer` The [package](/objects/order-package.md) ID.
-* **company_user_id** `integer|null` The ID of the [user](/objects/company-user.md) who wrote the note.
+* **package_id** `integer` The [OrderPackage](/objects/order-package.md) ID.
+* **company_user_id** `integer|null` The ID of the [CompanyUser](/objects/company-user.md) who wrote the note.
 * **note** `string` The note.
 * **is_private** `boolean` Should the note be hidden from the customer?
 * **created_at** `string` The creation timestamp in ISO 8601 format.

@@ -2,9 +2,9 @@
 
 `https://data.plateit.co.uk/v3/plates`
 
-The `CompanyPlate` object represents a plate the customer can buy. It references a [CompanyPlateType](/objects/company-plate-type.md) and a [SystemPlateSize](/objects/system-plate-size.md).
+The CompanyPlate object represents a plate the customer can buy. It references a [CompanyPlateType](/objects/company-plate-type.md) and a [SystemPlateSize](/objects/system-plate-size.md).
 
->Plates can be delegated to another company to fulfil at the [CompanyPlateType](/objects/company-plate-type.md) level. However, the delegatee may not have every plate size you have configured in stock. Problems can be avoided by passing the `exclude_unmatched_delegations=true` query parameter when listing the available plates for the customer. This will filter out any delegated plates the delegatee cannot support. An example of this can be seen on the [suggested integration](/fundamentals/suggested-integration.md) page.
+> A CompanyPlate can be delegated to another company to fulfil at the [CompanyPlateType](/objects/company-plate-type.md) level. However, the delegatee may not have every plate size you have configured for that type in stock. Problems can be avoided by passing the `exclude_unmatched_delegations=true` query parameter when listing the available plates for the customer. This will filter out any delegated CompanyPlate objects the delegatee cannot support. An example of this can be seen on the [suggested integration](/fundamentals/suggested-integration.md) page.
 
 ## Data References
 

@@ -2,11 +2,13 @@
 
 `https://data.plateit.co.uk/v3/shipping-options`
 
+The CompanyShippingOption object represents a shipping option the customer can choose. It references a [SystemCourierService](/objects/system-courier-service.md).
+
 ## Data References
 
 ### Attributes
 
-* **id** `integer` The unique ID of the product.
+* **id** `integer` The unique ID of the shipping option.
 * **system_courier_service_id** `integer` The [SystemCourierService](/objects/system-courier-service.md) ID.
 * **additional_options** `array` An array of courier-specific additional option strings.
 * **name** `string` The name of the shipping option.

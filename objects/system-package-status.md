@@ -4,7 +4,7 @@
 
 !> Read only
 
-Each [package](/objects/order-package.md) has an associated system package status. It is used to categorise and filter the packages.
+Each [OrderPackage](/objects/order-package.md) has an associated SystemPackageStatus. It is used to categorise and filter the packages.
 
 ## Example Request
 
