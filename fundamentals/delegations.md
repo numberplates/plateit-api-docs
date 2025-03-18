@@ -9,7 +9,7 @@ To help understand how delegations work, think of your own company as the `local
 There are two ways to achieve a delegation:
 
 1. By manually creating a delegated [OrderPackage](/objects/order-package.md).
-2. By utilising the [BuildOrder](/helpers/actions/build-order.md) helper endpoint to create an entire order, including its contents, in a single request.
+2. By utilising the [BuildOrder](/helpers/build-order.md) helper endpoint to create an entire order, including its contents, in a single request.
 
 The following section will focus on the first method because it helps better illustrate how delegations are handled. The second method will be discussed later.
 
@@ -104,23 +104,23 @@ They are matched using the following property:
 
 ## Method 2 - Automatic Creation
 
-The [BuildOrder](/helpers/actions/build-order.md) helper endpoint is used to build an entire order, including its nested contents, in a single request. It is designed to be used at a customer-facing checkout.
+The [BuildOrder](/helpers/build-order.md) helper endpoint is used to build an entire order, including its nested contents, in a single request. It is designed to be used at a customer-facing checkout.
 
 Any [CompanyPlateType](/objects/company-plate-type.md) or [CompanyProduct](/objects/company-product.md) objects that have been *explicitly* set to be delegated to another company will be handled automatically (see the above links to learn how to set the delegation intents).
 
-If the [BuildOrder](/helpers/actions/build-order.md) request is successful, a new `External Draft` order will be created with a separate [OrderPackage](/objects/order-package.md) assigned to each delegated company.
+If the [BuildOrder](/helpers/build-order.md) request is successful, a new `External Draft` order will be created with a separate [OrderPackage](/objects/order-package.md) assigned to each delegated company.
 
 ### Important Differences to Method 1
 
 #### Item IDs
 
-Unlike Method 1, you need to reference your *own* company's `local` item IDs in the [BuildOrder](/helpers/actions/build-order.md) payload. Plateit will see that an item has an explicit delegation instruction and will take care of ensuring the correct delegated OrderPackage is created for it.
+Unlike Method 1, you need to reference your *own* company's `local` item IDs in the [BuildOrder](/helpers/build-order.md) payload. Plateit will see that an item has an explicit delegation instruction and will take care of ensuring the correct delegated OrderPackage is created for it.
 
 !> A validation error will occur if you reference a `local`, delegated item ID that the delegated company does not have. When fetching your available items, pass the `?exclude_unmatched_delegations=1` query paramter to avoid this pitfall. See the [suggested integration guide](/fundamentals/suggested-integration.md) for examples.
 
 #### Shipping Option ID
 
-Again, unlike Method 1, you need to reference your *own* company's `local` [CompanyShippinOption](/objects/company-shipping-option.md) ID in the [BuildOrder](/helpers/actions/build-order.md) payload. When Plateit automatically creates the delegated OrderPackage/s, it will attempt to assign a matching shipping option to the `foreign` (delegated) package. If the `foreign` company doesn't have the requested shipping option in common, it will assign the delegated company's closest match.
+Again, unlike Method 1, you need to reference your *own* company's `local` [CompanyShippinOption](/objects/company-shipping-option.md) ID in the [BuildOrder](/helpers/build-order.md) payload. When Plateit automatically creates the delegated OrderPackage/s, it will attempt to assign a matching shipping option to the `foreign` (delegated) package. If the `foreign` company doesn't have the requested shipping option in common, it will assign the delegated company's closest match.
 
 For example, if you specify the ID for your next-day shipping option with Royal Mail, but the delegated company only uses Evri, their next-day Evri CompanyShippingOption will be assigned to the delegated OrderPackage because that's their closest match.
 
@@ -128,6 +128,6 @@ For example, if you specify the ID for your next-day shipping option with Royal 
 
 Let's say Pressed Plates are delegated to another company to fulfil.
 
-Now let's say the [BuildOrder](/helpers/actions/build-order.md) endpoint has been used to allow a customer to purchase a pair of Pressed Plates (delegated) and a Fixing Kit (not delegated).
+Now let's say the [BuildOrder](/helpers/build-order.md) endpoint has been used to allow a customer to purchase a pair of Pressed Plates (delegated) and a Fixing Kit (not delegated).
 
 If Plateit detects the delegated company *also* sells Fixing Kits with a matching SKU, it will assign the Fixing Kit to the same delegated OrderPackage. This is done to reduce shipping costs, packaging waste, and delivery delays, but only if it would prevent a single item from being shipped separately.

@@ -26,7 +26,7 @@ Here is a bulletted list of stages to help understand what goes on behind the sc
 3. The customer designs their plates and adds them to a basket.
 4. Further requests are made to Plateit to obtain the available [CompanyShippingOption](/objects/company-shipping-option.md) objects and [CompanyProduct](/objects/company-product.md) objects (upsells).
 5. The customer adds any extra products to the basket and selects a shipping option.
-6. The contents of the basket are used to build the final [BuildOrder](/helpers/actions/build-order.md) payload which is sent to Plateit. This creates a new [Order](/objects/order.md) with an `External Draft` status and its ID is returned.
+6. The contents of the basket are used to build the final [BuildOrder](/helpers/build-order.md) payload which is sent to Plateit. This creates a new [Order](/objects/order.md) with an `External Draft` status and its ID is returned.
 7. The draft order ID is passed to the payment processor.
 8. Once paid, the payment processor sends a webhook to Plateit.
 9. Plateit receieves the webhook and changes its status to `Open` (active).
@@ -453,13 +453,13 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
 
 ## Creating the Order
 
-The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the `External Draft` order. More information can be found on the [BuildOrder](/helpers/actions/build-order.md) page.
+The contents of the basket and the selected shipping option are used to build the final payload to send to Plateit to create the `External Draft` order. More information can be found on the [BuildOrder](/helpers/build-order.md) page.
 
 <!-- tabs:start -->
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/helpers/actions/build-order`
+* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
 * Method: `POST`
 
 ```json

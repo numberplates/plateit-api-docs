@@ -1,6 +1,6 @@
 # BuildOrder
 
-`https://data.plateit.co.uk/v3/helpers/actions/build-order`
+`https://data.plateit.co.uk/v3/actions/build-order`
 
 This helper endpoint is used to build an entire [Order](/objects/order.md), including its nested contents **in a single request**. It is designed to be used at a customer-facing checkout.
 
@@ -76,7 +76,7 @@ More information about how this endpoint handles delegations can be found in the
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/helpers/actions/build-order`
+* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
 * Method: `POST`
 * Query:
   * is_dummy: `true`

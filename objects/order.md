@@ -80,7 +80,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
 
 !> Requires the `orders_write` permission.
 
-> If you want to create an entire order in one request, including plates, products and shipping, consider using the [build-order](/helpers/actions/build-order.md) endpoint. This may be better suited for applications with a customer-facing checkout facility.
+> If you want to create an entire order in one request, including plates, products and shipping, consider using the [build-order](/helpers/build-order.md) endpoint. This may be better suited for applications with a customer-facing checkout facility.
 
 <!-- tabs:start -->
 
