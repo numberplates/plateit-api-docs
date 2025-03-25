@@ -24,7 +24,7 @@ This object primarily consists of your company's contact information. **It can b
 
 ## Example Requests
 
-### Retrieve a Company
+### Retrieve
 
 !> Requires the `company_settings_read` permission.
 
@@ -64,7 +64,7 @@ No parameters.
 <!-- tabs:end -->
 
 
-### Update a Company
+### Update
 
 !> Requires the `company_settings_write` permission.
 

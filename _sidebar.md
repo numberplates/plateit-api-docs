@@ -2,11 +2,14 @@
   * [Home](/)
 
 * Fundamentals
+  * [Introduction](/fundamentals/introduction.md)
   * [Conventions](/fundamentals/conventions.md)
   * [Plate Files](/fundamentals/plate-files.md)
   * [Suggested Integration](/fundamentals/suggested-integration.md)
   * [PayPal](/fundamentals/paypal.md)
   * [Webhooks](/fundamentals/webhooks.md)
+  * [Package Processing Criteria](/fundamentals/package-processing-criteria.md)
+  * [Editing Existing Plate Designs](/fundamentals/editing-existing-plate-designs.md)
   * [Delegations](/fundamentals/delegations.md)
 
 * Objects

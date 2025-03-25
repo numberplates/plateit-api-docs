@@ -10,7 +10,7 @@ If a delegator/delegatee relationship exists between your company and another, y
 
 ## Example Requests
 
-### Retrieve Delegatees
+### Retrieve
 
 This request returns a collection of companies that you are permitted to create delegated packages for.
 

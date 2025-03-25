@@ -51,7 +51,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 ## Example Requests
 
-### Create a Plate Type
+### Create
 
 !> Requires the `company_plate_types_write` permission.
 
@@ -105,7 +105,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 <!-- tabs:end -->
 
-### Retrieve a Plate Type
+### Retrieve
 
 !> Requires the `company_plate_types_read` permission.
 
@@ -142,7 +142,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### List Plate Types
+### List
 
 !> Requires the `company_plate_types_read` permission.
 
@@ -209,7 +209,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update a Plate Type
+### Update
 
 !> Requires the `company_plate_types_write` permission.
 
@@ -258,7 +258,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Delete a Plate Type
+### Delete
 
 !> Requires the `company_plate_types_write` permission.
 

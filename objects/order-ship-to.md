@@ -24,7 +24,7 @@ An [Order](/objects/order.md) can have a single shipping address. The data in th
 
 ## Example Requests
 
-### Create an Address
+### Create
 
 !> Requires the `orders_customer_write` permission.
 
@@ -78,7 +78,7 @@ An [Order](/objects/order.md) can have a single shipping address. The data in th
 
 <!-- tabs:end -->
 
-### Retrieve an Address
+### Retrieve
 
 !> Requires the `orders_read` permission.
 
@@ -115,7 +115,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update an Address
+### Update
 
 !> Requires the `orders_customer_write` permission.
 
@@ -164,7 +164,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Delete an Address
+### Delete
 
 !> Requires the `orders_customer_write` permission.
 

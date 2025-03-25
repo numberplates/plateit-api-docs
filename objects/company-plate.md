@@ -68,7 +68,7 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 
 ## Example Requests
 
-### Create a Plate
+### Create
 
 !> Requires the `company_plates_write` permission.
 
@@ -127,7 +127,7 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 
 <!-- tabs:end -->
 
-### Retrieve a Plate
+### Retrieve
 
 !> Requires the `company_plates_read` permission.
 
@@ -165,7 +165,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### List Plates
+### List
 
 !> Requires the `company_plates_read` permission.
 
@@ -464,7 +464,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update a Plate
+### Update
 
 !> Requires the `company_plates_write` permission.
 
@@ -515,7 +515,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Delete a Plate
+### Delete
 
 !> Requires the `company_plates_write` permission.
 

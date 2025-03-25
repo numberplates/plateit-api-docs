@@ -1,6 +1,6 @@
 # Plate Files
 
-The final number plate print (and preview) files sent to Plateit need to adhere to a few rules.
+To use Plateit, your application will need to generate the final print (and preview) files, which are then submitted to Plateit for processing. For convenience and maximum compatibility, we offer [our own number plate image generator](https://numberplates.github.io/plateit-generator-docs), which you can use to create the previews and print files. Alternatively, you can develop your own custom solution, providing it adheres the simple rules outlined on this page.
 
 ## Rules
 
@@ -8,9 +8,9 @@ The final number plate print (and preview) files sent to Plateit need to adhere 
 
 The final image files need to be in [SVG](https://developer.mozilla.org/en-US/docs/Web/SVG) format.
 
-### Viewport
+### ViewBox
 
-The width and height sections of the SVG's `viewport` attribute need to match the width and height in mm of the number plate being purchased. For example, the viewport attribute for a standard 520x111mm oblong would need to be:
+The width and height sections of the SVG's `viewBox` attribute need to match the width and height in mm of the number plate being purchased. For example, the viewBox attribute for a standard 520x111mm oblong would need to be:
 
 ```xml
 <svg viewBox="0 0 520 111">
@@ -18,7 +18,7 @@ The width and height sections of the SVG's `viewport` attribute need to match th
 </svg>
 ```
 
-Failure to adhere to the above viewport rule will return a validation error.
+Failure to adhere to the above viewBox rule will return a validation error.
 
 ### Fonts
 

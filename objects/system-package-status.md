@@ -25,26 +25,32 @@ Each [OrderPackage](/objects/order-package.md) has an associated SystemPackageSt
     {
       "id": 1,
       "name": "Unprocessed",
-      "description": "The contents of the package are awaiting manufacture.",
+      "description": "The contents of the package are waiting to be processed.",
       "href": "/system-package-statuses/1"
     },
     {
       "id": 2,
       "name": "Processing",
-      "description": "The contents of the package are in the manufacture queue.",
+      "description": "The contents of the package are actively being processed.",
       "href": "/system-package-statuses/2"
     },
     {
       "id": 3,
       "name": "Processed",
-      "description": "The contents of the package have been printed and/or picked.",
+      "description": "The contents of the package have been processed.",
       "href": "/system-package-statuses/3"
     },
     {
       "id": 4,
       "name": "Held",
-      "description": "The package has been placed on hold.",
+      "description": "The package is in a held state, awaiting further action.",
       "href": "/system-package-statuses/4"
+    },
+    {
+      "id": 5,
+      "name": "Cancelled",
+      "description": "The fulfillment of the package has been cancelled.",
+      "href": "/system-package-statuses/5"
     }
   ]
 }

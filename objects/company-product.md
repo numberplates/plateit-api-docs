@@ -59,7 +59,7 @@ The CompanyProduct object represents any product other than a number plate that 
 
 ## Example Requests
 
-### Create a Product
+### Create
 
 !> Requires the `company_products_write` permission.
 
@@ -122,7 +122,7 @@ The CompanyProduct object represents any product other than a number plate that 
 
 <!-- tabs:end -->
 
-### Retrieve a Product
+### Retrieve
 
 !> Requires the `company_products_read` permission.
 
@@ -162,7 +162,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### List Products
+### List
 
 !> Requires the `company_products_read` permission.
 
@@ -222,7 +222,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update a Product
+### Update
 
 !> Requires the `company_products_write` permission.
 
@@ -277,7 +277,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Delete a Product
+### Delete
 
 !> Requires the `company_products_write` permission.
 

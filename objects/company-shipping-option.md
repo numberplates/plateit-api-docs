@@ -53,9 +53,9 @@ The CompanyShippingOption object represents a shipping option the customer can c
 
 ## Example Requests
 
-### Create a Shipping Option
+### Create
 
-!> Requires the `company_shipping_write` permission.
+!> Requires the `company_shipping_options_write` permission.
 
 <!-- tabs:start -->
 
@@ -101,9 +101,9 @@ The CompanyShippingOption object represents a shipping option the customer can c
 
 <!-- tabs:end -->
 
-### Retrieve a Shipping Option
+### Retrieve
 
-!> Requires the `company_shipping_read` permission.
+!> Requires the `company_shipping_options_read` permission.
 
 <!-- tabs:start -->
 
@@ -136,9 +136,9 @@ No parameters.
 
 <!-- tabs:end -->
 
-### List Shipping Options
+### List
 
-!> Requires the `company_shipping_read` permission.
+!> Requires the `company_shipping_options_read` permission.
 
 > The following example includes relationships. 
 
@@ -222,9 +222,9 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update a Shipping Option
+### Update
 
-!> Requires the `company_shipping_write` permission.
+!> Requires the `company_shipping_options_write` permission.
 
 <!-- tabs:start -->
 
@@ -267,9 +267,9 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Delete a Shipping Option
+### Delete
 
-!> Requires the `company_shipping_write` permission.
+!> Requires the `company_shipping_options_write` permission.
 
 <!-- tabs:start -->
 

@@ -37,7 +37,7 @@ Each [Order](/objects/order.md) has an associated system order status. It is use
     {
       "id": 3,
       "name": "Open",
-      "description": "The order is open, and its committed packages are ready for processing.",
+      "description": "The order is open and ready for processing.",
       "href": "/system-order-statuses/3"
     },
     {
@@ -45,12 +45,6 @@ Each [Order](/objects/order.md) has an associated system order status. It is use
       "name": "Closed",
       "description": "The order has been closed and archived.",
       "href": "/system-order-statuses/4"
-    },
-    {
-      "id": 5,
-      "name": "Cancelled",
-      "description": "The order has been cancelled.",
-      "href": "/system-order-statuses/5"
     }
   ]
 }

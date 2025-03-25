@@ -23,20 +23,15 @@
     {
       "id": 1,
       "event_key": "order:place",
-      "description": "When a payment is received to activate (open) an external draft order. Required to notify a customer of a successful order placement."
+      "description": "When a payment is received to activate (open) an external or internal draft order. Required to notify a customer of a successful order placement."
     },
     {
       "id": 2,
-      "event_key": "order:status-update",
-      "description": "When the status of an active order is updated."
-    },
-    {
-      "id": 3,
       "event_key": "order-package:status-update",
       "description": "When the status of a package is updated."
     },
     {
-      "id": 4,
+      "id": 3,
       "event_key": "order-package:despatch-status-update",
       "description": "When the despatch status of a package is updated."
     }

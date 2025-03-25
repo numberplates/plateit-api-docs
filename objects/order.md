@@ -2,7 +2,7 @@
 
 `https://data.plateit.co.uk/v3/orders`
 
-The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created pertaining to the order.
+The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created or update pertaining to the order.
 
 ## Data References
 
@@ -70,23 +70,23 @@ The Order object is the outermost parent resource that represents an order. Most
 
 A dummy order can be created by passing `is_dummy` `true` when creating a new order.
 
-Dummy orders will be ignored in reports, and any delegations will NOT appear in the delegated company's print queue.
+Dummy orders will be ignored in reports, and any delegations will NOT appear in the delegated company's processing queue.
 
 An existing order cannot be updated to become a dummy order at a later time or vice versa.
 
 ## Example Requests
 
-### Create an Order
+### Create
 
 !> Requires the `orders_write` permission.
 
-> If you want to create an entire order in one request, including plates, products and shipping, consider using the [build-order](/helpers/build-order.md) endpoint. This may be better suited for applications with a customer-facing checkout facility.
+> If you want to create an entire order in one request, including plates, products and shipping, consider using the [BuildOrder](/helpers/build-order.md) helper endpoint. This may be better suited for applications with a customer-facing checkout facility.
 
 <!-- tabs:start -->
 
 #### **Body Parameters**
 
-* **system_order_status_id** `integer|null` A valid [SystemOrderStatus](/objects/system-order-status.md) ID. Defaults to `5` (Draft).
+* **system_order_status_id** `integer|null` A [SystemOrderStatus](/objects/system-order-status.md) ID of either `1` (External Draft) or `2` (Internal Draft). It will change automatically in the future depending on the fulfilment state of its child packages.
 * **is_dummy** `boolean|null` Defaults to `false`
 
 #### **Request**
@@ -127,7 +127,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
 
 <!-- tabs:end -->
 
-### Retrieve an Order
+### Retrieve
 
 !> Requires the `orders_read` permission.
 
@@ -150,24 +150,28 @@ No parameters.
 {
   "id": 100,
   "company_id": 1,
-  "system_order_status_id": 3,
+  "system_order_status_id": 2,
   "system_order_fulfilment_status_id": 1,
-  "price_subtotal": 0,
-  "price_shipping": 0,
-  "price_total": 0,
+  "amount_subtotal": 0,
+  "amount_shipping": 0,
+  "amount_vat": 0,
+  "amount_total": 0,
   "amount_paid": 0,
   "amount_refunded": 0,
+  "amount_vat_collected": 0,
+  "amount_vat_refunded": 0,
   "packages_count": 0,
-  "is_dummy": false,
-  "created_at": "2024-05-24T09:15:20.000000Z",
-  "updated_at": "2024-05-24T09:15:20.000000Z",
+  "is_dummy": true,
+  "opened_at": null,
+  "created_at": "2025-02-26T16:09:50.000000Z",
+  "updated_at": "2025-02-26T16:09:50.000000Z",
   "href": "/orders/100"
 }
 ```
 
 <!-- tabs:end -->
 
-### List Orders
+### List
 
 !> Requires the `orders_read` permission.
 
@@ -192,33 +196,41 @@ No parameters.
     {
       "id": 99,
       "company_id": 1,
-      "system_order_status_id": 2,
-      "system_order_fulfilment_status_id": 2,
-      "price_subtotal": 2000,
-      "price_shipping": 500,
-      "price_total": 2500,
-      "amount_paid": 2500,
+      "system_order_status_id": 3,
+      "system_order_fulfilment_status_id": 3,
+      "amount_subtotal": 4777,
+      "amount_shipping": 721,
+      "amount_vat": 1104,
+      "amount_total": 6602,
+      "amount_paid": 6602,
       "amount_refunded": 0,
-      "packages_count": 0,
-      "is_dummy": false,
-      "created_at": "2024-05-24T09:14:56.000000Z",
-      "updated_at": "2024-05-24T09:14:56.000000Z",
-      "href": "/orders/99"
+      "amount_vat_collected": 1104,
+      "amount_vat_refunded": 0,
+      "packages_count": 1,
+      "is_dummy": true,
+      "opened_at": "2025-03-25T15:11:53.000000Z",
+      "created_at": "2025-03-25T14:36:37.000000Z",
+      "updated_at": "2025-03-25T15:11:53.000000Z",
+      "href": "/orders/1"
     },
     {
       "id": 100,
       "company_id": 1,
-      "system_order_status_id": 3,
+      "system_order_status_id": 2,
       "system_order_fulfilment_status_id": 1,
-      "price_subtotal": 0,
-      "price_shipping": 0,
-      "price_total": 0,
+      "amount_subtotal": 0,
+      "amount_shipping": 0,
+      "amount_vat": 0,
+      "amount_total": 0,
       "amount_paid": 0,
       "amount_refunded": 0,
+      "amount_vat_collected": 0,
+      "amount_vat_refunded": 0,
       "packages_count": 0,
       "is_dummy": false,
-      "created_at": "2024-05-24T09:15:20.000000Z",
-      "updated_at": "2024-05-24T09:15:20.000000Z",
+      "opened_at": null,
+      "created_at": "2025-03-26T16:09:50.000000Z",
+      "updated_at": "2025-03-26T16:09:50.000000Z",
       "href": "/orders/100"
     }
   ]
@@ -227,53 +239,11 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update an Order
+### Update
 
-!> Requires the `orders_write` permission.
+Once an order has been created, none of its properties can be updated manually.
 
-<!-- tabs:start -->
-
-#### **Body Parameters**
-
-* **system_order_status_id** `integer|null`
-
-#### **Request**
-
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}`
-* Method: `PATCH`
-
-```json
-{
-  "system_order_status_id": 3
-}
-```
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 100,
-  "company_id": 1,
-  "system_order_status_id": 3,
-  "system_order_fulfilment_status_id": 1,
-  "price_subtotal": 0,
-  "price_shipping": 0,
-  "price_total": 0,
-  "amount_paid": 0,
-  "amount_refunded": 0,
-  "packages_count": 0,
-  "is_dummy": false,
-  "created_at": "2024-05-24T09:15:20.000000Z",
-  "updated_at": "2024-05-24T09:15:55.000000Z",
-  "href": "/orders/100"
-}
-```
-
-<!-- tabs:end -->
-
-### Delete an Order
+### Delete
 
 !> Requires the `orders_write` permission.
 

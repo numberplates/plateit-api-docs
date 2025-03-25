@@ -45,7 +45,7 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 
 ## Example Requests
 
-### Create a Note
+### Create
 
 !> Requires the `orders_packages_notes_write` permission.
 
@@ -85,7 +85,7 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 
 <!-- tabs:end -->
 
-### Retrieve a Note
+### Retrieve
 
 !> Requires the `orders_read` permission.
 
@@ -118,7 +118,7 @@ No parameters.
 
 <!-- tabs:end -->
 
-### List Products
+### List
 
 !> Requires the `orders_read` permission.
 
@@ -155,11 +155,11 @@ No parameters.
 
 <!-- tabs:end -->
 
-### Update a Note
+### Update
 
 A note cannot be updated, only created or deleted.
 
-### Delete a Note
+### Delete
 
 !> Requires the `orders_packages_notes_write` permission.
 

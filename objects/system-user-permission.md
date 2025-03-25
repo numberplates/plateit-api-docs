@@ -60,13 +60,13 @@ Each [CompanyUser](/objects/company-user.md) and [CompanyAccessToken](/objects/c
     },
     {
       "id": 7,
-      "ability_key": "company_shipping_read",
+      "ability_key": "company_shipping_options_read",
       "description": "Read company shipping options.",
       "href": "/system-user-permissions/7"
     },
     {
       "id": 8,
-      "ability_key": "company_shipping_write",
+      "ability_key": "company_shipping_options_write",
       "description": "Create, update and delete company shipping options.",
       "href": "/system-user-permissions/8"
     },
