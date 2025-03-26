@@ -12,5 +12,5 @@ Please read the following guides to better understand the key concepts:
 * [Suggested Integration](/fundamentals/suggested-integration.md)
 * [PayPal](/fundamentals/paypal.md)
 * [Webhooks](/fundamentals/webhooks.md)
-* [Package Processing Criteria](/fundamentals/package-processing-criteria.md)
+* [Editing Existing Plate Designs](/fundamentals/editing-existing-plate-designs.md)
 * [Delegations](/fundamentals/delegations.md)

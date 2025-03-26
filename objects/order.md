@@ -2,7 +2,7 @@
 
 `https://data.plateit.co.uk/v3/orders`
 
-The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created or update pertaining to the order.
+The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created or updated pertaining to the order.
 
 ## Data References
 

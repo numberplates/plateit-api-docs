@@ -8,7 +8,6 @@
   * [Suggested Integration](/fundamentals/suggested-integration.md)
   * [PayPal](/fundamentals/paypal.md)
   * [Webhooks](/fundamentals/webhooks.md)
-  * [Package Processing Criteria](/fundamentals/package-processing-criteria.md)
   * [Editing Existing Plate Designs](/fundamentals/editing-existing-plate-designs.md)
   * [Delegations](/fundamentals/delegations.md)
 
@@ -37,7 +36,7 @@
   * [OrderShipTo](/objects/order-ship-to.md)
   * [SystemCountry](/objects/system-country.md)
   * [SystemCourierService](/objects/system-courier-service.md)
-  * [SystemOrderFulfilmentStatus](/objects/system-order-status.md)
+  * [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md)
   * [SystemOrderStatus](/objects/system-order-status.md)
   * [SystemPackageStatus](/objects/system-package-status.md)
   * [SystemPaymentProvider](/objects/system-payment-provider.md)

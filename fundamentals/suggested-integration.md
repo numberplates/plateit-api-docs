@@ -11,7 +11,7 @@ You will need a [CompanyAccessToken](/objects/company-access-token.md) with the 
 * `company_shipping_options_read`
 * `orders_build`
 
-Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to edit purchased plates at a later date.
+Although outside the scope of this tutorial, you may also want to include the following permissions if you intend on your application being able to [edit purchased plates at a later date](/fundamentals/editing-existing-plate-designs.md).
 
 * `orders_read`
 * `company_plate_types_read`

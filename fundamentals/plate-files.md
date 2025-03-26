@@ -61,7 +61,7 @@ For example, the rectangle in the following SVG string will be present when disp
 
 ### Design Metadata
 
-When creating or updating an [OrderPackagePlate](/objects/order-package-plate.md) object (or utilising the [Build Order](/helpers/build-order.md) helper endpoint), it is recommended to include not only the final SVG, but also a JSON representation of the design as a `design_object` property. This will allow you to bring the design back into your editor should you wish to make changes to it as a later date. For example:
+When creating or updating an [OrderPackagePlate](/objects/order-package-plate.md) object (or utilising the [BuildOrder](/helpers/build-order.md) helper endpoint), it is recommended to include not only the final SVG, but also a JSON representation of the design as a `design_object` property. This will allow you to bring the design back into your editor should you wish to make changes to it as a later date. For example:
 
 ```json
 {
