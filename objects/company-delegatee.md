@@ -8,6 +8,26 @@ If a delegator/delegatee relationship exists between your company and another, y
 
 > Please see the [delegation guide](/fundamentals/delegations.md) for added context.
 
+# Data References
+
+### Attributes
+
+All attributes are idendtical to the [Company](/objects/company.md) object with the addition of an `is_approved` boolean. This signifies whether the delegation relationship with your company is approved and active. See the example request responses below for clarification.
+
+### Available Order Bys
+
+* id
+* name
+* is_approved
+
+*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+
+### Available Filter Bys
+
+* is_approved
+
+*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+
 ## Example Requests
 
 ### Retrieve

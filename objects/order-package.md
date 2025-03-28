@@ -6,6 +6,8 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 !> If delegating a package to another company to fulfil, there are important rules to follow. See the [delegation guide](/fundamentals/delegations.md) for more information.
 
+!> This page is a stub. To be continued...
+
 ## Data References
 
 ### Attributes
@@ -31,12 +33,66 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 ### Available Relationships
 
-* [delegate_to_company](/objects/company.md)
 * [system_package_status](/objects/system-package-status.md)
+* [delegate_to_company](/objects/company.md)
 * [plates](/objects/order-package-plate.md)
 * [products](/objects/order-package-product.md)
+* [shipping](/objects/order-package-shipping.md)
 * [notes](/objects/order-package-note.md)
+* [ship_to_override](/objects/order-package-ship-to-override.md)
+* [order](/objects/order.md)
+* [order.company](/objects/company.md)
+* [order.system_order_status](/objects/system-order-status.md)
+* [order.customer](/objects/order-customer.md)
+* [order.ship_to](/objects/order-ship-to.md)
+
+*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+
+### Available Order Bys
+
+* id
+* is_committed
+* is_shipping_synced
+* is_despatched
+* created_at
+* updated_at
+* order.id
+* order.is_dummy
+* order.opened_at
+* order.company.id
+* order.company.name
+* order.system_order_status.id
+* order.system_order_status.name
+* system_package_status.id
+* system_package_status.name
+* shipping.name
+
+*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+
+### Available Filter Bys
+
+* is_committed
+* is_shipping_synced
+* is_despatched
+* order.id
+* order.is_dummy
+* order.company.id
+* order.company.name
+* order.system_order_status.id
+* order.system_order_status.name
+* system_package_status.id
+* system_package_status.name
+* shipping.name
+
+*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+
+### Available Search Bys
+
+* id
+* order.customer.first_name
+* order.customer.last_name
+* order.customer.email
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 > Note: all packages (not just the ones pertaining to an order) can be retrieved at `https://data.plateit.co.uk/v3/packages`.
-
-!> This page is a stub. To be continued...

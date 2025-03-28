@@ -2,9 +2,9 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
 
-An [Order](/objects/order.md) can have a single billing address.
-
 > This is a singleton resource.
+
+An [Order](/objects/order.md) can have a single billing address.
 
 !> A billing address is only required if it is different to the [OrderShipTo](/objects/order-ship-to.md) (shipping) address.
 
@@ -23,6 +23,12 @@ An [Order](/objects/order.md) can have a single billing address.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
+
+### Available Relationships
+
+* [order](/objects/order.md)
+
+*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
 
 ## Example Requests
 

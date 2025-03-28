@@ -25,8 +25,8 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 
 ### Available Relationships
 
-* [company_plate_type](/objects/company-plate-type.md)
 * [system_plate_size](/objects/system-plate-size.md)
+* [company_plate_type](/objects/company-plate-type.md)
 
 *Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
 
@@ -35,14 +35,16 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 * id
 * colour
 * price
+* is_legal
 * is_front
 * is_rear
-* is_legal
 * is_active
 * created_at
 * updated_at
 * system_plate_size.width
 * system_plate_size.height
+* system_plate_size.vehicle
+* system_plate_size.category
 * company_plate_type.id
 * company_plate_type.name
 
@@ -51,9 +53,9 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 ### Available Filter Bys
 
 * colour
+* is_legal
 * is_front
 * is_rear
-* is_legal
 * is_active *
 * company_plate_type.id
 * company_plate_type.name
@@ -61,10 +63,20 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 * company_plate_type.is_active *
 * system_plate_size.width
 * system_plate_size.height
+* system_plate_size.vehicle
+* system_plate_size.category
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
 **Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
+
+### Available Search Bys
+
+* company_plate_type.name
+* system_plate_size.vehicle
+* system_plate_size.category
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 ## Example Requests
 

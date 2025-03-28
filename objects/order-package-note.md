@@ -31,7 +31,6 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 * id
 * is_private
 * created_at
-* updated_at
 
 *Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
 

@@ -44,12 +44,19 @@ The CompanyShippingOption object represents a shipping option the customer can c
 * is_active *
 * system_courier_services.id
 * system_courier_services.name
-* system_courier_service.priority_level'
+* system_courier_service.priority_level
 * system_courier_service.is_international
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
 **Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
+
+### Available Search Bys
+
+* name
+* system_courier_services.name
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 ## Example Requests
 

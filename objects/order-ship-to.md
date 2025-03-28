@@ -2,15 +2,15 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
 
-An [Order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider. It can be overridden at the OrderPackage level by creating an optional [OrderPackageShipToOverride](/objects/order-package-ship-to-override.md) object.
-
 > This is a singleton resource.
+
+An [Order](/objects/order.md) can have a single shipping address. The data in this object is passed to the appropriate shipment provider. It can be overridden at the OrderPackage level by creating an optional [OrderPackageShipToOverride](/objects/order-package-ship-to-override.md) object.
 
 ## Data References
 
 ### Attributes
 
-* **order_id** `integer` The order ID the resource belongs to.
+* **order_id** `integer` The [Order](/objects/order.md) ID the resource belongs to.
 * **first_name** `string` The customer's first name.
 * **last_name** `string` The customer's last name.
 * **address_line_1** `string` The first line of the address.
@@ -21,6 +21,12 @@ An [Order](/objects/order.md) can have a single shipping address. The data in th
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
+
+### Available Relationships
+
+* [order](/objects/order.md)
+
+*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
 
 ## Example Requests
 

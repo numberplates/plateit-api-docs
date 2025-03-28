@@ -27,16 +27,26 @@ The Order object is the outermost parent resource that represents an order. Most
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
+*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+
 ### Available Relationships
 
-* [company](/objects/company.md)
 * [system_order_status](/objects/system-order-status.md)
 * [system_order_fulfilment_status](/objects/system-order-fulfilment-status.md)
+* [company](/objects/company.md)
 * [customer](/objects/order-customer.md)
 * [ship_to](/objects/order-ship-to.md)
 * [bill_to](/objects/order-bill-to.md)
+* [notes](/objects/order-note.md)
 * [packages](/objects/order-package.md)
-* [notes](/objects/order-notes.md)
+* [packages.system_package_status](/objects/system-package-status.md)
+* [packages.delegate_to_company](/objects/company.md)
+* [packages.plates](/objects/order-package-plate.md)
+* [packages.products](/objects/order-package-product.md)
+* [packages.shipping](/objects/order-package-shipping.md)
+* [packages.notes](/objects/order-package-note.md)
+* [packages.notes.company_user](/objects/company-user.md)
+* [packages.ship_to_override](/objects/order-package-ship-to-override.md)
 
 *Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
 
@@ -44,7 +54,9 @@ The Order object is the outermost parent resource that represents an order. Most
 
 * id
 * is_dummy
+* opened_at
 * created_at
+* updated_at
 * company.id
 * company.name
 * system_order_status.id
@@ -65,6 +77,15 @@ The Order object is the outermost parent resource that represents an order. Most
 * system_order_fulfilment_status.name
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+
+### Available Search Bys
+
+* id
+* customer.first_name
+* customer.last_name
+* customer.email
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 ## Test (Dummy) Orders
 

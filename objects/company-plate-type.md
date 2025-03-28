@@ -49,6 +49,12 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 **Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
 
+### Available Search Bys
+
+* name
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
+
 ## Example Requests
 
 ### Create

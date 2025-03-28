@@ -2,9 +2,9 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
 
-An [Order](/objects/order.md) can have a single customer. The data in this object is passed to the appropriate shipment provider.
-
 > This is a singleton resource.
+
+An [Order](/objects/order.md) can have a single customer. The data in this object is passed to the appropriate shipment provider.
 
 ## Data References
 
@@ -19,6 +19,12 @@ An [Order](/objects/order.md) can have a single customer. The data in this objec
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
+
+### Available Relationships
+
+* [order](/objects/order.md)
+
+*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
 
 ## Example Requests
 

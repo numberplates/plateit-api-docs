@@ -373,3 +373,74 @@ In the fictional example below, the person's `eye_colour` relationship is being 
 ```
 
 <!-- tabs:end -->
+
+### Searching
+
+Some resources are searchable. The available `search_by` fields can be found on each object type's documenation page.
+
+Use the `search_term` query parameter for your target word.
+
+If no `search_by` field is specified, all available (searchable) fields will be queried.
+
+<!-- tabs:start -->
+
+#### **Request**
+
+* Endpoint: `https://data.plateit.co.uk/people`
+* Method: `GET`
+* Query:
+  * search_term: `john`
+  * search_by: `name`
+
+#### **Response**
+
+* Status code: `200`
+
+```json
+{
+  "data": [
+    {
+      "id": 123,
+      "name": "John",
+      "eye_colour_id": 1,
+      "is_active": true,
+      "created_at": "2024-05-24T09:14:11.000000Z",
+      "updated_at": "2024-05-24T09:14:11.000000Z",
+      "href": "/people/123"
+    },
+  ],
+  "links": {
+    "first": "/people?search_term=john&search_by=name&page=1",
+    "last": "/people?search_term=john&search_by=name&page=1",
+    "prev": null,
+    "next": null
+  },
+  "meta": {
+    "current_page": 1,
+    "from": 1,
+    "last_page": 1,
+    "links": [
+      {
+        "url": null,
+        "label": "&laquo; Previous",
+        "active": false
+      },
+      {
+        "url": "/people?search_term=john&search_by=name&page=1",
+        "label": "1",
+        "active": true
+      },
+      {
+        "url": null,
+        "label": "Next &raquo;",
+        "active": false
+      }
+    ],
+    "path": "/people",
+    "per_page": 25,
+    "to": 1,
+    "total": 1
+  }
+}
+```
+<!-- tabs:end -->

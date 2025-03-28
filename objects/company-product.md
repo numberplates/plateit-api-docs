@@ -43,11 +43,13 @@ The CompanyProduct object represents any product other than a number plate that 
 * height
 * depth
 * price
-* is_active
+* is_active *
 * created_at
 * updated_at
 
 *Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+
+**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
 
 ### Available Filter Bys
 
@@ -55,7 +57,12 @@ The CompanyProduct object represents any product other than a number plate that 
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
-**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
+### Available Search Bys
+
+* name
+* sku
+
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 ## Example Requests
 
