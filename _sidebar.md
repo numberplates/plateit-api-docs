@@ -27,7 +27,6 @@
   * [OrderCustomer](/objects/order-customer.md)
   * [OrderNote](/objects/order-note.md)
   * [OrderPackage](/objects/order-package.md)
-  * [OrderPackageDimensions](/objects/order-package-dimensions.md)
   * [OrderPackageNote](/objects/order-package-note.md)
   * [OrderPackagePlate](/objects/order-package-plate.md)
   * [OrderPackageProduct](/objects/order-package-product.md)
@@ -46,6 +45,7 @@
 
 * Helper Endpoints
   * [BuildOrder](/helpers/build-order.md)
+  * [CreateOrderPackageShipmentLabel](/helpers/create-order-package-shipment-label.md)
   * [DuplicateOrder](/helpers/duplicate-order.md)
   * [DuplicateOrderPackage](/helpers/duplicate-order-package.md)
   * [FormatRegistration](/helpers/format-registration.md)
@@ -56,6 +56,7 @@
   * [PrintPackageOverview](/helpers/print-package-overview.md)
   * [PrintPackagePaperwork](/helpers/print-package-paperwork.md)
   * [Search](/helpers/search.md)
+  * [UpdateOrderPackageDimensions](/helpers/update-order-package-dimensions.md)
   * [UpdateOrderStatuses](/helpers/update-order-statuses.md)
   * [UpdatePackageDespatchStatuses](/helpers/update-package-despatch-statuses.md)
   * [UpdatePackageShippingTrackingCodes](/helpers/update-package-shipping-tracking-codes.md)

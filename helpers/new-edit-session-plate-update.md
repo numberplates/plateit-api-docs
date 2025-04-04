@@ -2,7 +2,11 @@
 
 `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/{plate_id/new-edit-session`
 
-!> This page is a stub. To be continued...
+Generates a JSON Web Token (JWT) that can be decrypted by your application to help assist with editing an existing number plate design.
+
+It requires the `external_editor_endpoint` to be set in your company's General Settings.
+
+For more information please see the [Editing Existing Plate Designs](/fundamentals/editing-existing-plate-designs.md) article.
 
 <!-- tabs:start -->
 

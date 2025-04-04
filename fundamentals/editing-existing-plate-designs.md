@@ -10,11 +10,18 @@ You will need a [CompanyAccessToken](/objects/company-access-token.md) with the 
 * `company_plate_types_read`
 * `orders_packages_plates_write`
 
+You will also need the `external_editor_endpoint` to be set in your company's General Settings.
+
 ## How it Works
 
 When you want to edit an existing [OrderPackagePlate](/objects/order-package-plate.md) (or create a new one for an existing package), Plateit will send the user to a URL of your choosing with a JSON Web Token (JWT) included in a query string under the `token` key. For example:
 
 `https://example.com/make-changes?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NDI5MzAxMTksImNpZCI6MiwiZGlkIjoyLCJvaWQiOjM1NDYsInBpZCI6NDUzNCwieGlkIjoxMDM3Mn0.daf_6Ml_baiHC2OFcvaGIwrq61WunKeuTxDsVHAhrsY`
+
+A token can be generated with either of the following helper endpoints, depending on your intention:
+
+* [NewEditSessionPlateCreate](/helpers/new-edit-session-plate-create.md)
+* [NewEditSessionPlateUpdate](/helpers/new-edit-session-plate-update.md)
 
 The token has encoded into it the following data:
 
