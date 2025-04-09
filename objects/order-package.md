@@ -38,6 +38,7 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * [plates](/objects/order-package-plate.md)
 * [products](/objects/order-package-product.md)
 * [shipping](/objects/order-package-shipping.md)
+* [shipping.system_courier_service](/objects/system-courier-service.md)
 * [notes](/objects/order-package-note.md)
 * [ship_to_override](/objects/order-package-ship-to-override.md)
 * [order](/objects/order.md)
@@ -65,7 +66,8 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * order.system_order_status.name
 * system_package_status.id
 * system_package_status.name
-* shipping.name
+* shipping.system_courier_service.id
+* shipping.system_courier_service.name
 
 *Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
 
@@ -82,7 +84,8 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * order.system_order_status.name
 * system_package_status.id
 * system_package_status.name
-* shipping.name
+* shipping.system_courier_service.id
+* shipping.system_courier_service.name
 
 *Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
 
