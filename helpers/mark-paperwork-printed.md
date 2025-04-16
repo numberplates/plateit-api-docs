@@ -1,4 +1,4 @@
-# Mark Paperwork Printed (Bulk)
+# MarkPaperworkPrinted (Bulk)
 
 `https://data.plateit.co.uk/v3/actions/mark-paperwork-printed`
 

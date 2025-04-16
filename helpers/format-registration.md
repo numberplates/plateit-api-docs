@@ -1,4 +1,4 @@
-# Format Registration
+# FormatRegistration
 
 `https://data.plateit.co.uk/v3/actions/format-registration`
 

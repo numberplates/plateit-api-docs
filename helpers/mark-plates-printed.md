@@ -1,4 +1,4 @@
-# Mark Plates Printed (Bulk)
+# MarkPlatesPrinted (Bulk)
 
 `https://data.plateit.co.uk/v3/actions/mark-plates-printed`
 

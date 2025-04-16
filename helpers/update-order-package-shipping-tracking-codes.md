@@ -1,4 +1,4 @@
-# Update Package Shipping Tracking Codes (Bulk)
+# UpdateOrderPackageShippingTrackingCodes (Bulk)
 
 `https://data.plateit.co.uk/v3/actions/update-package-shipping-tracking-codes`
 

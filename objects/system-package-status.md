@@ -42,15 +42,21 @@ Each [OrderPackage](/objects/order-package.md) has an associated SystemPackageSt
     },
     {
       "id": 4,
-      "name": "Held",
-      "description": "The package is in a held state, awaiting further action.",
+      "name": "Despatched",
+      "description": "The package has been despatched.",
       "href": "/system-package-statuses/4"
     },
     {
       "id": 5,
+      "name": "Held",
+      "description": "The package is in a held state, awaiting further action.",
+      "href": "/system-package-statuses/5"
+    },
+    {
+      "id": 6,
       "name": "Cancelled",
       "description": "The fulfillment of the package has been cancelled.",
-      "href": "/system-package-statuses/5"
+      "href": "/system-package-statuses/6"
     }
   ]
 }

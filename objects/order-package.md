@@ -15,7 +15,7 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * **id** `integer` The unique ID of the package.
 * **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
 * **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) the package has been delegated to, if applicable.
-* **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md).
+* **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md). *This is updated exclusively using the [UpdateOrderPackageStatuses](/helpers/update-order-package-statuses.md) helper endpoint.*
 * **plates_qty** `integer` The quantity of number plates in the package.
 * **products_qty** `integer` The quantity of extra products in the package.
 * **width** `integer` The width of the package in mm.
@@ -26,7 +26,6 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * **is_committed** `boolean` The package has been marked as ready to fulfil if true.
 * **is_shipping_synced** `boolean` The package contents have been synced with the shipping provider if true. *This is updated exclusively using the [CreateOrderPackageShipmentLabel](/helpers/create-order-package-shipment-label.md) helper endpoint.*
 * **is_paperwork_printed** `boolean` The package's label/s have been printed if true. *This is updated exclusively using the [MarkPaperworkPrinted](/helpers/mark-paperwork-printed.md) helper endpoint.*
-* **is_despatched** `boolean` The package has been despatched if true. *This is updated exclusively using the [UpdatePackageDespatchStatuses](/helpers/update-package-despatch-statuses.md) helper endpoint.*
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
@@ -54,7 +53,6 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * id
 * is_committed
 * is_shipping_synced
-* is_despatched
 * created_at
 * updated_at
 * order.id
@@ -75,7 +73,6 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 * is_committed
 * is_shipping_synced
-* is_despatched
 * order.id
 * order.is_dummy
 * order.company.id
@@ -145,7 +142,6 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
   "is_committed": false,
   "is_shipping_synced": false,
   "is_paperwork_printed": false,
-  "is_despatched": false,
   "created_at": "2025-04-04T09:29:08.000000Z",
   "updated_at": "2025-04-04T09:29:08.000000Z",
   "href": "/orders/4006/packages/4972"
@@ -189,7 +185,6 @@ No parameters.
   "is_committed": false,
   "is_shipping_synced": false,
   "is_paperwork_printed": false,
-  "is_despatched": false,
   "created_at": "2025-04-04T09:29:08.000000Z",
   "updated_at": "2025-04-04T09:29:08.000000Z",
   "href": "/orders/4006/packages/4972"
@@ -237,7 +232,6 @@ No parameters.
       "is_committed": true,
       "is_shipping_synced": true,
       "is_paperwork_printed": true,
-      "is_despatched": false,
       "created_at": "2025-04-04T09:20:01.000000Z",
       "updated_at": "2025-04-04T09:20:01.000000Z",
       "href": "/orders/4006/packages/4971"
@@ -257,7 +251,6 @@ No parameters.
       "is_committed": false,
       "is_shipping_synced": false,
       "is_paperwork_printed": false,
-      "is_despatched": false,
       "created_at": "2025-04-04T09:29:08.000000Z",
       "updated_at": "2025-04-04T09:29:08.000000Z",
       "href": "/orders/4006/packages/4972"
@@ -276,7 +269,7 @@ No parameters.
 
 #### **Body Parameters**
 
-* **system_package_status_id** `int`
+* **is_committed** `boolean`
 
 #### **Request**
 
@@ -285,7 +278,7 @@ No parameters.
 
 ```json
 {
-  "system_package_status_id": 3
+  "is_committed": true
 }
 ```
 
@@ -306,10 +299,9 @@ No parameters.
   "depth": 0,
   "weight": 0,
   "has_overridden_dimensions": false,
-  "is_committed": false,
+  "is_committed": true,
   "is_shipping_synced": false,
   "is_paperwork_printed": false,
-  "is_despatched": false,
   "created_at": "2025-04-04T09:29:08.000000Z",
   "updated_at": "2025-04-04T09:31:45.000000Z",
   "href": "/orders/4006/packages/4972"
