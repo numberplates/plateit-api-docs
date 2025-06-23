@@ -55,7 +55,6 @@
   * [NewEditSessionPlateUpdate](/helpers/new-edit-session-plate-update.md)
   * [PrintPackageOverview](/helpers/print-package-overview.md)
   * [PrintPackagePaperwork](/helpers/print-package-paperwork.md)
-  * [Search](/helpers/search.md)
   * [UpdateOrderPackageDimensions](/helpers/update-order-package-dimensions.md)
   * [UpdateOrderPackageShippingTrackingCodes](/helpers/update-order-package-shipping-tracking-codes.md)
   * [UpdateOrderPackageStatuses](/helpers/update-order-package-statuses.md)

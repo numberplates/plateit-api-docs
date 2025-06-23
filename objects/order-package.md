@@ -6,6 +6,8 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 !> If delegating a package to another company to fulfil, there are important rules to follow. See the [delegation guide](/fundamentals/delegations.md) for more information.
 
+> Note: *all* OrderPackages (not just the ones pertaining to a single order) can be retrieved at `https://data.plateit.co.uk/v3/packages`.
+
 ## Data References
 
 ### Attributes
@@ -16,6 +18,10 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
 * **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) the package has been delegated to, if applicable.
 * **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md). *This is updated exclusively using the [UpdateOrderPackageStatuses](/helpers/update-order-package-statuses.md) helper endpoint.*
+* **amount_subtotal** `integer` The sum of all items in package in pence, minus shipping and VAT.
+* **amount_shipping** `integer` The total package shipping costs in pence.
+* **amount_vat** `integer` The total package VAT in pence.
+* **amount_total** `integer` The package's grand total in pence.
 * **plates_qty** `integer` The quantity of number plates in the package.
 * **products_qty** `integer` The quantity of extra products in the package.
 * **width** `integer` The width of the package in mm.
@@ -93,9 +99,9 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * order.customer.last_name
 * order.customer.email
 
-*Learn more about searching results [here](fundamentals/conventions.md#searching).*
+> Please note: when searching packages, duplicate results may appear when navigating to a new page of pagination. This is because search speed has been prioritized over strict uniqueness in Plateit's database optimisations.
 
-> Note: *all* OrderPackages (not just the ones pertaining to a single order) can be retrieved at `https://data.plateit.co.uk/v3/packages`.
+*Learn more about searching results [here](fundamentals/conventions.md#searching).*
 
 ## Example Requests
 
@@ -108,7 +114,7 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 #### **Body Parameters**
 
 * **delegate_to_company_id** `integer|null`
-* **system_package_status_id** `integer|null` (defaults to `1` - `External Draft`)
+* **system_package_status_id** `integer|null` (defaults to `1` - `Unprocessed`)
 * **is_committed** `boolean|null` (defaults to `false`)
 
 #### **Request**
@@ -118,7 +124,7 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 ```json
 {
-  "system_package_status_id": 2
+  "system_package_status_id": 5
 }
 ```
 
@@ -131,7 +137,11 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
   "id": 4972,
   "order_id": 4006,
   "delegate_to_company_id": null,
-  "system_package_status_id": 2,
+  "system_package_status_id": 5,
+  "amount_subtotal": 0,
+  "amount_shipping": 0,
+  "amount_vat": 0,
+  "amount_total": 0,
   "plates_qty": 0,
   "products_qty": 0,
   "width": 0,
@@ -175,6 +185,10 @@ No parameters.
   "order_id": 4006,
   "delegate_to_company_id": null,
   "system_package_status_id": 2,
+  "amount_subtotal": 0,
+  "amount_shipping": 0,
+  "amount_vat": 0,
+  "amount_total": 0,
   "plates_qty": 0,
   "products_qty": 0,
   "width": 0,
@@ -221,7 +235,11 @@ No parameters.
       "id": 4971,
       "order_id": 4006,
       "delegate_to_company_id": null,
-      "system_package_status_id": 5,
+      "system_package_status_id": 4,
+      "amount_subtotal": 25,
+      "amount_shipping": 5,
+      "amount_vat": 0,
+      "amount_total": 30,
       "plates_qty": 2,
       "products_qty": 1,
       "width": 530,
@@ -240,7 +258,11 @@ No parameters.
       "id": 4972,
       "order_id": 4006,
       "delegate_to_company_id": null,
-      "system_package_status_id": 1,
+      "system_package_status_id": 5,
+      "amount_subtotal": 0,
+      "amount_shipping": 0,
+      "amount_vat": 0,
+      "amount_total": 0,
       "plates_qty": 0,
       "products_qty": 0,
       "width": 0,
@@ -291,7 +313,7 @@ No parameters.
   "id": 4972,
   "order_id": 4006,
   "delegate_to_company_id": null,
-  "system_package_status_id": 3,
+  "system_package_status_id": 5,
   "plates_qty": 0,
   "products_qty": 0,
   "width": 0,

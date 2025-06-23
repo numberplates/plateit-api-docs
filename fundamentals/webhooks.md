@@ -21,7 +21,7 @@ Inside your company settings you can:
 The `X-Webhook-Contact-Hint` header is included in each webhook sent by Plateit. Its value is either `true` or `false` (strings), indicating whether a transactional email should be sent to the customer.
 
 * `true` suggests sending an email, as the event is significant enough to warrant customer notification.
-* `false` implies the event is an internal update only, and an email may not be necessary.
+* `false` implies the event is an internal update and an email may not be necessary.
 
 Honouring the contact hint is recommended, as it helps ensure that customers receive relevant and timely updates. However, the decision to send an email ultimately lies with your application.
 
@@ -29,7 +29,7 @@ Honouring the contact hint is recommended, as it helps ensure that customers rec
 
 ## Webhook Authenticity
 
-Plateit includes a digital signature in each webhook request to ensure authenticity and integrity. The signature, a hexadecimal string, is found in the incoming `Signature` header.
+Plateit includes a digital signature in each webhook request to ensure authenticity. The signature, a hexadecimal string, is found in the incoming `Signature` header.
 
 To verify a webhook's authenticity, use your company's secret key to generate a hash-based message authentication code (HMAC) and compare it to the signature. The steps are:
 
@@ -37,25 +37,56 @@ To verify a webhook's authenticity, use your company's secret key to generate a 
 * Compare the generated HMAC to the `Signature` header.
 * If they match, the webhook is authentic and untampered.
 
-Here's an example using pseudo server-side JavaScript:
+Below is an example using server-side JavaScript. The process is more-or-less the same for all programming languages.
 
 ```javascript
-const crypto = require('crypto');
+// Import dependencies.
+const express = require('express')
+const crypto = require('crypto')
 
-const secretKey = 'the_same_secret_key_in_your_settings';
-const signature = 'signature_from_webhook_request_header';
-const requestBody = 'webhook_payload';
+// Initiate app.
+const app = express()
+app.use(express.json())
 
-const hmac = crypto.createHmac('sha256', secretKey);
-hmac.update(requestBody);
-const generatedSignature = hmac.digest('hex');
+// Set the secret key that will be used to verify the digital signature.
+const secretKey = 'the_same_secret_key_in_your_settings'
 
-if (generatedSignature === signature) {
-  // SUCCESS (authentic)
-} else {
-  // FAIL (not authentic)
-}
+// Define an endpoint route for your webhook listener.
+app.post('/webhook-listener', (req, res) => {
+
+  // Extract the pertinent data from the incoming request.
+  const signature = req.header('Signature')
+  const eventType = req.header('X-Webhook-Event')
+  const makeContact = req.header('X-Webhook-Contact-Hint') === 'true'
+  const payloadObj = req.body
+  const payloadRaw = req.rawBody
+
+  // Ensure data is well formed.
+  if (!signature || !eventType || !payloadRaw || typeof payloadObj !== 'object') {
+    return res.status(400).send('Invalid request')
+  }
+
+  // Generate a digital signature using the secret key and SHA-256 algorithm.
+  const hmac = crypto.createHmac('sha256', secretKey)
+  hmac.update(payloadRaw)
+  const generatedSignature = hmac.digest('hex')
+
+  // Compare the generated signature with the one in the request header.
+  if (generatedSignature !== signature) {
+    return res.status(401).send('Invalid webhook signature')
+  }
+
+  // If we get this far, the webhook is legitimate.
+
+  // Handle payloadObj data here.
+
+  return res.status(200).send('Webhook processed')
+})
 ```
+
+## Failing Webhooks
+
+Webhook attempts that timeout or do no receive a 2XX response code will retry later. Persistently failing webhooks will be removed from the send queue and the company will be notified by email and encouraged to fix the problem.
 
 ## Event Types
 

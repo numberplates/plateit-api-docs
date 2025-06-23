@@ -14,7 +14,7 @@ Some company resources will reference system resources.
 
 ### Response Body
 
-Here is a fictional example of a typical collection response. There will be an array of objects nested within the `data` key, and metadata nested within the `meta` key.
+Here is a fictional example of a typical collection response. An array of objects will be nested under the `data` key, and basic pagination information and metadata will be found associated with the `links` and `meta` keys.
 
 <!-- tabs:start -->
 
@@ -60,35 +60,15 @@ Here is a fictional example of a typical collection response. There will be an a
   ],
   "links": {
     "first": "/people?page=1",
-    "last": "/people?page=1",
     "prev": null,
     "next": null
   },
   "meta": {
     "current_page": 1,
     "from": 1,
-    "last_page": 1,
-    "links": [
-      {
-        "url": null,
-        "label": "&laquo; Previous",
-        "active": false
-      },
-      {
-        "url": "/people?page=1",
-        "label": "1",
-        "active": true
-      },
-      {
-        "url": null,
-        "label": "Next &raquo;",
-        "active": false
-      }
-    ],
     "path": "/people",
     "per_page": 25,
-    "to": 3,
-    "total": 3
+    "to": 3
   }
 }
 ```
@@ -151,35 +131,15 @@ In the fictional example below, the collection is being ordered by `name` in asc
   ],
   "links": {
     "first": "/people?order_by=name%3Aasc&page=1",
-    "last": "/people?order_by=name%3Aasc&page=1",
     "prev": null,
     "next": null
   },
   "meta": {
     "current_page": 1,
     "from": 1,
-    "last_page": 1,
-    "links": [
-      {
-        "url": null,
-        "label": "&laquo; Previous",
-        "active": false
-      },
-      {
-        "url": "/people?order_by=name%3Aasc&page=1",
-        "label": "1",
-        "active": true
-      },
-      {
-        "url": null,
-        "label": "Next &raquo;",
-        "active": false
-      }
-    ],
     "path": "/people",
     "per_page": 25,
-    "to": 3,
-    "total": 3
+    "to": 3
   }
 }
 ```
@@ -231,35 +191,15 @@ In the fictional example below, the collection is being refined to return all "a
   ],
   "links": {
     "first": "/people?filter_by=is_active%3Atrue&page=1",
-    "last": "/people?filter_by=is_active%3Atrue&page=1",
     "prev": null,
     "next": null
   },
   "meta": {
     "current_page": 1,
     "from": 1,
-    "last_page": 1,
-    "links": [
-      {
-        "url": null,
-        "label": "&laquo; Previous",
-        "active": false
-      },
-      {
-        "url": "/people?filter_by=is_active%3Atrue&page=1",
-        "label": "1",
-        "active": true
-      },
-      {
-        "url": null,
-        "label": "Next &raquo;",
-        "active": false
-      }
-    ],
     "path": "/people",
     "per_page": 25,
-    "to": 2,
-    "total": 2
+    "to": 2
   }
 }
 ```
@@ -339,31 +279,12 @@ In the fictional example below, the person's `eye_colour` relationship is being 
   ],
   "links": {
     "first": "/people?with=eye_colour&page=1",
-    "last": "/people?with=eye_colour&page=1",
     "prev": null,
     "next": null
   },
   "meta": {
     "current_page": 1,
     "from": 1,
-    "last_page": 1,
-    "links": [
-      {
-        "url": null,
-        "label": "&laquo; Previous",
-        "active": false
-      },
-      {
-        "url": "/people?with=eye_colour&page=1",
-        "label": "1",
-        "active": true
-      },
-      {
-        "url": null,
-        "label": "Next &raquo;",
-        "active": false
-      }
-    ],
     "path": "/people",
     "per_page": 25,
     "to": 3,
@@ -411,31 +332,12 @@ If no `search_by` field is specified, all available (searchable) fields will be 
   ],
   "links": {
     "first": "/people?search_term=john&search_by=name&page=1",
-    "last": "/people?search_term=john&search_by=name&page=1",
     "prev": null,
     "next": null
   },
   "meta": {
     "current_page": 1,
     "from": 1,
-    "last_page": 1,
-    "links": [
-      {
-        "url": null,
-        "label": "&laquo; Previous",
-        "active": false
-      },
-      {
-        "url": "/people?search_term=john&search_by=name&page=1",
-        "label": "1",
-        "active": true
-      },
-      {
-        "url": null,
-        "label": "Next &raquo;",
-        "active": false
-      }
-    ],
     "path": "/people",
     "per_page": 25,
     "to": 1,
