@@ -2,4 +2,35 @@
 
 `https://data.plateit.co.uk/v3/actions/format-registration`
 
-!> This page is a stub. Consider using the [Plateit admin area](https://admin.plateit.co.uk) to perform this action at this time.
+This helper endpoint assists with formatting registration strings. It converts the input to uppercase and inserts a space at the correct, legal position.
+
+Additionally, it includes a character correction feature that identifies and rectifies common confusions between similar-looking characters, such as `O` and `0`, and `I` and `1`.
+
+!> If the registration is not legal, an HTTP error will be returned.
+
+## Example Request
+
+<!-- tabs:start -->
+
+#### **Request**
+
+* Endpoint: `https://data.plateit.co.uk/v3/actions/format-registration`
+* Method: `POST`
+
+```json
+{
+  "registration": "pb79xyz"
+}
+```
+
+#### **Response**
+
+* Status code: `200`
+
+```json
+{
+  "registration": "PB79 XYZ"
+}
+```
+
+<!-- tabs:end -->

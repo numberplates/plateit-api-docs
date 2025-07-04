@@ -4,7 +4,7 @@
 
 This helper endpoint is used to build an entire [Order](/objects/order.md), including its nested contents **in a single request**. It is designed to be used at a customer-facing checkout.
 
-> The request outlined on this page will create a new, `External Draft` order. It will not become an active `Open` order until payment has been recieved. See the [suggested integration](/fundamentals/suggested-integration.md) instructions for more details.
+> The request outlined on this page will create a new, `External Draft` order. It will not become an active `Open` order until payment has been received. This behaviour can be overridden as [outlined below](#order-status). See the [suggested integration](/fundamentals/suggested-integration.md) instructions for more details.
 
 ## Data References
 
@@ -50,21 +50,29 @@ This helper endpoint is used to build an entire [Order](/objects/order.md), incl
     * **address_postcode** `string` The postcode.
     * **address_country_code** `string` The two-character ISO country code, such as "GB".
 
-## Setting Prices
-
-The item prices defined in the body of the request *need to be identical to the prices saved in Plateit*. If the prices do not match, it will return a validation error response.
-
-This default behaviour can be overridden if you want to manually set a custom price instead. To do this append the following query string to the endpoint url:
-
-`?bypass_price_checks=1`
-
-!> To prevent price manipulation, always make the request from the server side, incorporating logic that safeguards against client-side tampering!
-
 ## Delegations
 
 If any items are delegated to be fulfilled by other companies, the necessary delegated [OrderPackage](/objects/order-package.md) objects will be created automatically. If the delegated company uses a different shipping provider or doesn't have the same service available, the closest match will be found and applied.
 
 More information about how this endpoint handles delegations can be found in the [delegation guide](/fundamentals/delegations.md).
+
+### Order Status
+
+By default, upon success, a new `External Draft` order will be created and wil only become `Open` if manually updated, or when full payment has been received. This default behaviour can be overridden to create an `Open` (active) order right away by appending the following query string to the endpoint url:
+
+`?bypass_draft=1`
+
+!> To prevent abuse, always make the request from the server side, incorporating logic that safeguards against client-side tampering!
+
+### Prices
+
+The item prices defined in the body of the request *need to be identical to the prices saved in Plateit*. If the prices do not match, it will return a validation error response.
+
+This default behaviour can be overridden if you want to manually set custom prices instead. To do this append the following query string to the endpoint url:
+
+`?bypass_price_checks=1`
+
+!> To prevent price manipulation, always make the request from the server side, incorporating logic that safeguards against client-side tampering!
 
 ## Example Request
 
