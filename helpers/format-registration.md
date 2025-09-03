@@ -1,6 +1,6 @@
 # FormatRegistration
 
-`https://data.plateit.co.uk/v3/actions/format-registration`
+`https://api.plateit.co.uk/v3/actions/format-registration`
 
 This helper endpoint assists with formatting registration strings. It converts the input to uppercase and inserts a space at the correct, legal position.
 
@@ -14,7 +14,7 @@ Additionally, it includes a character correction feature that identifies and rec
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/actions/format-registration`
+* Endpoint: `https://api.plateit.co.uk/v3/actions/format-registration`
 * Method: `POST`
 
 ```json

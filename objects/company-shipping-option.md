@@ -1,6 +1,6 @@
 # CompanyShippingOption
 
-`https://data.plateit.co.uk/v3/shipping-options`
+`https://api.plateit.co.uk/v3/shipping-options`
 
 The CompanyShippingOption object represents a shipping option the customer can choose. It references a [SystemCourierService](/objects/system-courier-service.md).
 
@@ -76,7 +76,7 @@ The CompanyShippingOption object represents a shipping option the customer can c
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/shipping-options`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options`
 * Method: `POST`
 
 ```json
@@ -120,7 +120,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `GET`
 
 #### **Response**
@@ -157,7 +157,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/shipping-options`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options`
 * Method: `GET`
 * Query:
   * with: `system_courier_service`
@@ -245,7 +245,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `PATCH`
 
 ```json
@@ -286,7 +286,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/shipping-options/{shipping_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
 * Method: `DELETE`
 
 #### **Response**

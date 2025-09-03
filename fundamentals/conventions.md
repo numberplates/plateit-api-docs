@@ -20,7 +20,7 @@ Here is a fictional example of a typical collection response. An array of object
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/people`
+* Endpoint: `https://api.plateit.co.uk/people`
 * Method: `GET`
 
 #### **Response**
@@ -89,7 +89,7 @@ In the fictional example below, the collection is being ordered by `name` in asc
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/people`
+* Endpoint: `https://api.plateit.co.uk/people`
 * Method: `GET`
 * Query:
   * order_by: `name:asc`
@@ -158,7 +158,7 @@ In the fictional example below, the collection is being refined to return all "a
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/people`
+* Endpoint: `https://api.plateit.co.uk/people`
 * Method: `GET`
 * Query:
   * filter_by: `is_active:true`
@@ -222,7 +222,7 @@ In the fictional example below, the person's `eye_colour` relationship is being 
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/people`
+* Endpoint: `https://api.plateit.co.uk/people`
 * Method: `GET`
 * Query:
   * with: `eye_colour`
@@ -307,7 +307,7 @@ If no `search_by` field is specified, all available (searchable) fields will be 
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/people`
+* Endpoint: `https://api.plateit.co.uk/people`
 * Method: `GET`
 * Query:
   * search_term: `john`

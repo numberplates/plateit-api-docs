@@ -1,6 +1,6 @@
 # OrderPackageNote
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 
 An [OrderPackage](/objects/order-package.md) can have many notes. Notes are intended to be written by staff members but may be seen by the customer.
 
@@ -57,7 +57,7 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 * Method: `POST`
 
 ```json
@@ -96,7 +96,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
 * Method: `GET`
 
 #### **Response**
@@ -129,7 +129,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 * Method: `GET`
 
 #### **Response**
@@ -170,7 +170,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
 * Method: `DELETE`
 
 #### **Response**

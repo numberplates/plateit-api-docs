@@ -1,6 +1,6 @@
 # UpdateOrderPackageStatuses (Bulk)
 
-`https://data.plateit.co.uk/v3/actions/update-package-statuses`
+`https://api.plateit.co.uk/v3/actions/update-package-statuses`
 
 This helper endpoint is the *only* way to update the [SystemPackageStatus](/objects/system-package-status.md) of an [OrderPackage](/objects/order-package.md). It can be used to batch update the statuses of many packages at the same time.
 
@@ -45,7 +45,7 @@ The response body contains extra data pertaining to the results of the request:
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/actions/update-package-statuses`
+* Endpoint: `https://api.plateit.co.uk/v3/actions/update-package-statuses`
 * Method: `POST`
 
 ```json

@@ -1,6 +1,6 @@
 # OrderPayment
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/payments`
+`https://api.plateit.co.uk/v3/orders/{order_id}/payments`
 
 An [Order](/objects/order.md) can have a many payments.
 

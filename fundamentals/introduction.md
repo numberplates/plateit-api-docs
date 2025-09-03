@@ -24,7 +24,7 @@ Different permissions ([SystemUserPermission](/objects/system-user-permission.md
 The API token must be included in the `Authorization` header as a `Bearer` token.  For example:
 
 ```bash
-curl -X GET "https://data.plateit.co.uk/v3/plates" \
+curl -X GET "https://api.plateit.co.uk/v3/plates" \
 -H "Authorization: Bearer YOUR_API_TOKEN_HERE" \
 -H "Accept: application/json"
 ```

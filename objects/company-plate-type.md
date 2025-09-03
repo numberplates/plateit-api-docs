@@ -1,6 +1,6 @@
 # CompanyPlateType
 
-`https://data.plateit.co.uk/v3/plate-types`
+`https://api.plateit.co.uk/v3/plate-types`
 
 Any plate type you can think of can be catered for, as long as you can provide an appropriate print file for it.
 
@@ -75,7 +75,7 @@ Any plate type you can think of can be catered for, as long as you can provide a
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plate-types`
+* Endpoint: `https://api.plateit.co.uk/v3/plate-types`
 * Method: `POST`
 
 ```json
@@ -123,7 +123,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plate-types/{plate_type_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plate-types/{plate_type_id}`
 * Method: `GET`
 
 #### **Response**
@@ -160,7 +160,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plate-types`
+* Endpoint: `https://api.plateit.co.uk/v3/plate-types`
 * Method: `GET`
 
 #### **Response**
@@ -233,7 +233,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plate-types/{plate_type_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plate-types/{plate_type_id}`
 * Method: `PATCH`
 
 ```json
@@ -276,7 +276,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plate-types/{plate_type_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plate-types/{plate_type_id}`
 * Method: `DELETE`
 
 #### **Response**

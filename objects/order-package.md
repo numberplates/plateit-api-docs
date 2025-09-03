@@ -1,12 +1,12 @@
 # OrderPackage
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages`
 
 An OrderPackage belongs to an [Order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, an OrderPackage can be assigned to another company to fulfil on your behalf.
 
 !> If delegating a package to another company to fulfil, there are important rules to follow. See the [delegation guide](/fundamentals/delegations.md) for more information.
 
-> Note: *all* OrderPackages (not just the ones pertaining to a single order) can be retrieved at `https://data.plateit.co.uk/v3/packages`.
+> Note: *all* OrderPackages (not just the ones pertaining to a single order) can be retrieved at `https://api.plateit.co.uk/v3/packages`.
 
 ## Data References
 
@@ -119,7 +119,7 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages`
 * Method: `POST`
 
 ```json
@@ -172,7 +172,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
 * Method: `GET`
 
 #### **Response**
@@ -219,7 +219,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages`
 * Method: `GET`
 
 > Note: This will list all packages belonging to a specified order. To list all packages regardless of their parent orders, you can use the  `/packages` endpoint.
@@ -295,7 +295,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
 * Method: `PATCH`
 
 ```json
@@ -344,7 +344,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
 * Method: `DELETE`
 
 #### **Response**

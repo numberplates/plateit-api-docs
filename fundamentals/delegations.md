@@ -45,9 +45,9 @@ Typically you cannot access other companies' data. However, if a delegation rela
 
 #### CompanyPlate Objects
 
-As outlined on the [CompanyPlate](/objects/company-plate.md) page, to retrieve your own company's plates, a `GET` request can be sent to: `https://data.plateit.co.uk/v3/plates`.
+As outlined on the [CompanyPlate](/objects/company-plate.md) page, to retrieve your own company's plates, a `GET` request can be sent to: `https://api.plateit.co.uk/v3/plates`.
 
-To retrieve the plates of a `foreign` (delegated) company, a `GET` request can be sent to the following, alternative endpoint: `https://data.plateit.co.uk/v3/delegatees/{delegated_company_id}/plates`.
+To retrieve the plates of a `foreign` (delegated) company, a `GET` request can be sent to the following, alternative endpoint: `https://api.plateit.co.uk/v3/delegatees/{delegated_company_id}/plates`.
 
 This will return an array of [CompanyPlate](/objects/company-plate.md) objects belonging to the `foreign` (delegated) company with the same properties as if you were retrieving your own company's **with three additional fields**:
 
@@ -67,7 +67,7 @@ They are matched using the following properties:
 
 #### CompanyProduct Objects
 
-To retrieve the additional products of a `foreign` (delegated) company, a `GET` request can be sent to: `https://data.plateit.co.uk/v3/delegatees/{delegated_company_id}/products`.
+To retrieve the additional products of a `foreign` (delegated) company, a `GET` request can be sent to: `https://api.plateit.co.uk/v3/delegatees/{delegated_company_id}/products`.
 
 This will return an array of [CompanyProduct](/objects/company-product.md) objects belonging to the `foreign` (delegated) company with the same properties as if you were retrieving your own company's **with four additional fields**:
 
@@ -86,7 +86,7 @@ They are matched using the following property:
 
 #### CompanyShippingOption Objects
 
-To retrieve the additional shipping options of a `foreign` (delegated) company, a `GET` request can be sent to: `https://data.plateit.co.uk/v3/delegatees/{delegated_company_id}/shipping-options`.
+To retrieve the additional shipping options of a `foreign` (delegated) company, a `GET` request can be sent to: `https://api.plateit.co.uk/v3/delegatees/{delegated_company_id}/shipping-options`.
 
 This will return an array of [CompanyShippingOption](/objects/company-shipping-option.md) objects belonging to the `foreign` (delegated) company with the same properties as if you were retrieving your own company's **with three additional fields**:
 

@@ -1,6 +1,6 @@
 # OrderCustomer
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/customer`
+`https://api.plateit.co.uk/v3/orders/{order_id}/customer`
 
 > This is a singleton resource.
 
@@ -44,7 +44,7 @@ An [Order](/objects/order.md) can have a single customer. The data in this objec
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
 * Method: `POST`
 
 ```json
@@ -88,7 +88,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
 * Method: `GET`
 
 #### **Response**
@@ -127,7 +127,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
 * Method: `PATCH`
 
 ```json
@@ -168,7 +168,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/customer`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
 * Method: `DELETE`
 
 #### **Response**

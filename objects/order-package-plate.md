@@ -1,6 +1,6 @@
 # OrderPackagePlate
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates`
 
 An [OrderPackage](/objects/order-package.md) can have many plates. Think of them as individual line items on an invoice.
 

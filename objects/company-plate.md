@@ -1,6 +1,6 @@
 # CompanyPlate
 
-`https://data.plateit.co.uk/v3/plates`
+`https://api.plateit.co.uk/v3/plates`
 
 The CompanyPlate object represents a plate the customer can buy. It references a [CompanyPlateType](/objects/company-plate-type.md) and a [SystemPlateSize](/objects/system-plate-size.md).
 
@@ -99,7 +99,7 @@ The CompanyPlate object represents a plate the customer can buy. It references a
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plates`
+* Endpoint: `https://api.plateit.co.uk/v3/plates`
 * Method: `POST`
 
 ```json
@@ -151,7 +151,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plates/{plate_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plates/{plate_id}`
 * Method: `GET`
 
 #### **Response**
@@ -191,7 +191,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plates`
+* Endpoint: `https://api.plateit.co.uk/v3/plates`
 * Method: `GET`
 * Query:
   * with[]: `system_plate_size`
@@ -495,7 +495,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plates/{plate_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plates/{plate_id}`
 * Method: `PATCH`
 
 ```json
@@ -539,7 +539,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/plates/{plate_id}`
+* Endpoint: `https://api.plateit.co.uk/v3/plates/{plate_id}`
 * Method: `DELETE`
 
 #### **Response**

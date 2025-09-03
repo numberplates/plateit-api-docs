@@ -1,6 +1,6 @@
 # UpdateOrderPackageDimensions
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/dimensions`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/dimensions`
 
 Plateit will estimate the dimensions of an [OrderPackage](/objects/order-package.md) based on its contents (the combined [OrderPackagePlate](/objects/order-package-plate.md) and [OrderPackageProduct](/objects/order-package-product.md) objects). These dimensions can be fetched and/or manually overridden using this helper endpoint.
 

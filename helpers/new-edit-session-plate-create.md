@@ -1,6 +1,6 @@
 # NewEditSessionPlateCreate
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/new-edit-session`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/new-edit-session`
 
 Generates a JSON Web Token (JWT) that can be decrypted by your application to help assist with creating new number plate designs for an [OrderPackage](/objects/order-package.md).
 
@@ -16,7 +16,7 @@ For more information please see the [Editing Existing Plate Designs](/fundamenta
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/new-edit-session`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/new-edit-session`
 * Method: `POST`
 
 #### **Response**

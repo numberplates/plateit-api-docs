@@ -1,6 +1,6 @@
 # SystemWebhookEvent
 
-`https://data.plateit.co.uk/v3/system-webhook-events`
+`https://api.plateit.co.uk/v3/system-webhook-events`
 
 !> Read only
 
@@ -10,7 +10,7 @@
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/system-webhook-events`
+* Endpoint: `https://api.plateit.co.uk/v3/system-webhook-events`
 * Method: `GET`
 
 #### **Response**

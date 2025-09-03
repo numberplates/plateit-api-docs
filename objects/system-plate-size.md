@@ -1,6 +1,6 @@
 # SystemPlateSize
 
-`https://data.plateit.co.uk/v3/system-plate-sizes`
+`https://api.plateit.co.uk/v3/system-plate-sizes`
 
 !> Read only
 
@@ -12,7 +12,7 @@ System plate sizes consist of all supported number plate sizes. You do not have 
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/system-plate-sizes`
+* Endpoint: `https://api.plateit.co.uk/v3/system-plate-sizes`
 * Method: `GET`
 
 #### **Response**

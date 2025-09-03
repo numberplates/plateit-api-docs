@@ -1,6 +1,6 @@
 # SystemCountry
 
-`https://data.plateit.co.uk/v3/system-countries`
+`https://api.plateit.co.uk/v3/system-countries`
 
 !> Read only
 
@@ -10,7 +10,7 @@
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/system-countries`
+* Endpoint: `https://api.plateit.co.uk/v3/system-countries`
 * Method: `GET`
 
 #### **Response**

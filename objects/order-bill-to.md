@@ -1,6 +1,6 @@
 # OrderBillTo
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
+`https://api.plateit.co.uk/v3/orders/{order_id}/bill-to`
 
 > This is a singleton resource.
 
@@ -50,7 +50,7 @@ An [Order](/objects/order.md) can have a single billing address.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/bill-to`
 * Method: `POST`
 
 ```json
@@ -98,7 +98,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/bill-to`
 * Method: `GET`
 
 #### **Response**
@@ -141,7 +141,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/bill-to`
 * Method: `PATCH`
 
 ```json
@@ -184,7 +184,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/bill-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/bill-to`
 * Method: `DELETE`
 
 #### **Response**

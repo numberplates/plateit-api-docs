@@ -1,6 +1,6 @@
 # OrderPaymentRefund
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/payments/{payment_id}/refunds`
+`https://api.plateit.co.uk/v3/orders/{order_id}/payments/{payment_id}/refunds`
 
 An [OrderPayment](/objects/order-payment.md) can have a many refunds.
 

@@ -1,6 +1,6 @@
 # DuplicateOrder
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/duplicate`
+`https://api.plateit.co.uk/v3/orders/{order_id}/duplicate`
 
 An [Order](/objects/order.md) can be easily duplicated by sending a `POST` request to this helper endpoint.
 
@@ -16,7 +16,7 @@ The corresponding (duplicated) [OrderPackage](/objects/order-package.md) and [Or
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/duplicate`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/duplicate`
 * Method: `POST`
 
 #### **Response**

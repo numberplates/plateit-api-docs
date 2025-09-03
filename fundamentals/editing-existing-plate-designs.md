@@ -27,7 +27,7 @@ The token has encoded into it the following data:
 
 * **exp** `integer` The expiry time of the token in Unix time (seconds from the epoch).
 * **cid** `integer` The company ID the order belongs to.
-* **did** `integer` The company ID responsible for manufacturing the plate/s (may be a delegated company ID).
+* **did** `integer` The company ID responsible for manufacturing the plate/s (may be the same as the company ID or a different, delegated, company ID).
 * **oid** `integer` The related order ID.
 * **pid** `integer` The related package ID.
 * **xid**: `integer|null` The plate ID if the token corresponds to the editing of a specific plate, or null if creating a new plate.

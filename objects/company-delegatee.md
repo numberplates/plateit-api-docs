@@ -1,6 +1,6 @@
 # CompanyDelegatee
 
-`https://data.plateit.co.uk/v3/delegatees`
+`https://api.plateit.co.uk/v3/delegatees`
 
 !> Read only
 
@@ -42,7 +42,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/delegatees`
+* Endpoint: `https://api.plateit.co.uk/v3/delegatees`
 * Method: `GET`
 
 #### **Response**

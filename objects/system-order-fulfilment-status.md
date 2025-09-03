@@ -1,6 +1,6 @@
 # SystemOrderFulfilmentStatus
 
-`https://data.plateit.co.uk/v3/system-order-fulfilment-statuses`
+`https://api.plateit.co.uk/v3/system-order-fulfilment-statuses`
 
 !> Read only
 
@@ -12,7 +12,7 @@ An order fulfilment status is automatically applied to an order when the despatc
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/system-order-fulfilment-statuses`
+* Endpoint: `https://api.plateit.co.uk/v3/system-order-fulfilment-statuses`
 * Method: `GET`
 
 #### **Response**

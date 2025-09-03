@@ -1,6 +1,6 @@
 # OrderShipTo
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
+`https://api.plateit.co.uk/v3/orders/{order_id}/ship-to`
 
 > This is a singleton resource.
 
@@ -48,7 +48,7 @@ An [Order](/objects/order.md) can have a single shipping address. The data in th
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `POST`
 
 ```json
@@ -96,7 +96,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `GET`
 
 #### **Response**
@@ -139,7 +139,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `PATCH`
 
 ```json
@@ -182,7 +182,7 @@ No parameters.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/ship-to`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/ship-to`
 * Method: `DELETE`
 
 #### **Response**

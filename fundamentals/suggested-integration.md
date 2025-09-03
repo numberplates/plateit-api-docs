@@ -42,7 +42,7 @@ When a customer lands on your designer page, make a request to obtain all of you
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/company-plates`
+* Endpoint: `https://api.plateit.co.uk/v3/company-plates`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -343,7 +343,7 @@ Assuming your customer has designed a plate and added it to a basket, you may no
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/company-products`
+* Endpoint: `https://api.plateit.co.uk/v3/company-products`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -405,7 +405,7 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/company-shipping-options`
+* Endpoint: `https://api.plateit.co.uk/v3/company-shipping-options`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -459,7 +459,7 @@ The contents of the basket and the selected shipping option are used to build th
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/actions/build-order`
+* Endpoint: `https://api.plateit.co.uk/v3/actions/build-order`
 * Method: `POST`
 
 ```json

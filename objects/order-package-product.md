@@ -1,6 +1,6 @@
 # OrderPackageProduct
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/products`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/products`
 
 An [OrderPackage](/objects/order-package.md) can have many products. Think of them as individual line items on an invoice.
 

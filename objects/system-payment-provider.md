@@ -1,6 +1,6 @@
 # SystemPaymentProvider
 
-`https://data.plateit.co.uk/v3/system-payment-providers`
+`https://api.plateit.co.uk/v3/system-payment-providers`
 
 !> Read only
 
@@ -10,7 +10,7 @@
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/system-payment-providers`
+* Endpoint: `https://api.plateit.co.uk/v3/system-payment-providers`
 * Method: `GET`
 
 #### **Response**

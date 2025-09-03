@@ -1,6 +1,6 @@
 # DuplicateOrderPackage
 
-`https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/duplicate`
+`https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/duplicate`
 
 An [OrderPackage](/objects/order-package.md) can be easily duplicated by sending a `POST` request to this helper endpoint.
 
@@ -14,7 +14,7 @@ It will also duplicate its child resources.
 
 #### **Request**
 
-* Endpoint: `https://data.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/duplicate`
+* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/duplicate`
 * Method: `POST`
 
 #### **Response**
