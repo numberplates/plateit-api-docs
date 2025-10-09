@@ -21,6 +21,7 @@ The Order object is the outermost parent resource that represents an order. Most
 * **amount_vat_collected** `integer` The total amount of VAT collected in pence, proportionate to the amount paid.
 * **amount_vat_refunded** `integer` The total amount of VAT refunded in pence, proportionate to the amount refunded.
 * **packages_count** `integer` The number of [OrderPackage](/objects/order-package.md) objects pertaining to the order.
+* **identifier** `string|null` An optional unique identifier allowing you to match the order with a separate system.
 * **is_dummy** `boolean` Indicates a test (dummy) order.
 * **opened_at** `string|null` The timestamp of when the order first had its status changed to `Open`, in ISO 8601 format.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
@@ -81,6 +82,7 @@ The Order object is the outermost parent resource that represents an order. Most
 ### Available Search Bys
 
 * id
+* identifier
 * customer.first_name
 * customer.last_name
 * customer.email
@@ -138,6 +140,7 @@ An existing order cannot be updated to become a dummy order at a later time or v
   "amount_vat_collected": 0,
   "amount_vat_refunded": 0,
   "packages_count": 0,
+  "identifier": null,
   "is_dummy": true,
   "opened_at": null,
   "created_at": "2025-02-26T16:09:50.000000Z",
@@ -182,6 +185,7 @@ No parameters.
   "amount_vat_collected": 0,
   "amount_vat_refunded": 0,
   "packages_count": 0,
+  "identifier": null,
   "is_dummy": true,
   "opened_at": null,
   "created_at": "2025-02-26T16:09:50.000000Z",
@@ -228,6 +232,7 @@ No parameters.
       "amount_vat_collected": 1104,
       "amount_vat_refunded": 0,
       "packages_count": 1,
+      "identifier": "your_custom_identifier",
       "is_dummy": true,
       "opened_at": "2025-03-25T15:11:53.000000Z",
       "created_at": "2025-03-25T14:36:37.000000Z",
@@ -248,6 +253,7 @@ No parameters.
       "amount_vat_collected": 0,
       "amount_vat_refunded": 0,
       "packages_count": 0,
+      "identifier": null,
       "is_dummy": false,
       "opened_at": null,
       "created_at": "2025-03-26T16:09:50.000000Z",
