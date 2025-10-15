@@ -181,18 +181,11 @@ No parameters.
       "href": "/shipping-options/10",
       "system_courier_service": {
         "id": 4,
-        "courier_key": "jersey_post",
-        "name": "Jersey Post / Royal Mail 1st Class Signed",
+        "courier_key": "atlas",
+        "name": "Atlas / Royal Mail 1st Class Signed",
         "priority_level": 2,
-        "service_reference": "RM|FIRSTSIGNED",
-        "additional_options": [],
         "is_international": false,
-        "max_width": 610,
-        "max_height": 460,
-        "max_depth": 460,
-        "max_weight": 20000,
-        "position": 4,
-        "is_active": 1,
+        "is_active": true,
         "href": "/system-courier-services/4"
       }
     },
@@ -208,18 +201,11 @@ No parameters.
       "href": "/shipping-options/11",
       "system_courier_service": {
         "id": 5,
-        "courier_key": "jersey_post",
-        "name": "Jersey Post / Royal Mail Special Delivery",
+        "courier_key": "atlas",
+        "name": "Atlas / Royal Mail Special Delivery",
         "priority_level": 1,
-        "service_reference": "RM|SPECIALPM",
-        "additional_options": [],
         "is_international": false,
-        "max_width": 610,
-        "max_height": 460,
-        "max_depth": 460,
-        "max_weight": 20000,
-        "position": 5,
-        "is_active": 1,
+        "is_active": true,
         "href": "/system-courier-services/5"
       }
     }

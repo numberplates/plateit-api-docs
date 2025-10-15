@@ -433,14 +433,7 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
         "courier_key": "manual",
         "name": "Manual Collection",
         "priority_level": 3,
-        "service_reference": "n/a",
-        "additional_options": null,
         "is_international": false,
-        "max_width": 1000000,
-        "max_height": 1000000,
-        "max_depth": 1000000,
-        "max_weight": 1000000,
-        "position": 1,
         "is_active": true,
         "href": "/system-courier-services/1"
       }
