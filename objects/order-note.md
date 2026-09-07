@@ -2,42 +2,86 @@
 
 `https://api.plateit.co.uk/v3/orders/{order_id}/notes`
 
-An [Order](/objects/order.md) can have many notes. Notes are intended to be written by staff members but may be seen by the customer.
+An [Order](/objects/order.md) can have multiple `OrderNote` resources. Notes are intended to be written by staff members but may also be visible to the customer.
 
-!> This page is a stub. However, the handling is almost idential to the [OrderPackageNote](/objects/order-package-note.md) documentation.
+For notes attached to a specific package, see [OrderPackageNote](/objects/order-package-note.md).
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the note.
-* **order_id** `integer` The [Order](/objects/order.md) ID.
-* **company_user_id** `integer|null` The ID of the [CompanyUser](/objects/company-user.md) who wrote the note.
-* **note** `string` The note.
-* **is_private** `boolean` Should the note be hidden from the customer?
+* **order_id** `integer` The ID of the [Order](/objects/order.md) the note belongs to.
+* **company_user_id** `integer|null` The ID of the [CompanyUser](/objects/company-user.md) who created the note.
+* **note** `string` The note content.
+* **is_private** `boolean` Indicates whether the note should be hidden from the customer.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
+## Relationships
 
-* [package](/objects/order-package.md)
+The following relationships may be included:
+
 * [company_user](/objects/company-user.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* is_private
-* created_at
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/orders/{order_id}/notes/capabilities`
 
-### Available Filter Bys
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-* is_private *
+> Plateit does not automatically exclude private notes. API consumers are responsible for deciding which notes should be shown publicly.
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+## Create
 
-**Plateit does not filter out private notes for you. It is your responsibility to honour what is shown publicly and what's not.*
+!> Requires the `orders_notes_write` permission.
+
+**POST** `/v3/orders/{order_id}/notes`
+
+### Body Parameters
+
+* **note** `string`
+* **is_private** `boolean` Optional. Defaults to `false`.
+
+### Example Payload
+
+```json
+{
+  "note": "Customer requested an update before despatch."
+}
+```
+
+Returns the created `OrderNote` with status `201`.
+
+## Retrieve
+
+!> Requires the `orders_read` permission.
+
+**GET** `/v3/orders/{order_id}/notes/{note_id}`
+
+Returns the requested `OrderNote`.
+
+## List
+
+!> Requires the `orders_read` permission.
+
+**GET** `/v3/orders/{order_id}/notes`
+
+Returns a collection of `OrderNote` resources.
+
+## Update
+
+`OrderNote` resources cannot be updated. They can only be created or deleted.
+
+## Delete
+
+!> Requires the `orders_notes_write` permission.
+
+**DELETE** `/v3/orders/{order_id}/notes/{note_id}`
+
+Deletes the specified `OrderNote`.

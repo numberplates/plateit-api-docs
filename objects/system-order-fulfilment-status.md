@@ -4,44 +4,51 @@
 
 !> Read only
 
-An order fulfilment status is automatically applied to an order when the despatch state of one or more of its packages change.
+A `SystemOrderFulfilmentStatus` represents the fulfilment state of an order. It is applied automatically as the despatch state of one or more of the order's packages changes (it is not set directly by the API consumer).
 
-## Example Request
+## Data References
 
-<!-- tabs:start -->
+### Attributes
 
-#### **Request**
+* **id** `integer` The unique ID of the fulfilment status.
+* **name** `string` The name of the fulfilment status.
+* **description** `string` A description of what the status represents.
+* **href** `string` The path to the resource.
 
-* Endpoint: `https://api.plateit.co.uk/v3/system-order-fulfilment-statuses`
-* Method: `GET`
+## Values
 
-#### **Response**
-
-* Status code: `200`
+The following fulfilment statuses are available:
 
 ```json
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "Unfulfilled",
-      "description": "The order has been completed and is awaiting manufacture.",
-      "href": "/system-order-fulfilment-statuses/1"
-    },
-    {
-      "id": 2,
-      "name": "Partially Fulfilled",
-      "description": "At least one package in the order has been despatched.",
-      "href": "/system-order-fulfilment-statuses/2"
-    },
-    {
-      "id": 3,
-      "name": "Fulfilled",
-      "description": "All packages in the order have been despatched.",
-      "href": "/system-order-fulfilment-statuses/3"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Unfulfilled",
+    "description": "The order has been completed and is awaiting manufacture."
+  },
+  {
+    "id": 2,
+    "name": "Partially Fulfilled",
+    "description": "At least one package in the order has been despatched."
+  },
+  {
+    "id": 3,
+    "name": "Fulfilled",
+    "description": "All packages in the order have been despatched."
+  }
+]
 ```
 
-<!-- tabs:end -->
+## Query Capabilities
+
+All currently supported query fields, including filters and ordering, can be retrieved from:
+
+**GET** `/v3/system-order-fulfilment-statuses/capabilities`
+
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
+
+## List
+
+**GET** `/v3/system-order-fulfilment-statuses`
+
+Returns a collection of `SystemOrderFulfilmentStatus` resources.

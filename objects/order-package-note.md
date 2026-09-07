@@ -2,63 +2,53 @@
 
 `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
 
-An [OrderPackage](/objects/order-package.md) can have many notes. Notes are intended to be written by staff members but may be seen by the customer.
+An [OrderPackage](/objects/order-package.md) can have multiple `OrderPackageNote` resources. Notes are intended to be written by staff members but may also be visible to the customer.
 
-> For order notes, [click here](/objects/order-note.md).
+For notes attached directly to an order, see [OrderNote](/objects/order-note.md).
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the note.
-* **package_id** `integer` The [OrderPackage](/objects/order-package.md) ID.
-* **company_user_id** `integer|null` The ID of the [CompanyUser](/objects/company-user.md) who wrote the note.
-* **note** `string` The note.
-* **is_private** `boolean` Should the note be hidden from the customer?
+* **package_id** `integer` The ID of the [OrderPackage](/objects/order-package.md) the note belongs to.
+* **company_user_id** `integer|null` The ID of the [CompanyUser](/objects/company-user.md) who created the note.
+* **note** `string` The note content.
+* **is_private** `boolean` Indicates whether the note should be hidden from the customer.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
+## Relationships
 
-* [package](/objects/order-package.md)
+The following relationships may be included:
+
 * [company_user](/objects/company-user.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* is_private
-* created_at
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/orders/{order_id}/packages/{package_id}/notes/capabilities`
 
-### Available Filter Bys
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-* is_private *
+> Plateit does not automatically exclude private notes. API consumers are responsible for deciding which notes should be shown publicly.
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
-
-**Plateit does not filter out private notes for you. It is your responsibility to honour what is shown publicly and what's not.*
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `orders_packages_notes_write` permission.
 
-<!-- tabs:start -->
+**POST** `/v3/orders/{order_id}/packages/{package_id}/notes`
 
-#### **Body Parameters**
+### Body Parameters
 
 * **note** `string`
-* **is_private** `boolean|null` (defaults to `false`)
+* **is_private** `boolean` Optional. Defaults to `false`.
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
-* Method: `POST`
+### Example Payload
 
 ```json
 {
@@ -66,119 +56,32 @@ An [OrderPackage](/objects/order-package.md) can have many notes. Notes are inte
 }
 ```
 
-#### **Response**
+Returns the created `OrderPackageNote` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "id": 897,
-  "package_id": 9067,
-  "company_user_id": 19,
-  "note": "This is a re-send. Original was damaged in transit.",
-  "is_private": false,
-  "created_at": "2024-10-15T08:49:36.373862Z",
-  "href": "/orders/8591/packages/9067/notes/897"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
 
-#### **Body Parameters**
+Returns the requested `OrderPackageNote`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 897,
-  "package_id": 9067,
-  "company_user_id": 19,
-  "note": "This is a re-send. Original was damaged in transit.",
-  "is_private": false,
-  "created_at": "2024-10-15T08:49:36.373862Z",
-  "href": "/orders/8591/packages/9067/notes/897"
-}
-```
-
-<!-- tabs:end -->
-
-### List
+## List
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}/packages/{package_id}/notes`
 
-#### **Body Parameters**
+Returns a collection of `OrderPackageNote` resources.
 
-No parameters.
+## Update
 
-#### **Request**
+`OrderPackageNote` resources cannot be updated. They can only be created or deleted.
 
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-    "id": 897,
-    "package_id": 9067,
-    "company_user_id": 19,
-    "note": "This is a re-send. Original was damaged in transit.",
-    "is_private": false,
-    "created_at": "2024-10-15T08:49:36.373862Z",
-    "href": "/orders/8591/packages/9067/notes/897"
-    }
-  ]
-}
-```
-
-<!-- tabs:end -->
-
-### Update
-
-A note cannot be updated, only created or deleted.
-
-### Delete
+## Delete
 
 !> Requires the `orders_packages_notes_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/notes/{note_id}`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+Deletes the specified `OrderPackageNote`.

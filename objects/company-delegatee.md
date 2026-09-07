@@ -4,87 +4,30 @@
 
 !> Read only
 
-If a delegator/delegatee relationship exists between your company and another, you will be able to access your delegatee's product data (the items they sell). This allows you to add their items to a package you have delegated to them to fulfil on your behalf.
+A `CompanyDelegatee` represents a company that your company is permitted to delegate package fulfilment to.
 
-> Please see the [delegation guide](/fundamentals/delegations.md) for added context.
+If a delegator/delegatee relationship exists between your company and another company, you can access the delegatee's product data and use those items when building packages delegated to them for fulfilment.
 
-# Data References
+See the [delegation guide](/fundamentals/delegations.md) for more information.
+
+## Data References
 
 ### Attributes
 
-All attributes are idendtical to the [Company](/objects/company.md) object with the addition of an `is_approved` boolean. This signifies whether the delegation relationship with your company is approved and active. See the example request responses below for clarification.
+The attributes are identical to the [Company](/objects/company.md) object with the addition of:
 
-### Available Order Bys
+* **is_approved** `boolean` Indicates whether the delegation relationship with your company is approved and active.
 
-* id
-* name
-* is_approved
+## Query Capabilities
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-### Available Filter Bys
+**GET** `/v3/delegatees/capabilities`
 
-* is_approved
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+## List
 
-## Example Requests
+**GET** `/v3/delegatees`
 
-### Retrieve
-
-This request returns a collection of companies that you are permitted to create delegated packages for.
-
-<!-- tabs:start -->
-
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/delegatees`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 2,
-      "name": "Vince's Vehicle Accessories",
-      "email": "contact@vincesvehicle.com",
-      "phone_number": "0207 1234567",
-      "website_url": "https://vincesvehicle.com",
-      "address_line_1": "45 High Street",
-      "address_line_2": "Birmingham",
-      "address_line_3": "West Midlands",
-      "address_postcode": "B1 1AA",
-      "address_country_code": "GB",
-      "created_at": "2025-03-03T14:10:51.000000Z",
-      "updated_at": "2025-03-03T14:10:51.000000Z",
-      "href": "/companies/2",
-      "is_approved": true
-    },
-    {
-      "id": 3,
-      "name": "Fast Plates UK",
-      "email": "info@fastplatesuk.com",
-      "phone_number": "0161 9876543",
-      "website_url": "https://fastplatesuk.com",
-      "address_line_1": "67 Willow Way",
-      "address_line_2": "Salford",
-      "address_line_3": "Greater Manchester",
-      "address_postcode": "M3 2JK",
-      "address_country_code": "GB",
-      "created_at": "2025-03-03T14:10:51.000000Z",
-      "updated_at": "2025-03-03T14:10:51.000000Z",
-      "href": "/companies/3",
-      "is_approved": true
-    }
-  ]
-}
-```
-<!-- tabs:end -->
+Returns a collection of companies that your company is permitted to create delegated packages for.

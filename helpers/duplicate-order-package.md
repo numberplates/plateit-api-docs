@@ -4,7 +4,7 @@
 
 An [OrderPackage](/objects/order-package.md) can be easily duplicated by sending a `POST` request to this helper endpoint.
 
-It will also duplicate its child resources.
+It will also duplicate its child resources except for notes.
 
 ## Example Request
 

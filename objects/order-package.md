@@ -2,41 +2,46 @@
 
 `https://api.plateit.co.uk/v3/orders/{order_id}/packages`
 
-An OrderPackage belongs to an [Order](/objects/order.md), and an order can have many packages. If your company has one or more fulfilment agreements, an OrderPackage can be assigned to another company to fulfil on your behalf.
+An `OrderPackage` belongs to an [Order](/objects/order.md), and an order can contain multiple packages. A package groups together plates, products and shipping for fulfilment.
 
-!> If delegating a package to another company to fulfil, there are important rules to follow. See the [delegation guide](/fundamentals/delegations.md) for more information.
+If your company has an active fulfilment agreement, an `OrderPackage` can also be delegated to another company to fulfil on your behalf.
 
-> Note: *all* OrderPackages (not just the ones pertaining to a single order) can be retrieved at `https://api.plateit.co.uk/v3/packages`.
+!> Delegated packages are subject to specific matching and fulfilment rules. See the [delegation guide](/fundamentals/delegations.md) for more information.
+
+> Packages belonging to a specific order can be retrieved from this endpoint. To retrieve packages across all orders, use `GET /v3/packages`.
 
 ## Data References
 
 ### Attributes
 
-> Please read carefully because many OrderPackage attributes are updated *exclusively* using dedicated helper endpoints.
+Many `OrderPackage` attributes are calculated automatically or managed through dedicated endpoints.
 
 * **id** `integer` The unique ID of the package.
 * **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
-* **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) the package has been delegated to, if applicable.
-* **system_package_status_id** `integer` The ID of the [SystemPackageStatus](/objects/system-package-status.md). *This is updated exclusively using the [UpdateOrderPackageStatuses](/helpers/update-order-package-statuses.md) helper endpoint.*
-* **amount_subtotal** `integer` The sum of all items in package in pence, minus shipping and VAT.
-* **amount_shipping** `integer` The total package shipping costs in pence.
+* **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) delegated to fulfil the package, if applicable.
+* **system_package_status_id** `integer` The [SystemPackageStatus](/objects/system-package-status.md) ID.
+* **amount_subtotal** `integer` The sum of all package items in pence, excluding shipping and VAT.
+* **amount_shipping** `integer` The total package shipping cost in pence.
 * **amount_vat** `integer` The total package VAT in pence.
 * **amount_total** `integer` The package's grand total in pence.
-* **plates_qty** `integer` The quantity of number plates in the package.
-* **products_qty** `integer` The quantity of extra products in the package.
-* **width** `integer` The width of the package in mm.
-* **height** `integer` The height of the package in mm.
-* **depth** `integer` The depth of the package in mm.
-* **weight** `integer` The weight of the package in g.
-* **has_overridden_dimensions** `boolean` This will be true if the dimensions listed above have been manually set. *This is updated exclusively using the [UpdateOrderPackageDimensions](/helpers/update-order-package-dimensions.md) helper endpoint.*
-* **is_committed** `boolean` The package has been marked as ready to fulfil if true.
-* **is_shipping_synced** `boolean` The package contents have been synced with the shipping provider if true. *This is updated exclusively using the [CreateOrderPackageShipmentLabel](/helpers/create-order-package-shipment-label.md) helper endpoint.*
-* **is_paperwork_printed** `boolean` The package's label/s have been printed if true. *This is updated exclusively using the [MarkPaperworkPrinted](/helpers/mark-paperwork-printed.md) helper endpoint.*
+* **plates_qty** `integer` The total quantity of number plates in the package.
+* **products_qty** `integer` The total quantity of additional products in the package.
+* **width** `integer` The package width in mm.
+* **height** `integer` The package height in mm.
+* **depth** `integer` The package depth in mm.
+* **weight** `integer` The package weight in g.
+* **has_overridden_dimensions** `boolean` Indicates whether the package dimensions or weight have been manually overridden. See [UpdateOrderPackageDimensions](/helpers/update-order-package-dimensions.md).
+* **is_replacement** `boolean` Indicates whether the package was duplicated for replacement purposes.
+* **is_committed** `boolean` Indicates whether the package has been committed and is ready for fulfilment.
+* **is_shipping_synced** `boolean` Indicates whether the package has been synchronised with its shipping provider.
+* **is_paperwork_printed** `boolean` Indicates whether the package's shipping paperwork has been printed.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
+## Relationships
+
+The following relationships may be included:
 
 * [system_package_status](/objects/system-package-status.md)
 * [delegate_to_company](/objects/company.md)
@@ -52,251 +57,67 @@ An OrderPackage belongs to an [Order](/objects/order.md), and an order can have 
 * [order.customer](/objects/order-customer.md)
 * [order.ship_to](/objects/order-ship-to.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* is_committed
-* is_shipping_synced
-* created_at
-* updated_at
-* order.id
-* order.is_dummy
-* order.opened_at
-* order.company.id
-* order.company.name
-* order.system_order_status.id
-* order.system_order_status.name
-* system_package_status.id
-* system_package_status.name
-* shipping.system_courier_service.id
-* shipping.system_courier_service.name
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/orders/{order_id}/packages/capabilities`
 
-### Available Filter Bys
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-* is_committed
-* is_shipping_synced
-* order.id
-* order.is_dummy
-* order.company.id
-* order.company.name
-* order.system_order_status.id
-* order.system_order_status.name
-* system_package_status.id
-* system_package_status.name
-* shipping.system_courier_service.id
-* shipping.system_courier_service.name
-
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
-
-### Available Search Bys
-
-* id
-* order.customer.first_name
-* order.customer.last_name
-* order.customer.email
-
-> Please note: when searching packages, duplicate results may appear when navigating to a new page of pagination. This is because search speed has been prioritized over strict uniqueness in Plateit's database optimisations.
-
-*Learn more about searching results [here](fundamentals/conventions.md#searching).*
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `orders_packages_write` permission.
 
-<!-- tabs:start -->
+**POST** `/v3/orders/{order_id}/packages`
 
-#### **Body Parameters**
+### Body Parameters
 
 * **delegate_to_company_id** `integer|null`
-* **system_package_status_id** `integer|null` (defaults to `1` - `Unprocessed`)
-* **is_committed** `boolean|null` (defaults to `false`)
+* **system_package_status_id** `integer` Optional. Defaults to `1` (`Unprocessed`).
+* **is_committed** `boolean` Optional. Defaults to `false`.
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages`
-* Method: `POST`
+### Example Payload
 
 ```json
 {
-  "system_package_status_id": 5
+  "delegate_to_company_id": 2
 }
 ```
 
-#### **Response**
+Returns the created `OrderPackage` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "id": 4972,
-  "order_id": 4006,
-  "delegate_to_company_id": null,
-  "system_package_status_id": 5,
-  "amount_subtotal": 0,
-  "amount_shipping": 0,
-  "amount_vat": 0,
-  "amount_total": 0,
-  "plates_qty": 0,
-  "products_qty": 0,
-  "width": 0,
-  "height": 0,
-  "depth": 0,
-  "weight": 0,
-  "has_overridden_dimensions": false,
-  "is_committed": false,
-  "is_shipping_synced": false,
-  "is_paperwork_printed": false,
-  "created_at": "2025-04-04T09:29:08.000000Z",
-  "updated_at": "2025-04-04T09:29:08.000000Z",
-  "href": "/orders/4006/packages/4972"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}/packages/{package_id}`
 
-#### **Body Parameters**
+Returns the requested `OrderPackage`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 4972,
-  "order_id": 4006,
-  "delegate_to_company_id": null,
-  "system_package_status_id": 2,
-  "amount_subtotal": 0,
-  "amount_shipping": 0,
-  "amount_vat": 0,
-  "amount_total": 0,
-  "plates_qty": 0,
-  "products_qty": 0,
-  "width": 0,
-  "height": 0,
-  "depth": 0,
-  "weight": 0,
-  "has_overridden_dimensions": false,
-  "is_committed": false,
-  "is_shipping_synced": false,
-  "is_paperwork_printed": false,
-  "created_at": "2025-04-04T09:29:08.000000Z",
-  "updated_at": "2025-04-04T09:29:08.000000Z",
-  "href": "/orders/4006/packages/4972"
-}
-```
-
-<!-- tabs:end -->
-
-### List
+## List
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}/packages`
 
-#### **Body Parameters**
+Returns a collection of `OrderPackage` resources belonging to the specified order.
 
-No parameters.
+To retrieve packages across all orders:
 
-#### **Request**
+**GET** `/v3/packages`
 
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages`
-* Method: `GET`
-
-> Note: This will list all packages belonging to a specified order. To list all packages regardless of their parent orders, you can use the  `/packages` endpoint.
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 4971,
-      "order_id": 4006,
-      "delegate_to_company_id": null,
-      "system_package_status_id": 4,
-      "amount_subtotal": 25,
-      "amount_shipping": 5,
-      "amount_vat": 0,
-      "amount_total": 30,
-      "plates_qty": 2,
-      "products_qty": 1,
-      "width": 530,
-      "height": 120,
-      "depth": 10,
-      "weight": 250,
-      "has_overridden_dimensions": false,
-      "is_committed": true,
-      "is_shipping_synced": true,
-      "is_paperwork_printed": true,
-      "created_at": "2025-04-04T09:20:01.000000Z",
-      "updated_at": "2025-04-04T09:20:01.000000Z",
-      "href": "/orders/4006/packages/4971"
-    }
-    {
-      "id": 4972,
-      "order_id": 4006,
-      "delegate_to_company_id": null,
-      "system_package_status_id": 5,
-      "amount_subtotal": 0,
-      "amount_shipping": 0,
-      "amount_vat": 0,
-      "amount_total": 0,
-      "plates_qty": 0,
-      "products_qty": 0,
-      "width": 0,
-      "height": 0,
-      "depth": 0,
-      "weight": 0,
-      "has_overridden_dimensions": false,
-      "is_committed": false,
-      "is_shipping_synced": false,
-      "is_paperwork_printed": false,
-      "created_at": "2025-04-04T09:29:08.000000Z",
-      "updated_at": "2025-04-04T09:29:08.000000Z",
-      "href": "/orders/4006/packages/4972"
-    }
-  ]
-}
-```
-
-<!-- tabs:end -->
-
-### Update
+## Update
 
 !> Requires the `orders_packages_write` permission.
 
-<!-- tabs:start -->
+**PATCH** `/v3/orders/{order_id}/packages/{package_id}`
 
-#### **Body Parameters**
+Only attributes intended for direct package management can be updated through this endpoint. Calculated values and attributes managed by dedicated endpoints cannot be changed directly.
 
-* **is_committed** `boolean`
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
-* Method: `PATCH`
+### Example Payload
 
 ```json
 {
@@ -304,55 +125,16 @@ No parameters.
 }
 ```
 
-#### **Response**
+Returns the updated `OrderPackage`.
 
-* Status code: `200`
+> Committing a package marks it as ready for fulfilment. A package cannot be committed until its required order, shipping, contents and supporting-document requirements have been satisfied.
 
-```json
-{
-  "id": 4972,
-  "order_id": 4006,
-  "delegate_to_company_id": null,
-  "system_package_status_id": 5,
-  "plates_qty": 0,
-  "products_qty": 0,
-  "width": 0,
-  "height": 0,
-  "depth": 0,
-  "weight": 0,
-  "has_overridden_dimensions": false,
-  "is_committed": true,
-  "is_shipping_synced": false,
-  "is_paperwork_printed": false,
-  "created_at": "2025-04-04T09:29:08.000000Z",
-  "updated_at": "2025-04-04T09:31:45.000000Z",
-  "href": "/orders/4006/packages/4972"
-}
-```
-
-<!-- tabs:end -->
-
-### Delete
+## Delete
 
 !> Requires the `orders_packages_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/orders/{order_id}/packages/{package_id}`
 
-#### **Body Parameters**
+Deletes the specified `OrderPackage`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+A committed package cannot be deleted.

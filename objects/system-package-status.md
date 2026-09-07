@@ -4,62 +4,66 @@
 
 !> Read only
 
-Each [OrderPackage](/objects/order-package.md) has an associated SystemPackageStatus. It is used to categorise and filter the packages.
+A `SystemPackageStatus` represents the processing and fulfilment state of an [OrderPackage](/objects/order-package.md). It is used to categorise and filter packages.
 
-## Example Request
+## Data References
 
-<!-- tabs:start -->
+### Attributes
 
-#### **Request**
+* **id** `integer` The unique ID of the package status.
+* **name** `string` The name of the package status.
+* **description** `string` A description of what the status represents.
+* **href** `string` The path to the resource.
 
-* Endpoint: `https://api.plateit.co.uk/v3/system-package-statuses`
-* Method: `GET`
+## Values
 
-#### **Response**
-
-* Status code: `200`
+The following package statuses are available:
 
 ```json
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "Unprocessed",
-      "description": "The contents of the package are waiting to be processed.",
-      "href": "/system-package-statuses/1"
-    },
-    {
-      "id": 2,
-      "name": "Processing",
-      "description": "The contents of the package are actively being processed.",
-      "href": "/system-package-statuses/2"
-    },
-    {
-      "id": 3,
-      "name": "Processed",
-      "description": "The contents of the package have been processed.",
-      "href": "/system-package-statuses/3"
-    },
-    {
-      "id": 4,
-      "name": "Despatched",
-      "description": "The package has been despatched.",
-      "href": "/system-package-statuses/4"
-    },
-    {
-      "id": 5,
-      "name": "Held",
-      "description": "The package is in a held state, awaiting further action.",
-      "href": "/system-package-statuses/5"
-    },
-    {
-      "id": 6,
-      "name": "Cancelled",
-      "description": "The fulfillment of the package has been cancelled.",
-      "href": "/system-package-statuses/6"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Unprocessed",
+    "description": "The contents of the package are waiting to be processed."
+  },
+  {
+    "id": 2,
+    "name": "Processing",
+    "description": "The contents of the package are actively being processed."
+  },
+  {
+    "id": 3,
+    "name": "Processed",
+    "description": "The contents of the package have been processed."
+  },
+  {
+    "id": 4,
+    "name": "Despatched",
+    "description": "The package has been despatched."
+  },
+  {
+    "id": 5,
+    "name": "Held",
+    "description": "The package is in a held state, awaiting further action."
+  },
+  {
+    "id": 6,
+    "name": "Cancelled",
+    "description": "The fulfilment of the package has been cancelled."
+  }
+]
 ```
 
-<!-- tabs:end -->
+## Query Capabilities
+
+All currently supported query fields, including filters and ordering, can be retrieved from:
+
+**GET** `/v3/system-package-statuses/capabilities`
+
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
+
+## List
+
+**GET** `/v3/system-package-statuses`
+
+Returns a collection of `SystemPackageStatus` resources.

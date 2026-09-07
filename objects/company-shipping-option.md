@@ -2,82 +2,55 @@
 
 `https://api.plateit.co.uk/v3/shipping-options`
 
-The CompanyShippingOption object represents a shipping option the customer can choose. It references a [SystemCourierService](/objects/system-courier-service.md).
+A `CompanyShippingOption` represents a shipping option that a customer can choose. It references a [SystemCourierService](/objects/system-courier-service.md).
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the shipping option.
-* **system_courier_service_id** `integer` The [SystemCourierService](/objects/system-courier-service.md) ID.
+* **system_courier_service_id** `integer` The ID of the associated [SystemCourierService](/objects/system-courier-service.md).
 * **additional_options** `array` An array of courier-specific additional option strings.
 * **name** `string` The name of the shipping option.
-* **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
-* **is_active** `boolean` Indicates whether the resource is live or a draft.
+* **price** `integer` The price in pence including [VAT](/objects/company-tax-rate.md).
+* **is_active** `boolean` Indicates whether the shipping option is currently active.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
+## Relationships
+
+The following relationships may be included:
 
 * [system_courier_service](/objects/system-courier-service.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* name
-* price
-* is_active
-* created_at
-* updated_at
-* system_courier_service.id
-* system_courier_service.name
-* system_courier_service.priority_level
-* system_courier_service.is_international
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/shipping-options/capabilities`
 
-### Available Filter Bys
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-* is_active *
-* system_courier_services.id
-* system_courier_services.name
-* system_courier_service.priority_level
-* system_courier_service.is_international
+> Plateit does not automatically exclude inactive resources. API consumers are responsible for deciding which resources should be shown publicly.
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
-
-**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
-
-### Available Search Bys
-
-* name
-* system_courier_services.name
-
-*Learn more about searching results [here](fundamentals/conventions.md#searching).*
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `company_shipping_options_write` permission.
 
-<!-- tabs:start -->
+**POST** `/v3/shipping-options`
 
-#### **Body Parameters**
+### Body Parameters
 
 * **name** `string`
-* **system_courier_service_id** `int`
-* **price** `int`
+* **system_courier_service_id** `integer`
+* **price** `integer`
 * **additional_options** `array|null`
 * **is_active** `boolean`
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/shipping-options`
-* Method: `POST`
+### Example Payload
 
 ```json
 {
@@ -88,151 +61,41 @@ The CompanyShippingOption object represents a shipping option the customer can c
 }
 ```
 
-#### **Response**
+Returns the created `CompanyShippingOption` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "id": 11,
-  "system_courier_service_id": 5,
-  "name": "Special Delivery",
-  "additional_options": [],
-  "price": 999,
-  "is_active": true,
-  "created_at": "2024-09-30T13:44:02.000000Z",
-  "updated_at": "2024-09-30T13:44:02.000000Z",
-  "href": "/shipping-options/11"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `company_shipping_options_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/shipping-options/{shipping_id}`
 
-#### **Body Parameters**
+Returns the requested `CompanyShippingOption`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 11,
-  "system_courier_service_id": 5,
-  "name": "Special Delivery",
-  "additional_options": [],
-  "price": 999,
-  "is_active": true,
-  "created_at": "2024-09-30T13:44:02.000000Z",
-  "updated_at": "2024-09-30T13:44:02.000000Z",
-  "href": "/shipping-options/11"
-}
-```
-
-<!-- tabs:end -->
-
-### List
+## List
 
 !> Requires the `company_shipping_options_read` permission.
 
-> The following example includes relationships. 
+**GET** `/v3/shipping-options`
 
-<!-- tabs:start -->
+Returns a paginated collection of `CompanyShippingOption` resources.
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/shipping-options`
-* Method: `GET`
-* Query:
-  * with: `system_courier_service`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 10,
-      "system_courier_service_id": 4,
-      "name": "First Class Signed For",
-      "additional_options": [],
-      "price": 500,
-      "is_active": true,
-      "created_at": "2024-09-30T13:43:21.000000Z",
-      "updated_at": "2024-09-30T13:43:21.000000Z",
-      "href": "/shipping-options/10",
-      "system_courier_service": {
-        "id": 4,
-        "courier_key": "atlas",
-        "name": "Atlas / Royal Mail 1st Class Signed",
-        "priority_level": 2,
-        "is_international": false,
-        "is_active": true,
-        "href": "/system-courier-services/4"
-      }
-    },
-    {
-      "id": 11,
-      "system_courier_service_id": 5,
-      "name": "Special Delivery",
-      "additional_options": [],
-      "price": 999,
-      "is_active": true,
-      "created_at": "2024-09-30T13:44:02.000000Z",
-      "updated_at": "2024-09-30T13:44:02.000000Z",
-      "href": "/shipping-options/11",
-      "system_courier_service": {
-        "id": 5,
-        "courier_key": "atlas",
-        "name": "Atlas / Royal Mail Special Delivery",
-        "priority_level": 1,
-        "is_international": false,
-        "is_active": true,
-        "href": "/system-courier-services/5"
-      }
-    }
-  ]
-}
-```
-
-<!-- tabs:end -->
-
-### Update
+## Update
 
 !> Requires the `company_shipping_options_write` permission.
 
-<!-- tabs:start -->
+**PATCH** `/v3/shipping-options/{shipping_id}`
 
-#### **Body Parameters**
+### Body Parameters
 
-* **name** `string|null`
-* **system_courier_service_id** `int|null`
-* **price** `int|null`
+All fields are optional:
+
+* **name** `string`
+* **system_courier_service_id** `integer`
+* **price** `integer`
 * **additional_options** `array|null`
-* **is_active** `boolean|null`
+* **is_active** `boolean`
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
-* Method: `PATCH`
+### Example Payload
 
 ```json
 {
@@ -240,47 +103,12 @@ No parameters.
 }
 ```
 
-#### **Response**
+Returns the updated `CompanyShippingOption`.
 
-* Status code: `200`
-
-```json
-{
-  "id": 11,
-  "system_courier_service_id": 5,
-  "name": "Special Delivery",
-  "additional_options": [],
-  "price": 999,
-  "is_active": false,
-  "created_at": "2024-09-30T13:44:02.000000Z",
-  "updated_at": "2024-09-30T13:46:35.000000Z",
-  "href": "/shipping-options/11"
-}
-```
-
-<!-- tabs:end -->
-
-### Delete
+## Delete
 
 !> Requires the `company_shipping_options_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/shipping-options/{shipping_id}`
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/shipping-options/{shipping_id}`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+Deletes the specified `CompanyShippingOption`.

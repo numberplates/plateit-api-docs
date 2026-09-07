@@ -2,93 +2,69 @@
 
 `https://api.plateit.co.uk/v3/products`
 
-The CompanyProduct object represents any product other than a number plate that the customer can buy.
+A `CompanyProduct` represents any product other than a number plate that a customer can purchase.
 
-> A CompanyProduct can be delegated to another company to fulfil on your behalf. However, the delegated company must have a CompanyProduct with an *identical* SKU for this relationship to be recognised. The dimensions and weight will be inherited from their settings and not yours.
-
-> Delegated products should only be shown to the customer if the delegated company has an active CompanyProduct with a matching SKU. This can be ensured by passing the `exclude_unmatched_delegations=true` query parameter when listing the available CompanyProduct objects. This will filter out any products the delegatee doesn't have. This can be seen in action on the [suggested integration](/fundamentals/suggested-integration.md) page.
+> A CompanyProduct can be delegated to another company to fulfil on your behalf. However, the delegated company must have a CompanyProduct with an *identical* SKU for the relationship to be recognised. The dimensions and weight used for fulfilment will be inherited from the delegatee's product settings rather than your own.
+>
+> Delegated products should only be shown to the customer if the delegated company has an active CompanyProduct with a matching SKU. This can be ensured by passing the `exclude_unmatched_delegations=true` query parameter when listing products. See the [suggested integration](/fundamentals/suggested-integration.md) guide for an example.
 
 ## Data References
 
 ### Attributes
 
 * **id** `integer` The unique ID of the product.
-* **name** `string` The name or title or the product.
+* **name** `string` The name or title of the product.
 * **sku** `string` The unique stock keeping unit code.
 * **description** `string` A brief product description.
-* **price** `int` The price in pence including [VAT](/objects/company-tax-rate.md).
-* **width** `int` The width in mm (for shipping calculations).
-* **height** `int` The height in mm (for shipping calculations).
-* **depth** `int` The depth in mm (for shipping calculations).
-* **weight** `int` The weight in g (for shipping calculations).
-* **is_active** `boolean` Indicates whether the resource is live or a draft.
-* **delegate_to_company_id** `integer|null` The [Company](/objects/company.md) ID to delegate the product to fulfil.
+* **price** `integer` The price in pence including [VAT](/objects/company-tax-rate.md).
+* **width** `integer` The width in mm, used for shipping calculations.
+* **height** `integer` The height in mm, used for shipping calculations.
+* **depth** `integer` The depth in mm, used for shipping calculations.
+* **weight** `integer` The weight in g, used for shipping calculations.
+* **is_active** `boolean` Indicates whether the product is currently active.
+* **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) delegated to fulfil the product, if applicable.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
+## Relationships
+
+The following relationships may be included:
 
 * [delegate_to_company](/objects/company.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* name
-* sku
-* weight
-* width
-* height
-* depth
-* price
-* is_active *
-* created_at
-* updated_at
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/products/capabilities`
 
-**Plateit does not filter out inactive resources for you. It is your responsibility to honour what is shown publicly and what's not.*
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-### Available Filter Bys
+> Plateit does not automatically exclude inactive resources. API consumers are responsible for deciding which resources should be shown publicly.
 
-* is_active *
-
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
-
-### Available Search Bys
-
-* name
-* sku
-
-*Learn more about searching results [here](fundamentals/conventions.md#searching).*
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `company_products_write` permission.
 
-<!-- tabs:start -->
+**POST** `/v3/products`
 
-#### **Body Parameters**
+### Body Parameters
 
 * **name** `string`
 * **sku** `string`
 * **description** `string`
-* **price** `int`
-* **width** `int`
-* **height** `int`
-* **depth** `int`
-* **weight** `int`
+* **price** `integer`
+* **width** `integer`
+* **height** `integer`
+* **depth** `integer`
+* **weight** `integer`
 * **is_active** `boolean`
-* **delegate_to_company_id** `integer|null` An optional [Company](/objects/company.md) ID. (must have an existing fulfilment relationship contract)
+* **delegate_to_company_id** `integer|null` Optional [Company](/objects/company.md) ID. The company must have an existing fulfilment relationship.
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/products`
-* Method: `POST`
+### Example Payload
 
 ```json
 {
@@ -104,154 +80,46 @@ The CompanyProduct object represents any product other than a number plate that 
 }
 ```
 
-#### **Response**
+Returns the created `CompanyProduct` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "id": 15,
-  "name": "Dual Port USB Charger",
-  "sku": "DUALUSBCHARGER",
-  "description": "A compact USB charger with two USB-C ports for charging multiple devices at once.",
-  "price": 999,
-  "width": 60,
-  "height": 30,
-  "depth": 15,
-  "weight": 50,
-  "is_active": true,
-  "delegate_to_company_id": null,
-  "created_at": "2024-09-30T10:21:30.000000Z",
-  "updated_at": "2024-09-30T10:21:30.000000Z",
-  "href": "/products/15"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `company_products_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/products/{product_id}`
 
-#### **Body Parameters**
+Returns the requested `CompanyProduct`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/products/{product_id}`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 15,
-  "name": "Dual Port USB Charger",
-  "sku": "DUALUSBCHARGER",
-  "description": "A compact USB charger with two USB-C ports for charging multiple devices at once.",
-  "price": 999,
-  "width": 60,
-  "height": 30,
-  "depth": 15,
-  "weight": 50,
-  "is_active": true,
-  "delegate_to_company_id": null,
-  "created_at": "2024-09-30T10:21:30.000000Z",
-  "updated_at": "2024-09-30T10:21:30.000000Z",
-  "href": "/products/15"
-}
-```
-
-<!-- tabs:end -->
-
-### List
+## List
 
 !> Requires the `company_products_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/products`
 
-#### **Body Parameters**
+Returns a paginated collection of `CompanyProduct` resources.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/products`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 14,
-      "name": "Car Fixing Kit",
-      "sku": "CARFIXINGKIT",
-      "description": "A selection of coloured screws and sticky pads for fixing two plates to a car or van.",
-      "price": 299,
-      "width": 50,
-      "height": 50,
-      "depth": 5,
-      "weight": 15,
-      "is_active": true,
-      "delegate_to_company_id": null,
-      "created_at": "2024-09-30T10:17:22.000000Z",
-      "updated_at": "2024-09-30T10:17:22.000000Z",
-      "href": "/products/14"
-    },
-    {
-      "id": 15,
-      "name": "Dual Port USB Charger",
-      "sku": "DUALUSBCHARGER",
-      "description": "A compact USB charger with two USB-C ports for charging multiple devices at once.",
-      "price": 999,
-      "width": 60,
-      "height": 30,
-      "depth": 15,
-      "weight": 50,
-      "is_active": true,
-      "delegate_to_company_id": null,
-      "created_at": "2024-09-30T10:21:30.000000Z",
-      "updated_at": "2024-09-30T10:21:30.000000Z",
-      "href": "/products/15"
-    }
-  ]
-}
-```
-
-<!-- tabs:end -->
-
-### Update
+## Update
 
 !> Requires the `company_products_write` permission.
 
-<!-- tabs:start -->
+**PATCH** `/v3/products/{product_id}`
 
-#### **Body Parameters**
+### Body Parameters
 
-* **name** `string|null`
-* **sku** `string|null`
-* **description** `string|null`
-* **price** `int|null`
-* **width** `int|null`
-* **height** `int|null`
-* **depth** `int|null`
-* **weight** `int|null`
-* **is_active** `boolean|null`
+All fields are optional:
+
+* **name** `string`
+* **sku** `string`
+* **description** `string`
+* **price** `integer`
+* **width** `integer`
+* **height** `integer`
+* **depth** `integer`
+* **weight** `integer`
+* **is_active** `boolean`
 * **delegate_to_company_id** `integer|null`
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/products/{product_id}`
-* Method: `PATCH`
+### Example Payload
 
 ```json
 {
@@ -259,52 +127,12 @@ No parameters.
 }
 ```
 
-#### **Response**
+Returns the updated `CompanyProduct`.
 
-* Status code: `200`
-
-```json
-{
-  "id": 15,
-  "name": "Dual Port USB Charger",
-  "sku": "DUALUSBCHARGER",
-  "description": "A compact USB charger with two USB-C ports for charging multiple devices at once.",
-  "price": 1299,
-  "width": 60,
-  "height": 30,
-  "depth": 15,
-  "weight": 50,
-  "is_active": true,
-  "delegate_to_company_id": null,
-  "created_at": "2024-09-30T10:21:30.000000Z",
-  "updated_at": "2024-09-30T10:28:04.000000Z",
-  "href": "/products/15"
-}
-```
-
-<!-- tabs:end -->
-
-### Delete
+## Delete
 
 !> Requires the `company_products_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/products/{product_id}`
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/products/{product_id}`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+Deletes the specified `CompanyProduct`.

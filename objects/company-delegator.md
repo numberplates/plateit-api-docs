@@ -4,71 +4,30 @@
 
 !> Read only
 
-If your company is an fulfilment delegatee, this is how you can access your delegators.
+A `CompanyDelegator` represents a company that is permitted to delegate package fulfilment to your company.
 
-> Please see the [delegation guide](/fundamentals/delegations.md) for added context.
+If your company acts as a fulfilment delegatee, this endpoint allows you to access the companies that can delegate work to you.
 
-# Data References
+See the [delegation guide](/fundamentals/delegations.md) for more information.
+
+## Data References
 
 ### Attributes
 
-All attributes are idendtical to the [Company](/objects/company.md) object with the addition of an `is_approved` boolean. This signifies whether the delegation relationship with your company is approved and active. See the example request responses below for clarification.
+The attributes are identical to the [Company](/objects/company.md) object with the addition of:
 
-### Available Order Bys
+* **is_approved** `boolean` Indicates whether the delegation relationship with your company is approved and active.
 
-* id
-* name
-* is_approved
+## Query Capabilities
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-### Available Filter Bys
+**GET** `/v3/delegators/capabilities`
 
-* is_approved
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+## List
 
-## Example Requests
+**GET** `/v3/delegators`
 
-### Retrieve
-
-This request returns a collection of companies that are permitted to delegate their fulfilment to you.
-
-<!-- tabs:start -->
-
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/delegators`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 7,
-      "name": "Top Plates",
-      "email": "info@topplates.xyz",
-      "phone_number": "0113 9876543",
-      "website_url": "https://topplates.xyz",
-      "address_line_1": "186 Top Road",
-      "address_line_2": "Leeds",
-      "address_line_3": "West Yorkshire",
-      "address_postcode": "LS1 5YD",
-      "address_country_code": "GB",
-      "created_at": "2025-04-03T16:00:08.000000Z",
-      "updated_at": "2025-05-25T11:10:11.000000Z",
-      "href": "/companies/7",
-      "is_approved": true
-    }
-  ]
-}
-```
-<!-- tabs:end -->
+Returns a collection of companies that are permitted to delegate their fulfilment to your company.

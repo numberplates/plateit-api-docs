@@ -4,34 +4,47 @@
 
 !> Read only
 
-## Example Request
+A `SystemPaymentProvider` represents a supported payment provider that will be associated with an [OrderPayment](/objects/order-payment.md).
 
-<!-- tabs:start -->
+## Data References
 
-#### **Request**
+### Attributes
 
-* Endpoint: `https://api.plateit.co.uk/v3/system-payment-providers`
-* Method: `GET`
+* **id** `integer` The unique ID of the payment provider.
+* **name** `string` The name of the payment provider.
+* **href** `string` The path to the resource.
 
-#### **Response**
+## Values
 
-* Status code: `200`
+The following payment providers are available:
 
 ```json
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "Manual",
-      "href": "/system-payment-providers/1"
-    },
-    {
-      "id": 2,
-      "name": "PayPal",
-      "href": "/system-payment-providers/2"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Manual"
+  },
+  {
+    "id": 2,
+    "name": "PayPal"
+  },
+  {
+    "id": 3,
+    "name": "Stripe"
+  }
+]
 ```
 
-<!-- tabs:end -->
+## Query Capabilities
+
+All currently supported query fields, including filters and ordering, can be retrieved from:
+
+**GET** `/v3/system-payment-providers/capabilities`
+
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
+
+## List
+
+**GET** `/v3/system-payment-providers`
+
+Returns a collection of `SystemPaymentProvider` resources.

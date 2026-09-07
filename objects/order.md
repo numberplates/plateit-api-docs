@@ -2,7 +2,11 @@
 
 `https://api.plateit.co.uk/v3/orders`
 
-The Order object is the outermost parent resource that represents an order. Most of its attributes are read-only and are automatically updated when changes to the child resources occur, for example, when an [OrderPackagePlate](/objects/order-package-plate.md) object is created or updated pertaining to the order.
+An `Order` is the outermost parent resource representing a customer order. Most of its attributes are read-only and are recalculated automatically as its child resources change.
+
+For example, totals may change when an [OrderPackagePlate](/objects/order-package-plate.md) or other package item is created or updated.
+
+The order's lifecycle, document and fulfilment statuses are also managed automatically based on the state of the order and its related resources.
 
 ## Data References
 
@@ -11,28 +15,29 @@ The Order object is the outermost parent resource that represents an order. Most
 * **id** `integer` The unique ID of the order.
 * **company_id** `integer` The ID of the [Company](/objects/company.md) the order belongs to.
 * **system_order_status_id** `integer` The [SystemOrderStatus](/objects/system-order-status.md) ID.
+* **system_order_document_status_id** `integer` The [SystemOrderDocumentStatus](/objects/system-order-document-status.md) ID.
 * **system_order_fulfilment_status_id** `integer` The [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md) ID.
-* **amount_subtotal** `integer` The sum of all items in pence, minus shipping and VAT.
-* **amount_shipping** `integer` The total shipping costs in pence.
+* **amount_subtotal** `integer` The sum of all items in pence, excluding shipping and VAT.
+* **amount_shipping** `integer` The total shipping cost in pence.
 * **amount_vat** `integer` The total VAT in pence.
 * **amount_total** `integer` The order's grand total in pence.
 * **amount_paid** `integer` The total amount paid in pence.
 * **amount_refunded** `integer` The total amount refunded in pence.
-* **amount_vat_collected** `integer` The total amount of VAT collected in pence, proportionate to the amount paid.
-* **amount_vat_refunded** `integer` The total amount of VAT refunded in pence, proportionate to the amount refunded.
-* **packages_count** `integer` The number of [OrderPackage](/objects/order-package.md) objects pertaining to the order.
-* **identifier** `string|null` An optional unique identifier allowing you to match the order with a separate system.
-* **is_dummy** `boolean` Indicates a test (dummy) order.
-* **opened_at** `string|null` The timestamp of when the order first had its status changed to `Open`, in ISO 8601 format.
+* **amount_vat_collected** `integer` The amount of VAT collected in pence, proportionate to the amount paid.
+* **amount_vat_refunded** `integer` The amount of VAT refunded in pence, proportionate to the amount refunded.
+* **packages_count** `integer` The number of [OrderPackage](/objects/order-package.md) resources belonging to the order.
+* **identifier** `string|null` An optional unique identifier that can be used to associate the order with another system.
+* **opened_at** `string|null` The timestamp at which the order first became `Open`, in ISO 8601 format.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+## Relationships
 
-### Available Relationships
+The following relationships may be included:
 
 * [system_order_status](/objects/system-order-status.md)
+* [system_order_document_status](/objects/system-order-document-status.md)
 * [system_order_fulfilment_status](/objects/system-order-fulfilment-status.md)
 * [company](/objects/company.md)
 * [customer](/objects/order-customer.md)
@@ -49,248 +54,70 @@ The Order object is the outermost parent resource that represents an order. Most
 * [packages.notes.company_user](/objects/company-user.md)
 * [packages.ship_to_override](/objects/order-package-ship-to-override.md)
 
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
+See [Including Relationships](/fundamentals/conventions.md#including-relationships) for usage.
 
-### Available Order Bys
+## Query Capabilities
 
-* id
-* is_dummy
-* opened_at
-* created_at
-* updated_at
-* company.id
-* company.name
-* system_order_status.id
-* system_order_status.name
-* system_order_fulfilment_status.id
-* system_order_fulfilment_status.name
+All currently supported query fields, including filters and ordering, can be retrieved from:
 
-*Learn more about ordering results [here](fundamentals/conventions.md#ordering-results).*
+**GET** `/v3/orders/capabilities`
 
-### Available Filter Bys
+See the [conventions guide](/fundamentals/conventions.md) for syntax and behaviour.
 
-* is_dummy
-* company.id
-* company.name
-* system_order_status.id
-* system_order_status.name
-* system_order_fulfilment_status.id
-* system_order_fulfilment_status.name
+## Order Lifecycle
 
-*Learn more about filtering results [here](fundamentals/conventions.md#filtering-results).*
+The order's lifecycle, fulfilment and document statuses are managed automatically and cannot be set directly by the API consumer after creation.
 
-### Available Search Bys
+* **[system_order_status_id](/objects/system-order-status.md)** - Represents whether the order is in a draft, open or closed state.
+* **[system_order_document_status_id](/objects/system-order-document-status.md)** - Represents the overall state of any required supporting documents associated with the order.
+* **[system_order_fulfilment_status_id](/objects/system-order-fulfilment-status.md)** - Represents the fulfilment state of the order based on the despatch state of its packages.
 
-* id
-* identifier
-* customer.first_name
-* customer.last_name
-* customer.email
+> An order may be fully paid while still remaining in a draft state if required supporting documents are awaiting upload or approval.
 
-*Learn more about searching results [here](fundamentals/conventions.md#searching).*
-
-## Test (Dummy) Orders
-
-A dummy order can be created by passing `is_dummy` `true` when creating a new order.
-
-Dummy orders will be ignored in reports, and any delegations will NOT appear in the delegated company's processing queue.
-
-An existing order cannot be updated to become a dummy order at a later time or vice versa.
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `orders_write` permission.
 
-> If you want to create an entire order in one request, including plates, products and shipping, consider using the [BuildOrder](/helpers/build-order.md) helper endpoint. This may be better suited for applications with a customer-facing checkout facility.
+> If you want to create an entire order in a single request, including its customer, packages, plates, products and shipping, consider using the [BuildOrder](/helpers/build-order.md) helper endpoint. This is generally better suited to customer-facing checkout integrations.
 
-<!-- tabs:start -->
+**POST** `/v3/orders`
 
-#### **Body Parameters**
+### Body Parameters
 
-* **system_order_status_id** `integer|null` A [SystemOrderStatus](/objects/system-order-status.md) ID of either `1` (External Draft) or `2` (Internal Draft). It will change automatically in the future depending on the fulfilment state of its child packages.
-* **is_dummy** `boolean|null` Defaults to `false`
+* **system_order_status_id** `integer` Optional. May be used to create either an External Draft or Internal Draft order.
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders`
-* Method: `POST`
+### Example Payload
 
 ```json
 {}
 ```
 
-#### **Response**
+Returns the created `Order` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "id": 100,
-  "company_id": 1,
-  "system_order_status_id": 2,
-  "system_order_fulfilment_status_id": 1,
-  "amount_subtotal": 0,
-  "amount_shipping": 0,
-  "amount_vat": 0,
-  "amount_total": 0,
-  "amount_paid": 0,
-  "amount_refunded": 0,
-  "amount_vat_collected": 0,
-  "amount_vat_refunded": 0,
-  "packages_count": 0,
-  "identifier": null,
-  "is_dummy": true,
-  "opened_at": null,
-  "created_at": "2025-02-26T16:09:50.000000Z",
-  "updated_at": "2025-02-26T16:09:50.000000Z",
-  "href": "/orders/100"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}`
 
-#### **Body Parameters**
+Returns the requested `Order`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "id": 100,
-  "company_id": 1,
-  "system_order_status_id": 2,
-  "system_order_fulfilment_status_id": 1,
-  "amount_subtotal": 0,
-  "amount_shipping": 0,
-  "amount_vat": 0,
-  "amount_total": 0,
-  "amount_paid": 0,
-  "amount_refunded": 0,
-  "amount_vat_collected": 0,
-  "amount_vat_refunded": 0,
-  "packages_count": 0,
-  "identifier": null,
-  "is_dummy": true,
-  "opened_at": null,
-  "created_at": "2025-02-26T16:09:50.000000Z",
-  "updated_at": "2025-02-26T16:09:50.000000Z",
-  "href": "/orders/100"
-}
-```
-
-<!-- tabs:end -->
-
-### List
+## List
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders`
 
-#### **Body Parameters**
+Returns a paginated collection of `Order` resources.
 
-No parameters.
+## Update
 
-#### **Request**
+An `Order` cannot be updated directly. Its values are managed automatically as its related resources change.
 
-* Endpoint: `https://api.plateit.co.uk/v3/orders`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "data": [
-    {
-      "id": 99,
-      "company_id": 1,
-      "system_order_status_id": 3,
-      "system_order_fulfilment_status_id": 3,
-      "amount_subtotal": 4777,
-      "amount_shipping": 721,
-      "amount_vat": 1104,
-      "amount_total": 6602,
-      "amount_paid": 6602,
-      "amount_refunded": 0,
-      "amount_vat_collected": 1104,
-      "amount_vat_refunded": 0,
-      "packages_count": 1,
-      "identifier": "your_custom_identifier",
-      "is_dummy": true,
-      "opened_at": "2025-03-25T15:11:53.000000Z",
-      "created_at": "2025-03-25T14:36:37.000000Z",
-      "updated_at": "2025-03-25T15:11:53.000000Z",
-      "href": "/orders/1"
-    },
-    {
-      "id": 100,
-      "company_id": 1,
-      "system_order_status_id": 2,
-      "system_order_fulfilment_status_id": 1,
-      "amount_subtotal": 0,
-      "amount_shipping": 0,
-      "amount_vat": 0,
-      "amount_total": 0,
-      "amount_paid": 0,
-      "amount_refunded": 0,
-      "amount_vat_collected": 0,
-      "amount_vat_refunded": 0,
-      "packages_count": 0,
-      "identifier": null,
-      "is_dummy": false,
-      "opened_at": null,
-      "created_at": "2025-03-26T16:09:50.000000Z",
-      "updated_at": "2025-03-26T16:09:50.000000Z",
-      "href": "/orders/100"
-    }
-  ]
-}
-```
-
-<!-- tabs:end -->
-
-### Update
-
-Once an order has been created, none of its properties can be updated manually.
-
-### Delete
+## Delete
 
 !> Requires the `orders_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/orders/{order_id}`
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+Deletes the specified `Order`.

@@ -4,37 +4,29 @@
 
 > This is a singleton resource.
 
-An [Order](/objects/order.md) can have a single customer. The data in this object is passed to the appropriate shipment provider.
+An [Order](/objects/order.md) can have a single `OrderCustomer`. This resource stores the customer's contact details for the order.
 
 ## Data References
 
 ### Attributes
 
-* **order_id** `integer` The order ID the resource belongs to.
+* **order_id** `integer` The ID of the [Order](/objects/order.md) the resource belongs to.
 * **first_name** `string` The customer's first name.
 * **last_name** `string` The customer's last name.
-* **email** `string` The customer's email.
-* **phone_number** `string|null` The customer's phone number (optional).
-* **mobile_number** `string|null` The customer's mobile number (optional).
+* **email** `string` The customer's email address.
+* **phone_number** `string|null` The customer's phone number.
+* **mobile_number** `string|null` The customer's mobile number.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.
 * **href** `string` The path to the resource.
 
-### Available Relationships
-
-* [order](/objects/order.md)
-
-*Learn more about including relationships [here](fundamentals/conventions.md#including-relationships).*
-
-## Example Requests
-
-### Create
+## Create
 
 !> Requires the `orders_customer_write` permission.
 
-<!-- tabs:start -->
+**POST** `/v3/orders/{order_id}/customer`
 
-#### **Body Parameters**
+### Body Parameters
 
 * **first_name** `string`
 * **last_name** `string`
@@ -42,10 +34,7 @@ An [Order](/objects/order.md) can have a single customer. The data in this objec
 * **phone_number** `string|null`
 * **mobile_number** `string|null`
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
-* Method: `POST`
+### Example Payload
 
 ```json
 {
@@ -56,79 +45,33 @@ An [Order](/objects/order.md) can have a single customer. The data in this objec
 }
 ```
 
-#### **Response**
+Returns the created `OrderCustomer` with status `201`.
 
-* Status code: `201`
-
-```json
-{
-  "order_id": 51342,
-  "first_name": "John",
-  "last_name": "Turcotte",
-  "email": "john_turcotte@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
-  "created_at": "2024-10-10T15:42:08.000000Z",
-  "updated_at": "2024-10-10T15:42:08.000000Z",
-  "href": "/orders/51342/customer"
-}
-```
-
-<!-- tabs:end -->
-
-### Retrieve
+## Retrieve
 
 !> Requires the `orders_read` permission.
 
-<!-- tabs:start -->
+**GET** `/v3/orders/{order_id}/customer`
 
-#### **Body Parameters**
+Returns the order's `OrderCustomer`.
 
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
-* Method: `GET`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-{
-  "order_id": 51342,
-  "first_name": "John",
-  "last_name": "Turcotte",
-  "email": "john_turcotte@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
-  "created_at": "2024-10-10T15:42:08.000000Z",
-  "updated_at": "2024-10-10T15:42:08.000000Z",
-  "href": "/orders/51342/customer"
-}
-```
-
-<!-- tabs:end -->
-
-### Update
+## Update
 
 !> Requires the `orders_customer_write` permission.
 
-<!-- tabs:start -->
+**PATCH** `/v3/orders/{order_id}/customer`
 
-#### **Body Parameters**
+### Body Parameters
 
-* **first_name** `string|null`
-* **last_name** `string|null`
-* **email** `string|null`
+All fields are optional:
+
+* **first_name** `string`
+* **last_name** `string`
+* **email** `string`
 * **phone_number** `string|null`
 * **mobile_number** `string|null`
 
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
-* Method: `PATCH`
+### Example Payload
 
 ```json
 {
@@ -136,47 +79,12 @@ No parameters.
 }
 ```
 
-#### **Response**
+Returns the updated `OrderCustomer`.
 
-* Status code: `200`
-
-```json
-{
-  "order_id": 51342,
-  "first_name": "John",
-  "last_name": "Turcotte",
-  "email": "new_email_address@example.com",
-  "phone_number": null,
-  "mobile_number": "07777777777",
-  "created_at": "2024-10-10T15:42:08.000000Z",
-  "updated_at": "2024-11-10T07:21:23.000000Z",
-  "href": "/orders/51342/customer"
-}
-```
-
-<!-- tabs:end -->
-
-### Delete
+## Delete
 
 !> Requires the `orders_customer_write` permission.
 
-<!-- tabs:start -->
+**DELETE** `/v3/orders/{order_id}/customer`
 
-#### **Body Parameters**
-
-No parameters.
-
-#### **Request**
-
-* Endpoint: `https://api.plateit.co.uk/v3/orders/{order_id}/customer`
-* Method: `DELETE`
-
-#### **Response**
-
-* Status code: `200`
-
-```json
-1
-```
-
-<!-- tabs:end -->
+Deletes the order's `OrderCustomer`.

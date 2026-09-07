@@ -4,7 +4,7 @@
 
 An [Order](/objects/order.md) can be easily duplicated by sending a `POST` request to this helper endpoint.
 
-It will also duplicate most of its child resources but omit duplicating payments and refunds.
+It will also duplicate most of its child resources but omit duplicating notes, payments and refunds.
 
 The corresponding (duplicated) [OrderPackage](/objects/order-package.md) and [OrderPackagePlate](/objects/order-package-plate.md) objects will have their progress markers reset: `is_committed`, `is_printed`, etc.
 
