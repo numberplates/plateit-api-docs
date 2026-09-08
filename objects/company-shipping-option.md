@@ -10,7 +10,6 @@ A `CompanyShippingOption` represents a shipping option that a customer can choos
 
 * **id** `integer` The unique ID of the shipping option.
 * **system_courier_service_id** `integer` The ID of the associated [SystemCourierService](/objects/system-courier-service.md).
-* **additional_options** `array` An array of courier-specific additional option strings.
 * **name** `string` The name of the shipping option.
 * **price** `integer` The price in pence including [VAT](/objects/company-tax-rate.md).
 * **is_active** `boolean` Indicates whether the shipping option is currently active.
@@ -47,7 +46,6 @@ See the [conventions guide](/fundamentals/conventions.md) for syntax and behavio
 * **name** `string`
 * **system_courier_service_id** `integer`
 * **price** `integer`
-* **additional_options** `array|null`
 * **is_active** `boolean`
 
 ### Example Payload
@@ -87,12 +85,11 @@ Returns a paginated collection of `CompanyShippingOption` resources.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **name** `string`
 * **system_courier_service_id** `integer`
 * **price** `integer`
-* **additional_options** `array|null`
 * **is_active** `boolean`
 
 ### Example Payload

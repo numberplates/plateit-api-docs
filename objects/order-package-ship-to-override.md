@@ -77,7 +77,7 @@ Returns the package's `OrderPackageShipToOverride`.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **first_name** `string`
 * **last_name** `string`

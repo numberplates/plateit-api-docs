@@ -20,7 +20,7 @@ Many of the product's physical and pricing attributes are copied from the select
 * **height** `integer` The product height in mm.
 * **depth** `integer` The product depth in mm.
 * **weight** `integer` The product weight in grams.
-* **price** `integer` The gross price in pence, including VAT.
+* **price** `integer` The gross price in pence.
 * **price_vat** `integer` The included VAT amount in pence.
 * **qty** `integer` The quantity of the product being sold.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
@@ -93,7 +93,7 @@ Returns a collection of `OrderPackageProduct` resources belonging to the specifi
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **company_product_id** `integer`
 * **price** `integer|null`

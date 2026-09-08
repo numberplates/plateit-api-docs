@@ -10,12 +10,12 @@ The overall document state of the order is exposed through its [SystemOrderDocum
 
 There are two types of supporting document:
 
-* **id** — Proof of the customer's identity.
-* **entitlement** — Proof that the customer is entitled to use a particular vehicle registration.
+* **id**: Proof of the customer's identity.
+* **entitlement**: Proof that the customer is entitled to use a particular vehicle registration.
 
 An order may require:
 
-* one identity document;
+* one identity document.
 * one entitlement document for each registration requiring supporting documentation.
 
 Only plates configured as requiring documentation contribute to these requirements.
@@ -50,7 +50,7 @@ Supported file types are:
 
 The maximum file size is **5 MB**.
 
-### Step 1 — Request an Upload URL
+### Step 1 - Request an Upload URL
 
 Plateit first provides a temporary signed URL that can be used to upload the file directly to private storage.
 
@@ -116,7 +116,7 @@ For an entitlement document, the request would also include the registration:
 }
 ```
 
-### Step 2 — Upload the File
+### Step 2 - Upload the File
 
 The file must now be uploaded directly to the `url` returned in step 1.
 
@@ -141,7 +141,7 @@ A successful response confirms that the file has been uploaded to temporary stor
 
 The headers returned in step 1 should be treated as part of the upload contract and included with this request.
 
-### Step 3 — Create the OrderDocument
+### Step 3 - Create the OrderDocument
 
 Once the file has uploaded successfully, create the [OrderDocument](/objects/order-documents.md) using the temporary `path` returned in step 1.
 

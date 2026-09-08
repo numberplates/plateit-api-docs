@@ -76,7 +76,7 @@ Returns the package's `OrderPackageShipping`.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **company_shipping_id** `integer`
 * **tracking_code** `string|null`

@@ -40,7 +40,7 @@ Returns the current `Company`.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **name** `string`
 * **email** `string`

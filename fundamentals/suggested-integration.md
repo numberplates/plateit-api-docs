@@ -16,6 +16,7 @@ Although outside the scope of this tutorial, you may also want to include the fo
 * `orders_read`
 * `company_plate_types_read`
 * `orders_packages_plates_write`
+* `orders_documents_upload`
 
 ## Overview
 
@@ -29,10 +30,13 @@ Here is a bulletted list of stages to help understand what goes on behind the sc
 6. The contents of the basket are used to build the final [BuildOrder](/helpers/build-order.md) payload which is sent to Plateit. This creates a new [Order](/objects/order.md) with an `External Draft` status and its ID is returned.
 7. The draft order ID is passed to the payment processor.
 8. Once paid, the payment processor sends a webhook to Plateit.
-9. Plateit receieves the webhook and changes its status to `Open` (active).
-10. Plateit then sends a webhook to your application which triggers a confirmation email.
+9. Plateit verifies the payment and records it against the order.
+10. Once the order is paid in full, Plateit sends an `order:place` webhook to your application with the intention of triggering an email to the customer.
+11. If the order does *not* require supporting documents, it will automatically become `Open` and its packages will be committed for fulfilment.
+12. If supporting documents *are* required, the order will remain in an `External Draft` state until the customer has uploaded the [Supporting Documents](/fundamentals/documents.md).
+13. Once all required documents have been approved, the order will automatically become `Open` and its packages will be committed for fulfilment.
 
-> The number plate designer and the shopping basket are your responsibilty to build. A modern, javascript website boilerplate can be purchased at an additional charge. It is a fully functional application with everything built in which will save a lot of time and development money.
+> The number plate designer and the shopping basket are your responsibilty to build.
 
 ## Fetching Available Plates
 
@@ -42,7 +46,7 @@ When a customer lands on your designer page, make a request to obtain all of you
 
 #### **Request**
 
-* Endpoint: `https://api.plateit.co.uk/v3/company-plates`
+* Endpoint: `https://api.plateit.co.uk/v3/plates`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -73,7 +77,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:53:40.000000Z",
       "updated_at": "2024-09-30T09:53:40.000000Z",
-      "href": "/plates/385",
+      "href": "/v3/plates/385",
       "system_plate_size": {
         "id": 1,
         "width": 520,
@@ -83,7 +87,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 45,
-        "href": "/system-plate-sizes/1"
+        "href": "/v3/system-plate-sizes/1"
       },
       "company_plate_type": {
         "id": 14,
@@ -96,7 +100,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/14"
+        "href": "/v3/plate-types/14"
       }
     },
     {
@@ -111,7 +115,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:54:13.000000Z",
       "updated_at": "2024-09-30T09:54:13.000000Z",
-      "href": "/plates/386",
+      "href": "/v3/plates/386",
       "system_plate_size": {
         "id": 1,
         "width": 520,
@@ -121,7 +125,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 45,
-        "href": "/system-plate-sizes/1"
+        "href": "/v3/system-plate-sizes/1"
       },
       "company_plate_type": {
         "id": 14,
@@ -134,7 +138,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/14"
+        "href": "/v3/plate-types/14"
       }
     },
     {
@@ -149,7 +153,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:54:41.000000Z",
       "updated_at": "2024-09-30T09:54:41.000000Z",
-      "href": "/plates/387",
+      "href": "/v3/plates/387",
       "system_plate_size": {
         "id": 2,
         "width": 279,
@@ -159,7 +163,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 40,
-        "href": "/system-plate-sizes/2"
+        "href": "/v3/system-plate-sizes/2"
       },
       "company_plate_type": {
         "id": 14,
@@ -172,7 +176,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/14"
+        "href": "/v3/plate-types/14"
       }
     },
     {
@@ -187,7 +191,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:55:03.000000Z",
       "updated_at": "2024-09-30T09:55:03.000000Z",
-      "href": "/plates/388",
+      "href": "/v3/plates/388",
       "system_plate_size": {
         "id": 2,
         "width": 279,
@@ -197,7 +201,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 40,
-        "href": "/system-plate-sizes/2"
+        "href": "/v3/system-plate-sizes/2"
       },
       "company_plate_type": {
         "id": 14,
@@ -210,7 +214,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/14"
+        "href": "/v3/plate-types/14"
       }
     },
     {
@@ -225,7 +229,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:55:16.000000Z",
       "updated_at": "2024-09-30T09:55:16.000000Z",
-      "href": "/plates/389",
+      "href": "/v3/plates/389",
       "system_plate_size": {
         "id": 3,
         "width": 229,
@@ -235,7 +239,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 30,
-        "href": "/system-plate-sizes/3"
+        "href": "/v3/system-plate-sizes/3"
       },
       "company_plate_type": {
         "id": 14,
@@ -248,7 +252,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/14"
+        "href": "/v3/plate-types/14"
       }
     },
     {
@@ -263,7 +267,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:56:08.000000Z",
       "updated_at": "2024-09-30T09:56:08.000000Z",
-      "href": "/plates/390",
+      "href": "/v3/plates/390",
       "system_plate_size": {
         "id": 1,
         "width": 520,
@@ -273,7 +277,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 45,
-        "href": "/system-plate-sizes/1"
+        "href": "/v3/system-plate-sizes/1"
       },
       "company_plate_type": {
         "id": 15,
@@ -286,7 +290,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/15"
+        "href": "/v3/plate-types/15"
       }
     },
     {
@@ -301,7 +305,7 @@ When a customer lands on your designer page, make a request to obtain all of you
       "is_active": true,
       "created_at": "2024-09-30T09:56:35.000000Z",
       "updated_at": "2024-09-30T09:56:35.000000Z",
-      "href": "/plates/391",
+      "href": "/v3/plates/391",
       "system_plate_size": {
         "id": 1,
         "width": 520,
@@ -311,7 +315,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "category": "standard",
         "is_legal": true,
         "suggested_side_badge_width": 45,
-        "href": "/system-plate-sizes/1"
+        "href": "/v3/system-plate-sizes/1"
       },
       "company_plate_type": {
         "id": 15,
@@ -324,7 +328,7 @@ When a customer lands on your designer page, make a request to obtain all of you
         "delegate_to_company_id": null,
         "created_at": "2024-09-30T09:00:18.000000Z",
         "updated_at": "2024-09-30T09:00:18.000000Z",
-        "href": "/plate-types/15"
+        "href": "/v3/plate-types/15"
       }
     }
   ]
@@ -343,7 +347,7 @@ Assuming your customer has designed a plate and added it to a basket, you may no
 
 #### **Request**
 
-* Endpoint: `https://api.plateit.co.uk/v3/company-products`
+* Endpoint: `https://api.plateit.co.uk/v3/products`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -373,7 +377,7 @@ Assuming your customer has designed a plate and added it to a basket, you may no
       "delegate_to_company_id": null,
       "created_at": "2024-09-30T10:17:22.000000Z",
       "updated_at": "2024-09-30T10:17:22.000000Z",
-      "href": "/products/14"
+      "href": "/v3/products/14"
     },
     {
       "id": 15,
@@ -389,7 +393,7 @@ Assuming your customer has designed a plate and added it to a basket, you may no
       "delegate_to_company_id": null,
       "created_at": "2024-09-30T10:21:30.000000Z",
       "updated_at": "2024-09-30T10:21:30.000000Z",
-      "href": "/products/15"
+      "href": "/v3/products/15"
     }
   ]
 }
@@ -405,7 +409,7 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
 
 #### **Request**
 
-* Endpoint: `https://api.plateit.co.uk/v3/company-shipping-options`
+* Endpoint: `https://api.plateit.co.uk/v3/shipping-options`
 * Method: `GET`
 * Query:
   * per_page: `1000`
@@ -422,12 +426,11 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
       "id": 11,
       "system_courier_service_id": 1,
       "name": "Free Collection From Store",
-      "additional_options": null,
       "price": 0,
       "is_active": true,
       "created_at": "2025-01-16T10:42:45.000000Z",
       "updated_at": "2025-01-16T10:42:45.000000Z",
-      "href": "/shipping-options/11",
+      "href": "/v3/shipping-options/11",
       "system_courier_service": {
         "id": 1,
         "courier_key": "manual",
@@ -435,7 +438,7 @@ The last `GET` request you'll need to make is to obtain the available [CompanySh
         "priority_level": 3,
         "is_international": false,
         "is_active": true,
-        "href": "/system-courier-services/1"
+        "href": "/v3/system-courier-services/1"
       }
     }
   ]
@@ -461,7 +464,7 @@ The contents of the basket and the selected shipping option are used to build th
     {
       "company_plate_id": 385,
       "registration": "NG25 TTX",
-      "price_gross": 1499,
+      "price": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- front plate --></svg>",
       "design_object": {
@@ -478,7 +481,7 @@ The contents of the basket and the selected shipping option are used to build th
     {
       "company_plate_id": 386,
       "registration": "NG25 TTX",
-      "price_gross": 1499,
+      "price": 1499,
       "qty": 1,
       "design_print": "<svg viewBox=\"0 0 520 111\"><!-- rear plate --></svg>",
       "design_object": {
@@ -496,13 +499,13 @@ The contents of the basket and the selected shipping option are used to build th
   "products": [
     {
       "company_product_id": 14,
-      "price_gross": 299,
+      "price": 299,
       "qty": 1
     }
   ],
   "shipping": {
     "company_shipping_id": 11,
-    "price_gross": 0
+    "price": 0
   },
   "customer": {
     "first_name": "John",
@@ -541,8 +544,16 @@ Upon success, a new [Order](/objects/order.md) is created with an `External Draf
 
 The order ID returned from the last stage is to be sent to PayPal using PayPal's `invoice_id` parameter. Important PayPal setup instructions can be found [here](/fundamentals/paypal.md).
 
-## Activating the Order
+## Completing the Order
 
-Once the payment has been processed, PayPal will send a webhook to Plateit to notify it of the payment. If the payment has been made in full, Plateit will update the order status from `External Draft` to `Open` (active).
+Once the payment has been processed, PayPal will send a webhook to Plateit to notify it of the payment.
 
-When this occurs, Plateit will send an `order:place` webhook to your application containing the entire [Order](/objects/order.md) object. When your application receives this, it is recommended to use the data within it to send the customer a confirmation email. More information about Plateit's webhooks can be found [here](/fundamentals/webhooks.md).
+When the order has been paid in full, Plateit will send an `order:place` webhook to your application. This represents a successful order placement and is typically the point at which your application should send the customer an order confirmation email.
+
+> The incoming `Order` webhook includes its [SystemOrderDocumentStatus](/objects/system-order-document-status.md) relationship. If its document status is `Not Required` or `Approved`, all of its uncancelled packages will be committed for fulfilment and the order will become `Open`. However, if the document status is `Awaiting Upload` or `Awaiting Approval`, the order will remain in an `External Draft` state until its supporting-document requirements have been satisfied.
+
+If documents are awaiting upload, your application should direct the customer through the [Supporting Documents](/fundamentals/documents.md) workflow.
+
+Once the final required document is approved, a fully paid draft order will automatically become `Open` and its uncancelled packages will be committed for fulfilment.
+
+More information about Plateit's webhook events can be found in the [Webhooks](/fundamentals/webhooks.md) guide.

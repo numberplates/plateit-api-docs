@@ -100,7 +100,7 @@ Returns a paginated collection of `CompanyPlate` resources.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **company_plate_type_id** `integer`
 * **system_plate_size_id** `integer`

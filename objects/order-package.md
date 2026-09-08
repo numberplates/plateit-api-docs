@@ -115,7 +115,14 @@ To retrieve packages across all orders:
 
 **PATCH** `/v3/orders/{order_id}/packages/{package_id}`
 
-Only attributes intended for direct package management can be updated through this endpoint. Calculated values and attributes managed by dedicated endpoints cannot be changed directly.
+### Body Parameters
+
+All fields are optional when updating this resource type.
+
+* **system_package_status_id** `integer`
+* **is_committed** `boolean`
+
+> Very few attributes can be updated through this endpoint. Calculated values and attributes managed by dedicated endpoints cannot be changed directly.
 
 ### Example Payload
 

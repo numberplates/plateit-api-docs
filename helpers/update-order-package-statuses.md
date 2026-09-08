@@ -2,7 +2,7 @@
 
 `https://api.plateit.co.uk/v3/actions/update-package-statuses`
 
-This helper endpoint is the *only* way to update the [SystemPackageStatus](/objects/system-package-status.md) of an [OrderPackage](/objects/order-package.md). It can be used to batch update the statuses of many packages at the same time.
+This helper endpoint can be used to batch update the statuses of many packages at the same time.
 
 ## Data References
 

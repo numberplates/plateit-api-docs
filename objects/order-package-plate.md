@@ -24,7 +24,7 @@ Many of the plate's physical and pricing attributes are copied from the selected
 * **height** `integer` The plate height in mm.
 * **depth** `integer` The plate depth in mm.
 * **weight** `integer` The plate weight in grams.
-* **price** `integer` The gross price in pence, including VAT.
+* **price** `integer` The gross price in pence.
 * **price_vat** `integer` The included VAT amount in pence.
 * **qty** `integer` The quantity of this plate being sold.
 * **is_printable** `boolean` Indicates whether the plate requires printing.
@@ -129,7 +129,7 @@ Updates the specified `OrderPackagePlate`.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **company_plate_id** `integer`
 * **registration** `string`

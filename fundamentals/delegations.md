@@ -1,8 +1,8 @@
 # Delegations
 
-Many companies use Plateit to process their number plate orders. If there is a plate type you would like to sell but don't have the means to manufacture it, it can be delegated to another company to fufil on your behalf.
+Many companies use Plateit to process their number plate orders. If there is a plate type you would like to sell but don't have the means to manufacture it, it can be delegated to another company to fulfil on your behalf.
 
-!>First, a delegator/delegatee relationship needs to be established. This can only be created by the Plateit administrator. Once set up, you will be able utilise this feature. You can have multiple delegatees for different products and plate types if required.
+!>First, a delegator/delegatee relationship needs to be established. This can only be created by the Plateit administrator. Once set up, you will be able to utilise this feature. You can have multiple delegatees for different products and plate types if required.
 
 To help understand how delegations work, think of your own company as the `local` company and the delegated company as the `foreign` company.
 
@@ -35,7 +35,7 @@ The steps are identical to assigning your own items to your own (undelegated) pa
 * [OrderPackageProduct](/objects/order-package-product.md)
 * [OrderPackageShipping](/objects/order-package-shipping.md)
 
-The only difference is you will receieve a validation error if you attempt to assign one of your own `local` item IDs to a `foreign` (delegated) package.
+The only difference is you will receive a validation error if you attempt to assign one of your own `local` item IDs to a `foreign` (delegated) package.
 
 Typically you cannot access other companies' data. However, if a delegation relationship exists, you can access the delegatee's available items as outlined in the next section.
 
@@ -116,11 +116,11 @@ If the [BuildOrder](/helpers/build-order.md) request is successful, a new `Exter
 
 Unlike Method 1, you need to reference your *own* company's `local` item IDs in the [BuildOrder](/helpers/build-order.md) payload. Plateit will see that an item has an explicit delegation instruction and will take care of ensuring the correct delegated OrderPackage is created for it.
 
-!> A validation error will occur if you reference a `local`, delegated item ID that the delegated company does not have. When fetching your available items, pass the `?exclude_unmatched_delegations=1` query paramter to avoid this pitfall. See the [suggested integration guide](/fundamentals/suggested-integration.md) for examples.
+!> A validation error will occur if you reference a `local`, delegated item ID that the delegated company does not have. When fetching your available items, pass the `?exclude_unmatched_delegations=1` query parameter to avoid this pitfall. See the [suggested integration guide](/fundamentals/suggested-integration.md) for examples.
 
 #### Shipping Option ID
 
-Again, unlike Method 1, you need to reference your *own* company's `local` [CompanyShippinOption](/objects/company-shipping-option.md) ID in the [BuildOrder](/helpers/build-order.md) payload. When Plateit automatically creates the delegated OrderPackage/s, it will attempt to assign a matching shipping option to the `foreign` (delegated) package. If the `foreign` company doesn't have the requested shipping option in common, it will assign the delegated company's closest match.
+Again, unlike Method 1, you need to reference your *own* company's `local` [CompanyShippingOption](/objects/company-shipping-option.md) ID in the [BuildOrder](/helpers/build-order.md) payload. When Plateit automatically creates the delegated OrderPackage/s, it will attempt to assign a matching shipping option to the `foreign` (delegated) package. If the `foreign` company doesn't have the requested shipping option in common, it will assign the delegated company's closest match.
 
 For example, if you specify the ID for your next-day shipping option with Royal Mail, but the delegated company only uses Evri, their next-day Evri CompanyShippingOption will be assigned to the delegated OrderPackage because that's their closest match.
 

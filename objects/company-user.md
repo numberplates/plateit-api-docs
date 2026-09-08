@@ -2,4 +2,6 @@
 
 `https://api.plateit.co.uk/v3/users`
 
-!> This page is a stub. To manage users, it is recommended to use the [Plateit admin area](https://admin.plateit.co.uk) at this time.
+Manages users.
+
+!> This page is a stub. Please use the [Plateit admin area](https://admin.plateit.co.uk) to perform this action at this time.

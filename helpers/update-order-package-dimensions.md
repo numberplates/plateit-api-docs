@@ -64,7 +64,7 @@ Any combination of the dimension fields may be supplied. Fields that are omitted
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **width** `integer`
 * **height** `integer`

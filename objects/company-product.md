@@ -106,7 +106,7 @@ Returns a paginated collection of `CompanyProduct` resources.
 
 ### Body Parameters
 
-All fields are optional:
+All fields are optional when updating this resource type.
 
 * **name** `string`
 * **sku** `string`

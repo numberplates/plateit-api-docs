@@ -2,7 +2,7 @@
 
 `https://api.plateit.co.uk/v3/orders/{order_id}/packages/{package_id}/plates/new-edit-session`
 
-Generates a JSON Web Token (JWT) that can be decrypted by your application to help assist with creating new number plate designs for an [OrderPackage](/objects/order-package.md).
+Generates a JSON Web Token (JWT) that can beparsed by your application to help assist with creating new number plate designs for an [OrderPackage](/objects/order-package.md).
 
 It requires the `external_editor_endpoint` to be set in your company's General Settings.
 
