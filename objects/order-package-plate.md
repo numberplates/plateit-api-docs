@@ -25,7 +25,6 @@ Many of the plate's physical and pricing attributes are copied from the selected
 * **depth** `integer` The plate depth in mm.
 * **weight** `integer` The plate weight in grams.
 * **price** `integer` The gross price in pence.
-* **price_vat** `integer` The included VAT amount in pence.
 * **qty** `integer` The quantity of this plate being sold.
 * **is_printable** `boolean` Indicates whether the plate requires printing.
 * **is_printed** `boolean` Indicates whether the plate has been printed.

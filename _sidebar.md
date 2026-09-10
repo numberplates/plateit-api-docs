@@ -23,7 +23,6 @@
   * [CompanyProduct](/objects/company-product.md)
   * [CompanyShippingOption](/objects/company-shipping-option.md)
   * [CompanyUser](/objects/company-user.md)
-  * [CompanyTaxRate](/objects/company-tax-rate.md)
   * [Order](/objects/order.md)
   * [OrderBillTo](/objects/order-bill-to.md)
   * [OrderCustomer](/objects/order-customer.md)

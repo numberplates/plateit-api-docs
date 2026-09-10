@@ -17,14 +17,11 @@ The order's lifecycle, document and fulfilment statuses are also managed automat
 * **system_order_status_id** `integer` The [SystemOrderStatus](/objects/system-order-status.md) ID.
 * **system_order_document_status_id** `integer` The [SystemOrderDocumentStatus](/objects/system-order-document-status.md) ID.
 * **system_order_fulfilment_status_id** `integer` The [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md) ID.
-* **amount_subtotal** `integer` The sum of all items in pence, excluding shipping and VAT.
+* **amount_subtotal** `integer` The sum of all items in pence, excluding shipping.
 * **amount_shipping** `integer` The total shipping cost in pence.
-* **amount_vat** `integer` The total VAT in pence.
 * **amount_total** `integer` The order's grand total in pence.
 * **amount_paid** `integer` The total amount paid in pence.
 * **amount_refunded** `integer` The total amount refunded in pence.
-* **amount_vat_collected** `integer` The amount of VAT collected in pence, proportionate to the amount paid.
-* **amount_vat_refunded** `integer` The amount of VAT refunded in pence, proportionate to the amount refunded.
 * **packages_count** `integer` The number of [OrderPackage](/objects/order-package.md) resources belonging to the order.
 * **identifier** `string|null` An optional unique identifier that can be used to associate the order with another system.
 * **opened_at** `string|null` The timestamp at which the order first became `Open`, in ISO 8601 format.

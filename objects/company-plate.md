@@ -14,7 +14,7 @@ A `CompanyPlate` represents a plate configuration that a customer can purchase. 
 * **company_plate_type_id** `integer` The ID of the associated [CompanyPlateType](/objects/company-plate-type.md).
 * **system_plate_size_id** `integer` The ID of the associated [SystemPlateSize](/objects/system-plate-size.md).
 * **colour** `string` The primary colour of the plate, normally the colour of the reflective backing.
-* **price** `integer` The price in pence, including [VAT](/objects/company-tax-rate.md).
+* **price** `integer` The gross price in pence.
 * **is_front** `boolean` Indicates whether the plate is intended for the front of a vehicle.
 * **is_rear** `boolean` Indicates whether the plate is intended for the rear of a vehicle.
 * **is_legal** `boolean` Indicates whether the plate type and size combination is legal for road use.

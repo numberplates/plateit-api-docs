@@ -16,7 +16,7 @@ A `CompanyProduct` represents any product other than a number plate that a custo
 * **name** `string` The name or title of the product.
 * **sku** `string` The unique stock keeping unit code.
 * **description** `string` A brief product description.
-* **price** `integer` The price in pence including [VAT](/objects/company-tax-rate.md).
+* **price** `integer` The gross price in pence.
 * **width** `integer` The width in mm, used for shipping calculations.
 * **height** `integer` The height in mm, used for shipping calculations.
 * **depth** `integer` The depth in mm, used for shipping calculations.

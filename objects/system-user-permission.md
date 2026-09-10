@@ -76,12 +76,12 @@ The following permissions are available:
   {
     "id": 11,
     "ability_key": "company_settings_read",
-    "description": "Read company settings, tax rates and API keys (contains sensitive data)."
+    "description": "Read company settings and API keys (contains sensitive data)."
   },
   {
     "id": 12,
     "ability_key": "company_settings_write",
-    "description": "Update company settings, tax rates and API keys (contains sensitive data)."
+    "description": "Update company settings and API keys (contains sensitive data)."
   },
   {
     "id": 13,

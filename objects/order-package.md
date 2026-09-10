@@ -20,9 +20,8 @@ Many `OrderPackage` attributes are calculated automatically or managed through d
 * **order_id** `integer` The ID of the [Order](/objects/order.md) the package belongs to.
 * **delegate_to_company_id** `integer|null` The ID of the [Company](/objects/company.md) delegated to fulfil the package, if applicable.
 * **system_package_status_id** `integer` The [SystemPackageStatus](/objects/system-package-status.md) ID.
-* **amount_subtotal** `integer` The sum of all package items in pence, excluding shipping and VAT.
+* **amount_subtotal** `integer` The sum of all package items in pence, excluding shipping.
 * **amount_shipping** `integer` The total package shipping cost in pence.
-* **amount_vat** `integer` The total package VAT in pence.
 * **amount_total** `integer` The package's grand total in pence.
 * **plates_qty** `integer` The total quantity of number plates in the package.
 * **products_qty** `integer` The total quantity of additional products in the package.

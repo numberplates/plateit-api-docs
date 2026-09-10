@@ -11,7 +11,7 @@ A `CompanyShippingOption` represents a shipping option that a customer can choos
 * **id** `integer` The unique ID of the shipping option.
 * **system_courier_service_id** `integer` The ID of the associated [SystemCourierService](/objects/system-courier-service.md).
 * **name** `string` The name of the shipping option.
-* **price** `integer` The price in pence including [VAT](/objects/company-tax-rate.md).
+* **price** `integer` The gross price in pence.
 * **is_active** `boolean` Indicates whether the shipping option is currently active.
 * **created_at** `string` The creation timestamp in ISO 8601 format.
 * **updated_at** `string` The last-updated timestamp in ISO 8601 format.

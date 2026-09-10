@@ -14,8 +14,7 @@ An [OrderPackage](/objects/order-package.md) can have a single `OrderPackageShip
 * **system_courier_service_id** `integer` The ID of the [SystemCourierService](/objects/system-courier-service.md) derived from the selected [CompanyShippingOption](/objects/company-shipping-option.md).
 * **company_shipping_id** `integer` The ID of the selected [CompanyShippingOption](/objects/company-shipping-option.md).
 * **name** `string` The shipping option name derived from the selected `CompanyShippingOption`.
-* **price** `integer` The gross shipping price in pence, including VAT.
-* **price_vat** `integer` The included VAT amount in pence.
+* **price** `integer` The gross price in pence.
 * **external_shipment_id** `string|null` The shipment ID provided by the courier after calling the [CreateOrderPackageShipmentLabel](/helpers/create-order-package-shipment-label.md) helper.
 * **label_files** `array` An array of paths to generated shipping label files.
 * **tracking_code** `string|null` The shipment tracking code.
