@@ -41,6 +41,8 @@ The following relationships may be included:
 * [ship_to](/objects/order-ship-to.md)
 * [bill_to](/objects/order-bill-to.md)
 * [notes](/objects/order-note.md)
+* [documents](/objects/order-document.md)
+* documents_missing
 * [packages](/objects/order-package.md)
 * [packages.system_package_status](/objects/system-package-status.md)
 * [packages.delegate_to_company](/objects/company.md)

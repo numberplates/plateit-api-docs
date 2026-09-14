@@ -2,7 +2,7 @@
 
 Supporting documents are used to verify a customer's identity and their entitlement to use a vehicle registration.
 
-Plateit determines whether an [Order](/objects/order.md) requires supporting documentation based on the contents of its packages. Where supporting documents are required, the order cannot become ready for fulfilment until all required documents have been supplied and approved.
+Plateit determines whether an [Order](/objects/order.md) requires supporting documentation based on the contents of its packages. Where supporting documents are required, a package cannot become ready for fulfilment until all its required documents have been supplied and approved.
 
 The overall document state of the order is exposed through its [SystemOrderDocumentStatus](/objects/system-order-document-status.md).
 
@@ -18,7 +18,7 @@ An order may require:
 * one identity document.
 * one entitlement document for each registration requiring supporting documentation.
 
-Only plates configured as requiring documentation contribute to these requirements.
+Only plates configured as requiring documentation contribute to these requirements ([OrderPackagePlate](/objects/order-package-plate.md) objects where `requires_docs` is set to `true`).
 
 ## Checking What Is Required
 
@@ -26,7 +26,7 @@ The order's document collection can be used to determine which supporting docume
 
 **GET** `/v3/orders/{order_id}/documents`
 
-The response also indicates any outstanding document requirements.
+The response body also indicates any outstanding document requirements in its collection metadata.
 
 > The order's [SystemOrderDocumentStatus](/objects/system-order-document-status.md) provides a convenient aggregate status, but the document collection should be used when you need to know the specific outstanding requirements.
 
@@ -40,13 +40,12 @@ The process consists of three steps:
 
 1. Request a temporary upload URL from Plateit.
 2. Upload the file directly to the returned URL.
-3. Create the [OrderDocument](/objects/order-documents.md) using the returned temporary path.
+3. Create the [OrderDocument](/objects/order-document.md) using the returned temporary path.
 
 Supported file types are:
 
 * JPEG
 * PNG
-* PDF
 
 The maximum file size is **5 MB**.
 
@@ -143,7 +142,7 @@ The headers returned in step 1 should be treated as part of the upload contract 
 
 ### Step 3 - Create the OrderDocument
 
-Once the file has uploaded successfully, create the [OrderDocument](/objects/order-documents.md) using the temporary `path` returned in step 1.
+Once the file has uploaded successfully, create the [OrderDocument](/objects/order-document.md) using the temporary `path` returned in step 1.
 
 <!-- tabs:start -->
 
@@ -171,7 +170,7 @@ Once the file has uploaded successfully, create the [OrderDocument](/objects/ord
 
 * Status code: `201`
 
-Returns the created [OrderDocument](/objects/order-documents.md).
+Returns the created [OrderDocument](/objects/order-document.md).
 
 <!-- tabs:end -->
 
@@ -199,7 +198,7 @@ Validation includes checking:
 
 !> Requires the `orders_documents_write` permission.
 
-Uploaded documents are reviewed by updating their [OrderDocument](/objects/order-documents.md) resource.
+Uploaded documents are reviewed by updating their [OrderDocument](/objects/order-document.md) resource.
 
 ### Approve
 

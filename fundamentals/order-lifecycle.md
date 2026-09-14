@@ -4,9 +4,9 @@ An [Order](/objects/order.md) can contain one or more [OrderPackage](/objects/or
 
 Plateit maintains three separate order-level statuses:
 
-* [SystemOrderStatus](/objects/system-order-status.md): represents the overall lifecycle state of the order.
-* [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md): represents how much of the order has been despatched.
-* [SystemOrderDocumentStatus](/objects/system-order-document-status.md): represents the aggregate state of any supporting documents required by the order.
+* [SystemOrderStatus](/objects/system-order-status.md): represents the overall lifecycle state of the order (draft, open or closed).
+* [SystemOrderFulfilmentStatus](/objects/system-order-fulfilment-status.md): represents how much of the order has been despatched (unfulfilled, partially fulfilled or fulfilled).
+* [SystemOrderDocumentStatus](/objects/system-order-document-status.md): represents the aggregate state of any supporting documents required by the order (awaiting upload, approved etc).
 
 These statuses are maintained automatically by Plateit and cannot be updated directly by the user.
 

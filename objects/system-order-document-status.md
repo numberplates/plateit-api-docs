@@ -4,7 +4,7 @@
 
 !> Read only
 
-A `SystemOrderDocumentStatus` represents the overall supporting-document state of an [Order](/objects/order.md). It is maintained automatically based on whether the order requires supporting documents and the current state of its associated [OrderDocument](/objects/order-documents.md) objects.
+A `SystemOrderDocumentStatus` represents the overall supporting-document state of an [Order](/objects/order.md). It is maintained automatically based on whether the order requires supporting documents and the current state of its associated [OrderDocument](/objects/order-document.md) objects.
 
 ## Data References
 
