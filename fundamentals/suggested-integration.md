@@ -542,7 +542,9 @@ Upon success, a new [Order](/objects/order.md) is created with an `External Draf
 
 ## Processing the Payment
 
-The order ID returned from the last stage is to be sent to PayPal using PayPal's `invoice_id` parameter. Important PayPal setup instructions can be found [here](/fundamentals/paypal.md).
+The order ID returned from the last stage is to be sent to the payment provider as metadata.
+
+Important PayPal and Stripe setup instructions can be found [here](/fundamentals/payments.md).
 
 ## Completing the Order
 

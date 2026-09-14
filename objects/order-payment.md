@@ -6,7 +6,7 @@ An [Order](/objects/order.md) can have multiple `OrderPayment` resources represe
 
 Manual payments can be created and deleted directly through the API. Payments from supported external providers are created automatically when Plateit receives and verifies the provider's webhook.
 
-> For PayPal payment integration, see the [PayPal guide](/fundamentals/paypal.md).
+> For third-party payment integration, see the [Payments guide](/fundamentals/payments.md).
 
 ## Data References
 

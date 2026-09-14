@@ -8,7 +8,7 @@
   * [Order Lifecycle](/fundamentals/order-lifecycle.md)
   * [Supporting Documents](/fundamentals/documents.md)
   * [Plate Files](/fundamentals/plate-files.md)
-  * [PayPal](/fundamentals/paypal.md)
+  * [Payments](/fundamentals/payments.md)
   * [Webhooks](/fundamentals/webhooks.md)
   * [Editing Existing Plate Designs](/fundamentals/editing-existing-plate-designs.md)
   * [Delegations](/fundamentals/delegations.md)
