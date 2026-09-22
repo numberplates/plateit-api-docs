@@ -96,7 +96,7 @@ The following permissions are available:
   {
     "id": 15,
     "ability_key": "orders_fulfil",
-    "description": "Batch update order statuses, package statuses and print statuses."
+    "description": "Batch update package statuses and print statuses."
   },
   {
     "id": 16,
