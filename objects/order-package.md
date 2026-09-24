@@ -49,6 +49,7 @@ The following relationships may be included:
 * [shipping](/objects/order-package-shipping.md)
 * [shipping.system_courier_service](/objects/system-courier-service.md)
 * [notes](/objects/order-package-note.md)
+* [notes.company_user](/objects/company-user.md)
 * [ship_to_override](/objects/order-package-ship-to-override.md)
 * [order](/objects/order.md)
 * [order.company](/objects/company.md)

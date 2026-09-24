@@ -24,7 +24,7 @@ The following fulfilment statuses are available:
   {
     "id": 1,
     "name": "Unfulfilled",
-    "description": "The order has been completed and is awaiting manufacture."
+    "description": "No packages have been despatched."
   },
   {
     "id": 2,

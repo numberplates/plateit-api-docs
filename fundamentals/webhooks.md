@@ -103,7 +103,7 @@ The payload contains the [Order](/objects/order.md) and its relevant nested rela
   "system_order_fulfilment_status": {
     "id": 1,
     "name": "Unfulfilled",
-    "description": "The order has been completed and is awaiting manufacture.",
+    "description": "No packages have been despatched.",
     "href": "/v3/system-order-fulfilment-statuses/1"
   },
   "customer": {
