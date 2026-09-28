@@ -3,6 +3,8 @@
 
 * Fundamentals
   * [Introduction](/fundamentals/introduction.md)
+  * [Authentication](/fundamentals/authentication.md)
+  * [Scoped Order Access](/fundamentals/scoped-order-access.md)
   * [Conventions](/fundamentals/conventions.md)
   * [Suggested Integration](/fundamentals/suggested-integration.md)
   * [Order Lifecycle](/fundamentals/order-lifecycle.md)

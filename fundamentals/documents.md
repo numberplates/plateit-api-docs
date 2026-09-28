@@ -6,6 +6,8 @@ Plateit determines whether an [Order](/objects/order.md) requires supporting doc
 
 The overall document state of the order is exposed through its [SystemOrderDocumentStatus](/objects/system-order-document-status.md).
 
+> [Scoped order access](/fundamentals/scoped-order-access.md) is designed for customer-facing workflows such as public document-upload portals. It provides a safer alternative to general application authentication by granting temporary access to a single order only.
+
 ## Document Requirements
 
 There are two types of supporting document:

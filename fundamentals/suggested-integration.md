@@ -16,7 +16,6 @@ Although outside the scope of this tutorial, you may also want to include the fo
 * `orders_read`
 * `company_plate_types_read`
 * `orders_packages_plates_write`
-* `orders_documents_upload`
 
 ## Overview
 

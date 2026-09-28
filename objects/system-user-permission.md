@@ -156,12 +156,12 @@ The following permissions are available:
   {
     "id": 27,
     "ability_key": "orders_documents_write",
-    "description": "Approve, reject and delete order documents."
+    "description": "Access, approve, reject and delete order documents."
   },
   {
     "id": 28,
     "ability_key": "orders_documents_upload",
-    "description": "Upload and replace rejected order document files."
+    "description": "Upload order document files."
   }
 ]
 ```

@@ -301,8 +301,6 @@ Some resources are searchable. The available `search_by` fields can be found on 
 
 Use the `search_term` query parameter for your target word.
 
-If no `search_by` field is specified, all available (searchable) fields will be queried.
-
 <!-- tabs:start -->
 
 #### **Request**
