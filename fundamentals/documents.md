@@ -112,7 +112,7 @@ For an entitlement document, the request would also include the registration:
   "type": "entitlement",
   "subtype": "v5c",
   "registration": "AB12 CDE",
-  "mime_type": "application/pdf",
+  "mime_type": "image/jpeg",
   "size": 481227
 }
 ```
@@ -183,7 +183,7 @@ For an entitlement document:
   "type": "entitlement",
   "subtype": "v5c",
   "registration": "AB12 CDE",
-  "path": "tmp/documents/51342/01JXYZ987654321_example.pdf"
+  "path": "tmp/documents/51342/01JXYZ987654321_example.jpg"
 }
 ```
 
